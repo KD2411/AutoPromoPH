@@ -200,14 +200,14 @@
           
           <button id="navTabBrandNew" onclick="switchMainTab('brand-new')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-brand-50 text-brand-700 border border-brand-100 shrink-0">
             <i class="ph-fill ph-tag text-lg"></i>
-            <span>Brand New Deals</span>
+            <span>2026 Brand New Deals</span>
             <span class="px-2 py-0.5 rounded-full text-[10px] bg-brand-600 text-white ml-1">Casa</span>
           </button>
 
           <button id="navTabUsedCars" onclick="switchMainTab('used-cars')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50 shrink-0">
             <i class="ph-bold ph-car text-lg"></i>
-            <span>Used Cars Marketplace</span>
-            <span class="px-2 py-0.5 rounded-full text-[10px] bg-emerald-100 text-emerald-800 ml-1 font-bold">P2P</span>
+            <span>Used Cars & P2P Marketplace</span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] bg-emerald-100 text-emerald-800 ml-1 font-bold">Verified</span>
           </button>
 
           <button id="navTabCompare" onclick="switchMainTab('trim-compare')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50 shrink-0">
@@ -217,7 +217,7 @@
 
           <button id="navTabLoanCalc" onclick="openCalcModal()" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50 shrink-0">
             <i class="ph-bold ph-calculator text-lg"></i>
-            <span>Loan Calculator</span>
+            <span>Loan Calculator & Insurance</span>
           </button>
 
         </div>
@@ -234,7 +234,7 @@
     <div id="scrollableAppArea" class="flex-1 overflow-y-auto custom-scroll p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
 
       <!-- ================================================================= -->
-      <!-- TAB 1: BRAND NEW DEALS                                            -->
+      <!-- TAB 1: 2026 BRAND NEW DEALS                                         -->
       <!-- ================================================================= -->
       <section id="sectionBrandNew" class="space-y-6">
         
@@ -414,14 +414,14 @@
     </div>
   </div>
 
-  <!-- Auto Loan Calculator -->
+  <!-- Auto Loan Calculator & Insurance Matrix -->
   <div id="calcModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scroll">
       <button onclick="closeCalcModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 p-2.5 rounded-full transition-colors">
         <i class="ph-bold ph-x text-xl"></i>
       </button>
-      <h3 class="text-2xl font-black text-slate-900 mb-1">Philippine Auto Financing Calculator</h3>
-      <p class="text-sm text-slate-500 mb-6 font-medium">Compare standard bank approvals vs. Casa "All-In" Promos.</p>
+      <h3 class="text-2xl font-black text-slate-900 mb-1">Philippine Auto Financing & Insurance Calculator</h3>
+      <p class="text-sm text-slate-500 mb-6 font-medium">Compare standard bank approvals vs. Casa All-in Promos with preferred insurance providers.</p>
       
       <div class="grid md:grid-cols-2 gap-8">
         <div class="space-y-4">
@@ -449,16 +449,27 @@
             </div>
           </div>
 
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Annual Add-on Rate %</label>
-            <div class="relative">
-              <input type="number" id="calcRate" value="9.8" step="0.1" oninput="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-bold pr-8 focus:ring-2 focus:ring-brand-500 outline-none transition-all">
-              <span class="absolute right-4 top-3.5 text-slate-400 font-bold">%</span>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Add-on Interest Rate %</label>
+              <div class="relative">
+                <input type="number" id="calcRate" value="9.8" step="0.1" oninput="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-bold pr-8 focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                <span class="absolute right-4 top-3.5 text-slate-400 font-bold">%</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Insurance Provider</label>
+              <select id="calcInsuranceProvider" onchange="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-bold focus:ring-2 focus:ring-brand-500 outline-none transition-all text-xs">
+                <option value="standard">Standard Insurance (₱22,000)</option>
+                <option value="bpi">BPI MS Insurance (₱24,500)</option>
+                <option value="fpg">FPG Insurance (₱21,000)</option>
+                <option value="malayan">Malayan Insurance (₱26,000)</option>
+              </select>
             </div>
           </div>
 
           <div class="p-5 bg-brand-50 border border-brand-100 rounded-xl mt-4 shadow-sm">
-            <div class="text-[10px] font-bold text-brand-700 uppercase mb-3 tracking-wide">Toggle Casa "All-In" Freebies</div>
+            <div class="text-[10px] font-bold text-brand-700 uppercase mb-3 tracking-wide">Toggle Casa All-In Freebies</div>
             <div class="space-y-3.5 text-sm font-bold text-slate-700">
               <label class="flex items-center gap-3 cursor-pointer group">
                 <input type="checkbox" id="calcFreeChattel" onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4">
@@ -551,33 +562,74 @@
     </div>
   </div>
 
-  <!-- Inquiry Modal -->
+  <!-- Inquiry Modal with Multi-Agent Bidding & Test Drive Booking -->
   <div id="inquireModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-[2rem] max-w-sm w-full p-6 text-center shadow-2xl relative">
-      <button onclick="closeInquireModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full">
+    <div class="bg-white rounded-[2rem] max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeInquireModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 p-2.5 rounded-full">
         <i class="ph-bold ph-x"></i>
       </button>
-      <div class="w-16 h-16 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-3">
-        <i class="ph-fill ph-headset text-3xl"></i>
-      </div>
-      <h3 class="text-lg font-black text-slate-900" id="inquireAgentName">Agent Name</h3>
-      <p class="text-xs text-slate-500 font-medium" id="inquireDealerBranch">Dealership Branch</p>
       
-      <div class="my-5 p-4 bg-slate-50 rounded-2xl border border-slate-200 text-left">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center font-black text-xl shrink-0" id="inquireAgentAvatar">R</div>
+        <div>
+          <h3 class="text-lg font-black text-slate-900" id="inquireAgentName">Agent Name</h3>
+          <p class="text-xs text-slate-500 font-medium" id="inquireDealerBranch">Dealership Branch</p>
+        </div>
+      </div>
+
+      <div class="my-4 p-4 bg-slate-50 rounded-2xl border border-slate-200">
         <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Inquiry Regarding</div>
         <div class="font-black text-slate-900 text-sm leading-tight" id="inquireVehicleTitle">-</div>
-        <div class="mt-2 flex justify-between items-center pt-2 border-t border-slate-200 mt-2">
+        <div class="mt-2 flex justify-between items-center pt-2 border-t border-slate-200">
           <span class="font-bold text-slate-500 text-xs" id="inquirePricingLabel">Pricing:</span>
           <span class="font-black text-brand-600 text-base" id="inquireVehiclePrice">-</span>
         </div>
       </div>
 
+      <!-- Real-Owner Ownership Insights -->
+      <div class="mb-4 p-4 bg-indigo-50/50 rounded-2xl border border-indigo-100 text-xs space-y-2">
+        <div class="font-bold text-indigo-900 flex items-center gap-1.5"><i class="ph-fill ph-info text-indigo-600"></i> Real-Owner Insights (PH Traffic & Maintenance)</div>
+        <div class="grid grid-cols-3 gap-2 text-center pt-1 font-medium text-slate-700">
+          <div class="bg-white p-2 rounded-xl border border-indigo-100"><span class="text-[9px] text-slate-400 block uppercase">EDSA Fuel</span><strong id="insightFuel" class="text-slate-900">11.5 km/L</strong></div>
+          <div class="bg-white p-2 rounded-xl border border-indigo-100"><span class="text-[9px] text-slate-400 block uppercase">Annual PMS</span><strong id="insightPms" class="text-slate-900">₱6,500</strong></div>
+          <div class="bg-white p-2 rounded-xl border border-indigo-100"><span class="text-[9px] text-slate-400 block uppercase">Flood Safe</span><strong id="insightFlood" class="text-emerald-700">High</strong></div>
+        </div>
+      </div>
+
+      <!-- Multi-Agent Quote Matcher Toggle -->
+      <div class="mb-4 p-3.5 bg-amber-50 rounded-2xl border border-amber-200 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <i class="ph-fill ph-users-three text-amber-600 text-xl"></i>
+          <div>
+            <div class="text-xs font-bold text-slate-900">Multi-Agent Quote Matcher</div>
+            <div class="text-[10px] text-slate-500">Allow competing branch agents to send lower DP bids</div>
+          </div>
+        </div>
+        <input type="checkbox" id="multiAgentToggle" checked class="w-5 h-5 accent-brand-600 cursor-pointer">
+      </div>
+
+      <!-- Test Drive Booking Section -->
+      <div class="mb-5 p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+        <label class="flex items-center justify-between cursor-pointer">
+          <span class="text-xs font-bold text-slate-700 flex items-center gap-1.5"><i class="ph-fill ph-calendar text-brand-600"></i> Book a Weekend Test Drive</span>
+          <input type="checkbox" id="bookTestDriveCheckbox" onchange="toggleTestDriveInputs()" class="w-4 h-4 accent-brand-600">
+        </label>
+        <div id="testDriveInputs" class="hidden pt-2 grid grid-cols-2 gap-2">
+          <input type="date" id="testDriveDate" class="p-2.5 text-xs bg-white rounded-xl border border-slate-200 font-bold">
+          <select id="testDriveTime" class="p-2.5 text-xs bg-white rounded-xl border border-slate-200 font-bold">
+            <option value="Morning (10 AM)">Morning (10 AM)</option>
+            <option value="Afternoon (2 PM)">Afternoon (2 PM)</option>
+            <option value="Late Afternoon (4 PM)">Late Afternoon (4 PM)</option>
+          </select>
+        </div>
+      </div>
+
       <div class="space-y-3">
-        <button onclick="launchViberAction()" class="w-full py-3.5 bg-viber hover:brightness-110 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-viber/30 transition-all">
+        <button onclick="launchViberAction()" class="w-full py-3.5 bg-viber hover:brightness-110 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-viber/30 transition-all text-sm">
           <i class="ph-fill ph-phone-call text-xl"></i>
-          <span>Direct Viber Chat</span>
+          <span>Direct Viber Chat w/ Agent</span>
         </button>
-        <button onclick="launchWhatsAppAction()" class="w-full py-3.5 bg-whatsapp hover:brightness-110 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-whatsapp/30 transition-all">
+        <button onclick="launchWhatsAppAction()" class="w-full py-3.5 bg-whatsapp hover:brightness-110 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-whatsapp/30 transition-all text-sm">
           <i class="ph-fill ph-whatsapp-logo text-xl"></i>
           <span>WhatsApp Message</span>
         </button>
@@ -596,6 +648,7 @@
     let currentDevice = 'desktop';
     let activeBNTag = null;
     let compareList = [];
+    let currentInquireTarget = null;
 
     const brandNewDealsData = [
       {
@@ -604,6 +657,7 @@
         stockStatus: "Immediate Release (In Stock)", branch: "Honda Cars Makati", locationTag: "Makati",
         agentName: "Ryan Patrick Tan", agentViber: "0917-302-8871", badge: "Honda SENSING Suite", coverage: "Branch Exclusive",
         inclusions: { insurance: true, chattel: true },
+        insights: { fuel: "13.2 km/L", pms: "₱5,800", flood: "High (Sedan)" },
         imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRyWkrfggOyuEq3wi6JtyYoAokSDpxP6q6iFInmu66FHAIVsxi5aCUXgFV&s=10",
         trims: [
           { name: "1.5 V CVT", srp: 973000, allInDp: 35000, monthlyAmort: 19990, cashDiscount: 35000, specs: { engine: "1.5L DOHC i-VTEC", power: "121 hp / 145 Nm", trans: "CVT" } },
@@ -616,6 +670,7 @@
         stockStatus: "Immediate Release (In Stock)", branch: "Toyota BGC / Taguig", locationTag: "BGC",
         agentName: "Mark Anthony Santos", agentViber: "0917-882-9102", badge: "Top Volume Seller", coverage: "Nationwide Promo",
         inclusions: { insurance: true, chattel: true },
+        insights: { fuel: "14.5 km/L", pms: "₱4,500", flood: "High (Sedan)" },
         imageUrl: "https://visor.ph/wp-content/uploads/2023/03/Toyota-Vios-1.3-XLE-CVT-The-quintessential-first-car-1.jpg",
         trims: [
           { name: "1.3 J MT", srp: 732000, allInDp: 15000, monthlyAmort: 14850, cashDiscount: 45000, specs: { engine: "1.3L Dual VVT-i", power: "98 hp / 123 Nm", trans: "5-Speed Manual" } },
@@ -629,6 +684,7 @@
         stockStatus: "Immediate Release (In Stock)", branch: "Mitsubishi Pasig / Ortigas", locationTag: "Pasig",
         agentName: "Maria Cristina Gomez", agentViber: "0918-554-1290", badge: "7-Seater Choice", coverage: "Branch Exclusive",
         inclusions: { insurance: true, chattel: true },
+        insights: { fuel: "10.8 km/L", pms: "₱6,200", flood: "Excellent (MPV)" },
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/89/Mitsubishi_Xpander_NC1W_FL2_1.5_GLX_Graphite_Gray_Metallic_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
         trims: [
           { name: "1.5 GLX MT", srp: 1068000, allInDp: 38000, monthlyAmort: 21500, cashDiscount: 60000, specs: { engine: "1.5L MIVEC", power: "104 hp / 141 Nm", trans: "5-Speed Manual" } },
@@ -641,6 +697,7 @@
         stockStatus: "Port Transit (3-5 Days)", branch: "Ford Quezon Avenue", locationTag: "Quezon City",
         agentName: "Paolo Rodriguez", agentViber: "0998-311-7782", badge: "Bi-Turbo Power", coverage: "Nationwide Promo",
         inclusions: { insurance: true, chattel: false },
+        insights: { fuel: "9.5 km/L", pms: "₱8,500", flood: "Superior (Pickup)" },
         imageUrl: "https://d1hv7ee95zft1i.cloudfront.net/custom/car-model-variant-photo/gallery/ford-ranger-2-0-turbo-wildtrak-4x2-at-66d57ff1297de.jpg",
         trims: [
           { name: "2.0 Turbo Sport 4x2 AT", srp: 1494000, allInDp: 89000, monthlyAmort: 31000, cashDiscount: 70000, specs: { engine: "2.0L Single Turbo", power: "170 hp / 405 Nm", trans: "6-Speed AT" } },
@@ -653,6 +710,7 @@
         stockStatus: "Waitlist Indent (15-30 Days)", branch: "Suzuki San Fernando", locationTag: "Pampanga",
         agentName: "Camille Vergara", agentViber: "0917-219-4820", badge: "High Demand Indent", coverage: "Branch Exclusive",
         inclusions: { insurance: false, chattel: false },
+        insights: { fuel: "11.2 km/L", pms: "₱5,100", flood: "Superior (4x4)" },
         imageUrl: "https://static.ccs.co.za/generic-images/0000219445/1_4e32d8c73cd36d62d509e768533a98a9.jpg",
         trims: [
           { name: "1.5 GLX 3-Door AT", srp: 1320000, allInDp: 115000, monthlyAmort: 27500, cashDiscount: 0, specs: { engine: "1.5L K15B", power: "100 hp / 130 Nm", trans: "4-Speed AT 4x4" } },
@@ -670,7 +728,7 @@
       },
       {
         id: "used-2", title: "2018 Mazda 3 2.0 SkyActiv Sedan", price: 645000, mileage: 42000,
-        plateEnding: "Monday (Ending 1, 2)", location: "Pasig", sellerName: "AutoPro Verified Dealer", sellerType: "Verified Dealership Consignment",
+        plateEnding: "Monday (Ending 1, 2)", location: "Pasig", sellerName: "Verified Dealership Consignment", sellerType: "Consignment Dealer",
         fuelType: "Gasoline", transmission: "Automatic", imageUrl: "https://www.samarins.com/reviews/img/Mazda-3-GT-2018.jpg",
         features: ["SkyActiv-G Engine", "Bose Premium Audio", "Fresh leather interior", "Newly replaced tires"]
       }
@@ -702,12 +760,9 @@
         renderCompare();
       }
 
-      // Highlight active bottom mobile nav
       ['mobileTabBtnBrand', 'mobileTabBtnUsed', 'mobileTabBtnCompare'].forEach(btnId => {
         const el = document.getElementById(btnId);
-        if(el) {
-          el.className = "flex flex-col items-center gap-1 p-2 rounded-xl text-slate-400 hover:text-white";
-        }
+        if(el) el.className = "flex flex-col items-center gap-1 p-2 rounded-xl text-slate-400 hover:text-white";
       });
       if(tabId === 'brand-new' && document.getElementById('mobileTabBtnBrand')) {
         document.getElementById('mobileTabBtnBrand').className = "flex flex-col items-center gap-1 p-2 rounded-xl text-brand-400 bg-slate-900";
@@ -763,8 +818,8 @@
               <div class="text-xs sm:text-sm font-black text-slate-900 leading-none">${formatPHP(minSrp)}</div>
             </div>
             <div>
-              <div class="text-[9px] font-bold text-indigo-600 uppercase tracking-wider mb-0.5">Low Monthly</div>
-              <div class="text-xs sm:text-sm font-black text-indigo-700 leading-none">${formatPHP(minMonthly)}</div>
+              <div class="text-[9px] font-bold text-indigo-600 uppercase tracking-wider mb-0.5">As Low As</div>
+              <div class="text-xs sm:text-sm font-black text-indigo-700 leading-none">${formatPHP(minMonthly)}/mo</div>
             </div>
             <div>
               <div class="text-[9px] font-bold text-brand-600 uppercase tracking-wider mb-0.5">All-in DP</div>
@@ -1002,6 +1057,7 @@
       const dpPct = Number(document.getElementById('calcDpPercent').value) / 100;
       const termMonths = Number(document.getElementById('calcTermMos').value);
       const addOnRate = Number(document.getElementById('calcRate').value) / 100;
+      const insuranceProvider = document.getElementById('calcInsuranceProvider').value;
 
       const isFreeChattel = document.getElementById('calcFreeChattel').checked;
       const isFreeIns = document.getElementById('calcFreeIns').checked;
@@ -1013,8 +1069,11 @@
       const totalInterest = loanAmount * (addOnRate * years);
       const monthlyPayment = (loanAmount + totalInterest) / termMonths;
 
+      const insuranceRates = { standard: 22000, bpi: 24500, fpg: 21000, malayan: 26000 };
+      const baseInsurance = insuranceRates[insuranceProvider] || 22000;
+
       const chattelEst = isFreeChattel ? 0 : (loanAmount * 0.025);
-      const insuranceEst = isFreeIns ? 0 : Math.max(18000, srp * 0.028);
+      const insuranceEst = isFreeIns ? 0 : baseInsurance;
       const ltoEst = isFreeLTO ? 0 : 9500;
       const totalCashOutlay = netDP + chattelEst + insuranceEst + ltoEst;
 
@@ -1028,15 +1087,26 @@
       document.getElementById('calcResTotalOutlay').innerText = formatPHP(Math.round(totalCashOutlay));
     }
 
+    function toggleTestDriveInputs() {
+      const isChecked = document.getElementById('bookTestDriveCheckbox').checked;
+      document.getElementById('testDriveInputs').classList.toggle('hidden', !isChecked);
+    }
+
     function openInquireModal(dealId, trimIdx) {
       const deal = brandNewDealsData.find(d => d.id === dealId);
       if(!deal) return;
       const trim = deal.trims[trimIdx || 0];
+      currentInquireTarget = { deal, trim };
       
       document.getElementById('inquireAgentName').innerText = deal.agentName;
+      document.getElementById('inquireAgentAvatar').innerText = deal.agentName.charAt(0);
       document.getElementById('inquireDealerBranch').innerText = `${deal.branch} • Verified Consultant`;
       document.getElementById('inquireVehicleTitle').innerText = `${deal.year} ${deal.brand} ${deal.baseModel} (${trim.name})`;
       
+      document.getElementById('insightFuel').innerText = deal.insights.fuel;
+      document.getElementById('insightPms').innerText = deal.insights.pms;
+      document.getElementById('insightFlood').innerText = deal.insights.flood;
+
       if(currentBuyerMode === 'financing') {
         document.getElementById('inquirePricingLabel').innerText = 'All-in Low DP Promo:';
         document.getElementById('inquireVehiclePrice').innerText = formatPHP(trim.allInDp);
@@ -1045,14 +1115,28 @@
         document.getElementById('inquireVehiclePrice').innerText = `-${formatPHP(trim.cashDiscount)}`;
       }
       
-      closeTrimsModal();
       document.getElementById('inquireModal').classList.remove('hidden');
     }
     
     function closeInquireModal() { document.getElementById('inquireModal').classList.add('hidden'); }
 
-    function launchViberAction() { showToast('Redirecting to Viber Direct Message...'); setTimeout(closeInquireModal, 1500); }
-    function launchWhatsAppAction() { showToast('Redirecting to WhatsApp...'); setTimeout(closeInquireModal, 1500); }
+    function launchViberAction() {
+      const isBiddingActive = document.getElementById('multiAgentToggle').checked;
+      const isTestDrive = document.getElementById('bookTestDriveCheckbox').checked;
+      let msg = isBiddingActive ? 'Multi-Agent Quote Matcher active: competing branch agents notified!' : 'Connecting to Agent via Viber...';
+      if(isTestDrive) {
+        const dt = document.getElementById('testDriveDate').value || 'This Weekend';
+        const tm = document.getElementById('testDriveTime').value;
+        msg += ` Test Drive booked for ${dt} at ${tm}.`;
+      }
+      showToast(msg);
+      setTimeout(closeInquireModal, 2000);
+    }
+
+    function launchWhatsAppAction() {
+      showToast('Connecting to WhatsApp Business API...');
+      setTimeout(closeInquireModal, 1500);
+    }
     
     function showToast(msg) {
       const toast = document.getElementById('toast');
