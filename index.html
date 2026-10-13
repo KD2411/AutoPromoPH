@@ -495,7 +495,7 @@
           <!-- Vehicle Price -->
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">Vehicle Price (PHP) <span class="text-rose-500">*</span></label>
-            <input type="number" id="calcSrp" value="1128000" oninput="calculateLoanLive()" class="w-full p-3 bg-white rounded-xl border border-slate-200 font-black text-lg text-slate-900 focus:ring-2 focus:ring-brand-500 outline-none">
+            <input type="text" id="calcSrp" value="1,128,000" oninput="handleFormattedInput(event, calculateLoanLive)" class="w-full p-3 bg-white rounded-xl border border-slate-200 font-black text-lg text-slate-900 focus:ring-2 focus:ring-brand-500 outline-none">
           </div>
 
           <!-- Down Payment Percentage & Amount -->
@@ -504,7 +504,7 @@
               <label class="block text-xs font-bold text-slate-700">Down Payment (PHP) <span class="text-rose-500">*</span></label>
               <span id="calcDpPctDisplay" class="text-xs font-bold text-brand-600">20%</span>
             </div>
-            <input type="number" id="calcDpAmount" value="225600" oninput="calculateLoanFromDpAmount()" class="w-full p-3 bg-white rounded-xl border border-slate-200 font-bold text-slate-900 focus:ring-2 focus:ring-brand-500 outline-none mb-3">
+            <input type="text" id="calcDpAmount" value="225,600" oninput="handleFormattedInput(event, calculateLoanFromDpAmount)" class="w-full p-3 bg-white rounded-xl border border-slate-200 font-bold text-slate-900 focus:ring-2 focus:ring-brand-500 outline-none mb-3">
             <input type="range" id="calcDpSlider" min="10" max="90" step="5" value="20" oninput="calculateLoanFromSlider()" class="w-full accent-brand-600 cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-400 font-bold mt-1">
               <span>10%</span><span>20%</span><span>30%</span><span>40%</span><span>50%</span><span>60%</span><span>70%</span><span>80%</span><span>90%</span>
@@ -608,7 +608,6 @@
     </div>
   </div>
 
-  <!-- Post Listing / Dealer Portal Modal -->
   <div id="postListingModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scroll">
       <button onclick="closePostListingModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 p-2.5 rounded-full transition-colors">
@@ -638,11 +637,11 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-bold text-slate-700 mb-1">Asking Price (PHP) <span class="text-rose-500">*</span></label>
-            <input type="number" id="p2pPrice" placeholder="850000" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-slate-900">
+            <input type="text" id="p2pPrice" placeholder="850,000" oninput="handleFormattedInput(event)" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-slate-900">
           </div>
           <div>
             <label class="block font-bold text-slate-700 mb-1">Mileage (km) <span class="text-rose-500">*</span></label>
-            <input type="number" id="p2pMileage" placeholder="35000" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-slate-900">
+            <input type="text" id="p2pMileage" placeholder="35,000" oninput="handleFormattedInput(event)" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-slate-900">
           </div>
         </div>
         <div class="grid grid-cols-2 gap-3">
@@ -662,19 +661,18 @@
           </div>
         </div>
 
-        <!-- Photo Upload & Category Sorting Section -->
+        <!-- Native File Upload & Categorization Section -->
         <div class="pt-2 border-t border-slate-100">
           <label class="block font-bold text-slate-700 mb-1">Vehicle Photos & Categorization <span class="text-rose-500">*</span></label>
-          <p class="text-[10px] text-slate-500 mb-3">Add image URLs and assign them to Exterior, Interior, or Engine Bay / Papers.</p>
+          <p class="text-[10px] text-slate-500 mb-3">Upload photos from your phone camera or computer album and assign them to Exterior, Interior, or Engine / Papers.</p>
           
-          <div class="flex gap-2 mb-3">
-            <input type="text" id="newPhotoUrl" placeholder="Paste Image URL here..." class="flex-1 p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-xs font-medium">
+          <div class="flex flex-col sm:flex-row gap-2 mb-3">
+            <input type="file" id="p2pFileInput" accept="image/*" multiple onchange="handleFileSelection(event)" class="flex-1 p-2 bg-slate-50 rounded-xl border border-slate-200 text-xs font-medium cursor-pointer file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100">
             <select id="newPhotoCat" class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-xs font-bold text-slate-700">
               <option value="Exterior">Exterior</option>
               <option value="Interior">Interior</option>
               <option value="Engine / Papers">Engine / Papers</option>
             </select>
-            <button onclick="addP2PPhoto()" class="px-4 py-2.5 bg-slate-900 text-white rounded-xl font-bold text-xs">Add Photo</button>
           </div>
 
           <!-- Staged Photos Preview Grid -->
@@ -813,6 +811,17 @@
     ];
 
     function formatPHP(amount) { return '₱' + Number(amount).toLocaleString('en-PH'); }
+
+    function handleFormattedInput(event, callback) {
+      let input = event.target;
+      let rawVal = input.value.replace(/[^0-9]/g, '');
+      if (rawVal === '') {
+        input.value = '';
+      } else {
+        input.value = Number(rawVal).toLocaleString('en-PH');
+      }
+      if (callback) callback();
+    }
 
     function switchMainTab(tabId) {
       document.getElementById('sectionBrandNew').classList.add('hidden');
@@ -1206,7 +1215,8 @@
     function closeCalcModal() { document.getElementById('calcModal').classList.add('hidden'); }
     
     function calculateLoanLive() {
-      const srp = Number(document.getElementById('calcSrp').value) || 0;
+      const srpClean = document.getElementById('calcSrp').value.replace(/[^0-9]/g, '');
+      const srp = Number(srpClean) || 0;
       const dpPct = Number(document.getElementById('calcDpSlider').value) / 100;
       const termMonths = Number(document.getElementById('calcTermMos').value);
       const isEv = document.querySelector('input[name="calcEv"]:checked').value === 'yes';
@@ -1214,7 +1224,8 @@
       let baseRate = isEv ? 0.082 : 0.098;
 
       document.getElementById('calcDpPctDisplay').innerText = Math.round(dpPct * 100) + '%';
-      document.getElementById('calcDpAmount').value = Math.round(srp * dpPct);
+      const dpCalculated = Math.round(srp * dpPct);
+      document.getElementById('calcDpAmount').value = dpCalculated.toLocaleString('en-PH');
 
       const netDP = srp * dpPct;
       const loanAmount = srp - netDP;
@@ -1237,8 +1248,10 @@
     }
 
     function calculateLoanFromDpAmount() {
-      const srp = Number(document.getElementById('calcSrp').value) || 1;
-      const dpAmt = Number(document.getElementById('calcDpAmount').value) || 0;
+      const srpClean = document.getElementById('calcSrp').value.replace(/[^0-9]/g, '');
+      const srp = Number(srpClean) || 1;
+      const dpAmtClean = document.getElementById('calcDpAmount').value.replace(/[^0-9]/g, '');
+      const dpAmt = Number(dpAmtClean) || 0;
       let pct = Math.round((dpAmt / srp) * 100);
       if(pct < 10) pct = 10;
       if(pct > 90) pct = 90;
@@ -1251,7 +1264,7 @@
     }
 
     function resetLoanCalc() {
-      document.getElementById('calcSrp').value = 1128000;
+      document.getElementById('calcSrp').value = '1,128,000';
       document.getElementById('calcDpSlider').value = 20;
       document.getElementById('calcTermMos').value = '60';
       document.querySelector('input[name="calcEv"][value="no"]').checked = true;
@@ -1296,23 +1309,25 @@
       }
     }
 
-    function addP2PPhoto() {
-      const url = document.getElementById('newPhotoUrl').value.trim();
+    function handleFileSelection(event) {
+      const files = event.target.files;
+      if (!files || files.length === 0) return;
       const cat = document.getElementById('newPhotoCat').value;
-      if (!url) {
-        showToast('Please enter a valid photo URL');
-        return;
+      
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const localUrl = URL.createObjectURL(file);
+        stagedP2PPhotos.push({ url: localUrl, category: cat, name: file.name });
       }
-      stagedP2PPhotos.push({ url, category: cat });
-      document.getElementById('newPhotoUrl').value = '';
+      event.target.value = '';
       renderStagedPhotos();
-      showToast('Photo added successfully!');
+      showToast('Photos attached successfully!');
     }
 
     function renderStagedPhotos() {
       const preview = document.getElementById('p2pPhotosPreview');
       if (stagedP2PPhotos.length === 0) {
-        preview.innerHTML = `<div class="col-span-3 text-center text-slate-400 text-[11px] py-2 border border-dashed border-slate-200 rounded-xl">No photos added yet</div>`;
+        preview.innerHTML = `<div class="col-span-3 text-center text-slate-400 text-[11px] py-3 border border-dashed border-slate-200 rounded-xl">No photos uploaded yet</div>`;
         return;
       }
       preview.innerHTML = stagedP2PPhotos.map((p, idx) => `
@@ -1331,8 +1346,10 @@
 
     function submitP2PListing() {
       const title = document.getElementById('p2pTitle').value.trim();
-      const price = Number(document.getElementById('p2pPrice').value);
-      const mileage = Number(document.getElementById('p2pMileage').value);
+      const priceClean = document.getElementById('p2pPrice').value.replace(/[^0-9]/g, '');
+      const price = Number(priceClean);
+      const mileageClean = document.getElementById('p2pMileage').value.replace(/[^0-9]/g, '');
+      const mileage = Number(mileageClean);
       const coding = document.getElementById('p2pCoding').value;
       const location = document.getElementById('p2pLocation').value.trim();
 
