@@ -12,9 +12,17 @@
         extend: {
           colors: {
             brand: {
-              50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8',
-              500: '#6366f1', 600: '#4f46e5', /* Indigo/Purple matching screenshot */
-              700: '#4338ca', 800: '#3730a3', 900: '#312e81', 950: '#1e1b4b',
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5', /* Indigo/Purple matching screenshot */
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b',
             },
             viber: '#7360f2',
             whatsapp: '#25D366'
@@ -30,18 +38,81 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
     body { font-family: 'Inter', sans-serif; }
 
-    .viewport-desktop { width: 100%; min-height: 100vh; border-radius: 0; margin: 0; background-color: #f8fafc; }
-    .viewport-ios { width: 400px; height: 855px; border-radius: 50px; box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 12px #1e293b, 0 0 0 14px #475569; margin: 20px auto 35px auto; overflow: hidden; position: relative; display: flex; flex-direction: column; background: #f8fafc; }
-    .viewport-android { width: 412px; height: 870px; border-radius: 36px; box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 10px #0f172a, 0 0 0 12px #334155; margin: 20px auto 35px auto; overflow: hidden; position: relative; display: flex; flex-direction: column; background: #f8fafc; }
-    
-    .ios-island { width: 124px; height: 34px; background: #000; border-radius: 20px; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 60; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; }
-    .ios-home-indicator { width: 135px; height: 5px; background: #0f172a; border-radius: 10px; position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); z-index: 55; }
-    
-    .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
-    .custom-scroll::-webkit-scrollbar-track { background: transparent; }
-    .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .viewport-desktop {
+      width: 100%;
+      min-height: 100vh;
+      border-radius: 0;
+      margin: 0;
+      background-color: #f8fafc;
+    }
+    .viewport-ios {
+      width: 400px;
+      height: 855px;
+      border-radius: 50px;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 12px #1e293b, 0 0 0 14px #475569;
+      margin: 20px auto 35px auto;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: #f8fafc;
+    }
+    .viewport-android {
+      width: 412px;
+      height: 870px;
+      border-radius: 36px;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 10px #0f172a, 0 0 0 12px #334155;
+      margin: 20px auto 35px auto;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: #f8fafc;
+    }
+    .ios-island {
+      width: 124px;
+      height: 34px;
+      background: #000;
+      border-radius: 20px;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+    }
+    .ios-home-indicator {
+      width: 135px;
+      height: 5px;
+      background: #0f172a;
+      border-radius: 10px;
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 55;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-800 antialiased min-h-screen flex flex-col">
@@ -80,7 +151,7 @@
 
       <!-- Action Button -->
       <div>
-        <button onclick="showToast('Listing flow coming soon!')" class="px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-white rounded-xl text-sm font-bold flex items-center gap-2 shadow-lg shadow-teal-500/20 transition-all">
+        <button onclick="showToast('Post Listing feature coming soon!')" class="px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-white rounded-xl text-sm font-bold flex items-center gap-2 shadow-lg shadow-teal-500/20 transition-all">
           <i class="ph-bold ph-plus-circle text-lg"></i>
           <span>Post Listing</span>
         </button>
@@ -90,7 +161,7 @@
 
   <div id="deviceContainer" class="viewport-desktop transition-all duration-300">
 
-    <!-- iOS Status Bar -->
+    <!-- iOS Status Bar (Hidden by default) -->
     <div id="iosHeaderBar" class="hidden relative w-full bg-slate-950 text-white pt-2 pb-2 px-6 select-none shrink-0 z-40 border-b border-slate-900">
       <div class="ios-island">
         <div class="w-2.5 h-2.5 rounded-full bg-slate-800"></div>
@@ -98,36 +169,58 @@
       </div>
       <div class="flex justify-between items-center text-xs font-semibold pt-1">
         <span id="iosClock">9:41</span>
-        <div class="flex items-center space-x-1.5 text-xs"><i class="ph-bold ph-wifi-high"></i><i class="ph-bold ph-battery-full text-sm text-white"></i></div>
+        <div class="flex items-center space-x-1.5 text-xs">
+          <i class="ph-bold ph-wifi-high"></i>
+          <i class="ph-bold ph-battery-full text-sm text-white"></i>
+        </div>
       </div>
-      <div class="flex items-center justify-between pt-3 pb-1"><span class="font-extrabold text-lg tracking-tight text-white">AutoPromoPH</span></div>
+      <div class="flex items-center justify-between pt-3 pb-1">
+        <span class="font-extrabold text-lg tracking-tight text-white">AutoPromoPH</span>
+      </div>
     </div>
 
-    <!-- Android Status Bar -->
+    <!-- Android Status Bar (Hidden by default) -->
     <div id="androidHeaderBar" class="hidden relative w-full bg-slate-950 text-white px-4 pt-2 pb-2.5 select-none shrink-0 z-40 border-b border-slate-900">
       <div class="flex justify-between items-center text-xs font-medium text-slate-300 mb-1">
         <span id="androidClock">10:00</span>
-        <div class="flex items-center space-x-2 text-xs"><span>5G</span><i class="ph-bold ph-battery-charging text-white"></i></div>
+        <div class="flex items-center space-x-2 text-xs">
+          <span>5G</span>
+          <i class="ph-bold ph-battery-charging text-white"></i>
+        </div>
       </div>
-      <div class="flex items-center justify-between pt-1"><span class="font-bold text-white tracking-tight text-lg">AutoPromoPH</span></div>
+      <div class="flex items-center justify-between pt-1">
+        <span class="font-bold text-white tracking-tight text-lg">AutoPromoPH</span>
+      </div>
     </div>
 
     <div class="bg-white border-b border-slate-200 px-4 sticky top-0 z-30 shadow-sm">
       <div class="max-w-7xl mx-auto flex items-center justify-between overflow-x-auto no-scrollbar gap-4 py-3">
         <div class="flex items-center space-x-3">
-          <button id="navTabBrandNew" onclick="switchMainTab('brand-new')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-brand-50 text-brand-700 border border-brand-100 shrink-0">
-            <i class="ph-fill ph-tag text-lg"></i><span>Brand New Deals</span><span class="px-2 py-0.5 rounded-full text-[10px] bg-brand-600 text-white ml-1">Casa</span>
+          
+          <button id="navTabBrandNew" onclick="switchMainTab('brand-new')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-brand-50 text-brand-700 border border-brand-100">
+            <i class="ph-fill ph-tag text-lg"></i>
+            <span>Brand New Deals</span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] bg-brand-600 text-white ml-1">Casa</span>
           </button>
-          <button id="navTabUsedCars" onclick="switchMainTab('used-cars')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50 shrink-0">
-            <i class="ph-bold ph-car text-lg"></i><span>Used Cars Marketplace</span><span class="px-2 py-0.5 rounded-full text-[10px] bg-emerald-100 text-emerald-800 ml-1 font-bold">P2P</span>
+
+          <button id="navTabUsedCars" onclick="switchMainTab('used-cars')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50">
+            <i class="ph-bold ph-car text-lg"></i>
+            <span>Used Cars Marketplace</span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] bg-emerald-100 text-emerald-800 ml-1 font-bold">P2P</span>
           </button>
-          <button id="navTabCompare" onclick="switchMainTab('trim-compare')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50 shrink-0">
-            <i class="ph-bold ph-git-diff text-lg"></i><span>Trim & Feature Compare</span>
+
+          <button id="navTabCompare" onclick="switchMainTab('trim-compare')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50">
+            <i class="ph-bold ph-git-diff text-lg"></i>
+            <span>Trim & Feature Compare</span>
           </button>
-          <button id="navTabLoanCalc" onclick="openCalcModal()" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50 shrink-0">
-            <i class="ph-bold ph-calculator text-lg"></i><span>Loan Calculator</span>
+
+          <button id="navTabLoanCalc" onclick="openCalcModal()" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50">
+            <i class="ph-bold ph-calculator text-lg"></i>
+            <span>Loan Calculator</span>
           </button>
+
         </div>
+
         <div class="hidden lg:flex items-center gap-2 text-xs text-slate-500 font-medium whitespace-nowrap bg-slate-50 px-3 py-1.5 rounded-full border border-slate-100">
           <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse"></span>
           <span>Verified NCR, Luzon, Visayas & Mindanao Casa Stocks</span>
@@ -137,28 +230,44 @@
 
     <div id="scrollableAppArea" class="flex-1 overflow-y-auto custom-scroll p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
 
-      <!-- TAB 1: BRAND NEW DEALS -->
+      <!-- ================================================================= -->
+      <!-- TAB 1: BRAND NEW DEALS                                            -->
+      <!-- ================================================================= -->
       <section id="sectionBrandNew" class="space-y-6">
         
+        <!-- Large Rounded Hero Banner matching screenshot -->
         <div class="bg-slate-900 rounded-[2rem] p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
-          <div class="absolute -right-20 -bottom-20 opacity-5 text-white pointer-events-none"><i class="ph-fill ph-car-profile text-[20rem]"></i></div>
-          <div class="max-w-2xl relative z-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-xs text-slate-300 mb-4 font-medium">
-              <span class="w-2 h-2 rounded-full bg-amber-400"></span><span>Philippines' Car Deals Aggregator • Verified Monthly Allocation</span>
-            </div>
-            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-3">Real Dealership Floor Units.<br>Verified Promos.</h1>
-            <p class="text-sm sm:text-base text-slate-400 max-w-xl">Skip endless Facebook comment inquiries. Compare All-in Down Payments, straight cash discounts, and bank tie-ups side-by-side.</p>
+          <!-- Background decoration -->
+          <div class="absolute -right-20 -bottom-20 opacity-5 text-white pointer-events-none">
+            <i class="ph-fill ph-car-profile text-[20rem]"></i>
           </div>
 
+          <div class="max-w-2xl relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-xs text-slate-300 mb-4 font-medium">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              <span>Philippines' Car Deals Aggregator • Verified Monthly Allocation</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-3">
+              Real Dealership Floor Units.<br>Verified Promos.
+            </h1>
+            <p class="text-sm sm:text-base text-slate-400 max-w-xl">
+              Skip endless Facebook comment inquiries. Compare All-in Down Payments, straight cash discounts, and bank tie-ups side-by-side.
+            </p>
+          </div>
+
+          <!-- Mode Toggle & Urgency Info -->
           <div class="mt-8 flex flex-wrap items-end justify-between gap-4 relative z-10">
             <div class="flex items-center bg-slate-950/50 p-1.5 rounded-2xl border border-slate-800 backdrop-blur-sm">
               <button id="modeBtnFinancing" onclick="setBuyerMode('financing')" class="px-5 py-2.5 rounded-xl bg-brand-600 text-white text-sm font-bold transition-all shadow-lg flex items-center gap-2">
-                <i class="ph-bold ph-credit-card"></i><span>All-in Low DP / Financing</span>
+                <i class="ph-bold ph-credit-card"></i>
+                <span>All-in Low DP / Financing</span>
               </button>
               <button id="modeBtnCash" onclick="setBuyerMode('cash')" class="px-5 py-2.5 rounded-xl text-slate-400 hover:text-white text-sm font-bold transition-all flex items-center gap-2">
-                <i class="ph-bold ph-money"></i><span>Straight Cash Discounts</span>
+                <i class="ph-bold ph-money"></i>
+                <span>Straight Cash Discounts</span>
               </button>
             </div>
+
             <div class="flex items-center gap-2 text-sm text-slate-300 bg-slate-950/30 px-4 py-2 rounded-xl backdrop-blur-sm">
               <span class="text-amber-400 font-bold flex items-center gap-1.5"><i class="ph-bold ph-clock"></i> Promo Validity:</span>
               <span>Deals marked with urgency & expiration locks</span>
@@ -166,52 +275,86 @@
           </div>
         </div>
 
+        <!-- Filters section -->
         <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
           <div class="flex flex-col md:flex-row gap-4">
             <div class="relative flex-1">
               <i class="ph-bold ph-magnifying-glass absolute left-4 top-3.5 text-slate-400 text-lg"></i>
-              <input type="text" id="brandNewSearch" placeholder="Search model: Vios, City, Xpander, Ranger, Raize, Jimny, Fortuner..." class="w-full pl-11 pr-4 py-3 text-sm rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all font-medium placeholder-slate-400" oninput="applyBrandNewFilters()"/>
+              <input 
+                type="text" 
+                id="brandNewSearch" 
+                placeholder="Search model: Vios, City, Xpander, Ranger, Raize, Jimny, Fortuner..." 
+                class="w-full pl-11 pr-4 py-3 text-sm rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all font-medium placeholder-slate-400"
+                oninput="applyBrandNewFilters()"
+              />
             </div>
             <div class="w-full md:w-48">
               <select id="brandNewMakeFilter" onchange="applyBrandNewFilters()" class="w-full py-3 px-4 text-sm rounded-xl bg-slate-50 border border-slate-200 font-bold text-slate-700 focus:ring-2 focus:ring-brand-500">
-                <option value="ALL">All Brands</option><option value="Toyota">Toyota</option><option value="Honda">Honda</option>
-                <option value="Mitsubishi">Mitsubishi</option><option value="Ford">Ford</option><option value="Suzuki">Suzuki</option>
+                <option value="ALL">All Brands</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Honda">Honda</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Ford">Ford</option>
+                <option value="Suzuki">Suzuki</option>
               </select>
             </div>
             <div class="w-full md:w-56">
               <select id="brandNewLocationFilter" onchange="applyBrandNewFilters()" class="w-full py-3 px-4 text-sm rounded-xl bg-slate-50 border border-slate-200 font-bold text-slate-700 focus:ring-2 focus:ring-brand-500">
-                <option value="ALL">All Dealership Locations</option><option value="BGC">Metro Manila - BGC / Taguig</option>
-                <option value="Makati">Metro Manila - Makati</option><option value="Pasig">Metro Manila - Pasig</option>
-                <option value="Quezon City">Metro Manila - Quezon City</option><option value="Pampanga">Central Luzon - Pampanga</option>
+                <option value="ALL">All Dealership Locations</option>
+                <option value="BGC">Metro Manila - BGC / Taguig</option>
+                <option value="Makati">Metro Manila - Makati</option>
+                <option value="Pasig">Metro Manila - Pasig</option>
+                <option value="Quezon City">Metro Manila - Quezon City</option>
+                <option value="Pampanga">Central Luzon - Pampanga</option>
               </select>
             </div>
           </div>
+
+          <!-- Tag Pills -->
           <div class="mt-4 pt-4 border-t border-slate-100 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
             <span class="text-slate-400 text-xs font-bold shrink-0 mr-1 uppercase tracking-wider">Tags:</span>
-            <button onclick="toggleBNTag('IN_STOCK')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="IN_STOCK">🏎️ Immediate Release (In Stock)</button>
-            <button onclick="toggleBNTag('LOW_DP')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="LOW_DP">⚡ All-in Low DP (&lt; ₱50K)</button>
-            <button onclick="toggleBNTag('EXPIRING')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="EXPIRING">⏳ Expiring This Week</button>
-            <button onclick="toggleBNTag('FREE_INSURANCE')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="FREE_INSURANCE">🎁 Free 1-Yr Comprehensive Ins.</button>
+            <button onclick="toggleBNTag('IN_STOCK')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="IN_STOCK">
+              🏎️ Immediate Release (In Stock)
+            </button>
+            <button onclick="toggleBNTag('LOW_DP')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="LOW_DP">
+              ⚡ All-in Low DP (&lt; ₱50K)
+            </button>
+            <button onclick="toggleBNTag('EXPIRING')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="EXPIRING">
+              ⏳ Expiring This Week
+            </button>
+            <button onclick="toggleBNTag('FREE_INSURANCE')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="FREE_INSURANCE">
+              🎁 Free 1-Yr Comprehensive Ins.
+            </button>
           </div>
         </div>
 
-        <div id="brandNewDealsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <div id="brandNewDealsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dynamically Injected Cards -->
+        </div>
+
       </section>
 
-      <!-- TAB 2: USED CARS -->
+      <!-- ================================================================= -->
+      <!-- TAB 2: USED CARS MARKETPLACE                                      -->
+      <!-- ================================================================= -->
       <section id="sectionUsedCars" class="hidden space-y-6">
         <div class="bg-emerald-900 rounded-[2rem] p-8 text-white shadow-xl">
           <h2 class="text-3xl font-extrabold mb-2">Verified Pre-Owned & P2P Marketplace</h2>
           <p class="text-emerald-100">Browse units with verified OR/CR papers and explicit Metro Manila coding days.</p>
         </div>
-        <div id="usedCarsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <div id="usedCarsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dynamically Injected -->
+        </div>
       </section>
 
-      <!-- TAB 3: TRIM COMPARISON -->
+      <!-- ================================================================= -->
+      <!-- TAB 3: TRIM COMPARISON                                            -->
+      <!-- ================================================================= -->
       <section id="sectionTrimCompare" class="hidden space-y-6">
-        <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+        <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm flex flex-col">
            <h2 class="text-2xl font-black text-slate-900 mb-2">Trim & Feature Decision Engine</h2>
-           <p class="text-slate-500 mb-6 font-medium">Compare actual market promos, specifications, and features side-by-side.</p>
+           <p class="text-slate-500 mb-6 font-medium">Compare specifications, promos, and features side-by-side.</p>
+           <!-- Table Render Target -->
            <div id="trimComparisonOutput" class="overflow-x-auto custom-scroll pb-4"></div>
         </div>
       </section>
@@ -220,25 +363,47 @@
 
     <div id="iosTabBar" class="hidden relative w-full bg-slate-950/95 backdrop-blur-md border-t border-slate-900 px-6 pt-3 pb-8 select-none shrink-0 z-40">
       <div class="flex justify-between items-center text-[10px] text-slate-500 font-medium">
-        <button onclick="switchMainTab('brand-new')" class="flex flex-col items-center gap-1.5 text-brand-400"><i class="ph-fill ph-tag text-2xl"></i><span>Brand New</span></button>
-        <button onclick="switchMainTab('used-cars')" class="flex flex-col items-center gap-1.5 hover:text-white"><i class="ph-bold ph-car text-2xl"></i><span>Used Cars</span></button>
-        <button onclick="switchMainTab('trim-compare')" class="flex flex-col items-center gap-1.5 hover:text-white"><i class="ph-bold ph-git-diff text-2xl"></i><span>Compare</span></button>
-        <button onclick="openCalcModal()" class="flex flex-col items-center gap-1.5 hover:text-white"><i class="ph-bold ph-calculator text-2xl"></i><span>Calculator</span></button>
+        <button onclick="switchMainTab('brand-new')" id="iosTabBtnBrandNew" class="flex flex-col items-center gap-1.5 text-brand-400">
+          <i class="ph-fill ph-tag text-2xl"></i>
+          <span>Brand New</span>
+        </button>
+        <button onclick="switchMainTab('used-cars')" id="iosTabBtnUsed" class="flex flex-col items-center gap-1.5 hover:text-white">
+          <i class="ph-bold ph-car text-2xl"></i>
+          <span>Used Cars</span>
+        </button>
+        <button onclick="switchMainTab('trim-compare')" id="iosTabBtnCompare" class="flex flex-col items-center gap-1.5 hover:text-white">
+          <i class="ph-bold ph-git-diff text-2xl"></i>
+          <span>Compare</span>
+        </button>
+        <button onclick="openCalcModal()" class="flex flex-col items-center gap-1.5 hover:text-white">
+          <i class="ph-bold ph-calculator text-2xl"></i>
+          <span>Calculator</span>
+        </button>
       </div>
       <div class="ios-home-indicator"></div>
     </div>
 
     <div id="androidTabBar" class="hidden relative w-full bg-slate-950 border-t border-slate-900 px-4 py-3 select-none shrink-0 z-40">
       <div class="flex justify-around items-center text-[11px] text-slate-400 font-medium">
-        <button onclick="switchMainTab('brand-new')" class="flex flex-col items-center gap-1 text-emerald-400"><div class="px-4 py-1 rounded-full bg-emerald-400/20 mb-1"><i class="ph-fill ph-tag text-xl"></i></div><span>Deals</span></button>
-        <button onclick="switchMainTab('used-cars')" class="flex flex-col items-center gap-1 hover:text-white"><div class="px-4 py-1 mb-1"><i class="ph-bold ph-car text-xl"></i></div><span>Pre-Owned</span></button>
-        <button onclick="switchMainTab('trim-compare')" class="flex flex-col items-center gap-1 hover:text-white"><div class="px-4 py-1 mb-1"><i class="ph-bold ph-git-diff text-xl"></i></div><span>Compare</span></button>
+        <button onclick="switchMainTab('brand-new')" class="flex flex-col items-center gap-1 text-emerald-400">
+          <div class="px-4 py-1 rounded-full bg-emerald-400/20 mb-1">
+            <i class="ph-fill ph-tag text-xl"></i>
+          </div>
+          <span>Deals</span>
+        </button>
+        <button onclick="switchMainTab('used-cars')" class="flex flex-col items-center gap-1 hover:text-white">
+          <div class="px-4 py-1 mb-1"><i class="ph-bold ph-car text-xl"></i></div>
+          <span>Pre-Owned</span>
+        </button>
+        <button onclick="switchMainTab('trim-compare')" class="flex flex-col items-center gap-1 hover:text-white">
+          <div class="px-4 py-1 mb-1"><i class="ph-bold ph-git-diff text-xl"></i></div>
+          <span>Compare</span>
+        </button>
       </div>
     </div>
 
   </div> <!-- End Device Container -->
 
-  
   <!-- TRIMS SELECTION MODAL -->
   <div id="trimsModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-2xl w-full shadow-2xl relative flex flex-col max-h-[90vh]">
@@ -257,7 +422,7 @@
     </div>
   </div>
 
-  <!-- UPGRADED AUTO LOAN CALCULATOR -->
+  <!-- Auto Loan Calculator -->
   <div id="calcModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scroll">
       <button onclick="closeCalcModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 p-2.5 rounded-full transition-colors">
@@ -277,13 +442,17 @@
             <div>
               <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Down Payment %</label>
               <select id="calcDpPercent" onchange="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-bold focus:ring-2 focus:ring-brand-500 outline-none transition-all">
-                <option value="15">15%</option><option value="20" selected>20% Standard</option><option value="30">30%</option>
+                <option value="15">15%</option>
+                <option value="20" selected>20% Standard</option>
+                <option value="30">30%</option>
               </select>
             </div>
             <div>
               <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Loan Tenure</label>
               <select id="calcTermMos" onchange="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-bold focus:ring-2 focus:ring-brand-500 outline-none transition-all">
-                <option value="36">36 Months</option><option value="48">48 Months</option><option value="60" selected>60 Months</option>
+                <option value="36">36 Months</option>
+                <option value="48">48 Months</option>
+                <option value="60" selected>60 Months</option>
               </select>
             </div>
           </div>
@@ -299,9 +468,18 @@
           <div class="p-5 bg-brand-50 border border-brand-100 rounded-xl mt-4 shadow-sm">
             <div class="text-[10px] font-bold text-brand-700 uppercase mb-3 tracking-wide">Toggle Casa "All-In" Freebies</div>
             <div class="space-y-3.5 text-sm font-bold text-slate-700">
-              <label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox" id="calcFreeChattel" onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"><span class="group-hover:text-brand-700 transition-colors">Waive Chattel Mortgage Fee</span></label>
-              <label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox" id="calcFreeIns" onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"><span class="group-hover:text-brand-700 transition-colors">Free 1-Yr Comprehensive Insurance</span></label>
-              <label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox" id="calcFreeLTO" onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"><span class="group-hover:text-brand-700 transition-colors">Free 3-Yr LTO Registration</span></label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" id="calcFreeChattel" onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4">
+                <span class="group-hover:text-brand-700 transition-colors">Waive Chattel Mortgage Fee</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" id="calcFreeIns" onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4">
+                <span class="group-hover:text-brand-700 transition-colors">Free 1-Yr Comprehensive Insurance</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" id="calcFreeLTO" onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4">
+                <span class="group-hover:text-brand-700 transition-colors">Free 3-Yr LTO Registration</span>
+              </label>
             </div>
           </div>
         </div>
@@ -330,8 +508,12 @@
   <!-- Inquiry Modal -->
   <div id="inquireModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-sm w-full p-6 text-center shadow-2xl relative">
-      <button onclick="closeInquireModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full"><i class="ph-bold ph-x"></i></button>
-      <div class="w-16 h-16 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-3"><i class="ph-fill ph-headset text-3xl"></i></div>
+      <button onclick="closeInquireModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full">
+        <i class="ph-bold ph-x"></i>
+      </button>
+      <div class="w-16 h-16 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-3">
+        <i class="ph-fill ph-headset text-3xl"></i>
+      </div>
       <h3 class="text-lg font-black text-slate-900" id="inquireAgentName">Agent Name</h3>
       <p class="text-xs text-slate-500 font-medium" id="inquireDealerBranch">Dealership Branch</p>
       
@@ -345,15 +527,22 @@
       </div>
 
       <div class="space-y-3">
-        <button onclick="launchViberAction()" class="w-full py-3.5 bg-viber hover:brightness-110 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-viber/30 transition-all"><i class="ph-fill ph-phone-call text-xl"></i><span>Direct Viber Chat</span></button>
-        <button onclick="launchWhatsAppAction()" class="w-full py-3.5 bg-whatsapp hover:brightness-110 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-whatsapp/30 transition-all"><i class="ph-fill ph-whatsapp-logo text-xl"></i><span>WhatsApp Message</span></button>
+        <button onclick="launchViberAction()" class="w-full py-3.5 bg-viber hover:brightness-110 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-viber/30 transition-all">
+          <i class="ph-fill ph-phone-call text-xl"></i>
+          <span>Direct Viber Chat</span>
+        </button>
+        <button onclick="launchWhatsAppAction()" class="w-full py-3.5 bg-whatsapp hover:brightness-110 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-whatsapp/30 transition-all">
+          <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+          <span>WhatsApp Message</span>
+        </button>
       </div>
     </div>
   </div>
 
   <!-- Global Toast -->
   <div id="toast" class="fixed top-20 right-5 z-50 transform translate-y-10 opacity-0 pointer-events-none transition-all duration-300 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 border border-slate-700 font-medium text-sm">
-    <i id="toastIcon" class="ph-fill ph-check-circle text-emerald-400 text-xl"></i><span id="toastMsg">Notification</span>
+    <i id="toastIcon" class="ph-fill ph-check-circle text-emerald-400 text-xl"></i>
+    <span id="toastMsg">Notification</span>
   </div>
 
   <script>
@@ -365,7 +554,7 @@
     // Upgraded data structure holding the exact Image URLs provided by the user, but now supporting Trims arrays.
     const brandNewDealsData = [
       {
-        id: "bn-1", brand: "Honda", year: 2024, baseModel: "City Sedan",
+        id: "bn-1", brand: "Honda", year: 2026, baseModel: "City Sedan",
         promoPeriod: "Valid until Friday Only", urgencyColor: "bg-rose-600",
         stockStatus: "Immediate Release (In Stock)", branch: "Honda Cars Makati", locationTag: "Makati",
         agentName: "Ryan Patrick Tan", agentViber: "0917-302-8871", badge: "Honda SENSING Suite", coverage: "Branch Exclusive",
@@ -377,7 +566,7 @@
         ]
       },
       {
-        id: "bn-2", brand: "Toyota", year: 2024, baseModel: "Vios",
+        id: "bn-2", brand: "Toyota", year: 2026, baseModel: "Vios",
         promoPeriod: "Valid until End of Month", urgencyColor: "bg-rose-600",
         stockStatus: "Immediate Release (In Stock)", branch: "Toyota BGC / Taguig", locationTag: "BGC",
         agentName: "Mark Anthony Santos", agentViber: "0917-882-9102", badge: "Top Volume Seller", coverage: "Nationwide Promo",
@@ -390,7 +579,7 @@
         ]
       },
       {
-        id: "bn-3", brand: "Mitsubishi", year: 2024, baseModel: "Xpander",
+        id: "bn-3", brand: "Mitsubishi", year: 2026, baseModel: "Xpander",
         promoPeriod: "Month-End Special", urgencyColor: "bg-rose-600",
         stockStatus: "Immediate Release (In Stock)", branch: "Mitsubishi Pasig / Ortigas", locationTag: "Pasig",
         agentName: "Maria Cristina Gomez", agentViber: "0918-554-1290", badge: "7-Seater Choice", coverage: "Branch Exclusive",
@@ -402,7 +591,7 @@
         ]
       },
       {
-        id: "bn-4", brand: "Ford", year: 2024, baseModel: "Ranger",
+        id: "bn-4", brand: "Ford", year: 2026, baseModel: "Ranger",
         promoPeriod: "Weekend Flash Special", urgencyColor: "bg-amber-600",
         stockStatus: "Port Transit (3-5 Days)", branch: "Ford Quezon Avenue", locationTag: "Quezon City",
         agentName: "Paolo Rodriguez", agentViber: "0998-311-7782", badge: "Bi-Turbo Power", coverage: "Nationwide Promo",
@@ -410,19 +599,19 @@
         imageUrl: "https://d1hv7ee95zft1i.cloudfront.net/custom/car-model-variant-photo/gallery/ford-ranger-2-0-turbo-wildtrak-4x2-at-66d57ff1297de.jpg",
         trims: [
           { name: "2.0 Turbo Sport 4x2 AT", srp: 1494000, allInDp: 89000, monthlyAmort: 31000, cashDiscount: 70000, specs: { engine: "2.0L Single Turbo", power: "170 hp / 405 Nm", trans: "6-Speed AT" } },
-          { name: "2.0 Bi-Turbo Wildtrak 4x2 AT", srp: 1614000, allInDp: 99000, monthlyAmort: 33480, cashDiscount: 90000, specs: { engine: "2.0L Bi-Turbo", power: "210 hp / 500 Nm", trans: "10-Speed AT" } }
+          { name: "2.0 Bi-Turbo Wildtrak 4x4 AT", srp: 1940000, allInDp: 149000, monthlyAmort: 39500, cashDiscount: 90000, specs: { engine: "2.0L Bi-Turbo", power: "210 hp / 500 Nm", trans: "10-Speed AT 4x4" } }
         ]
       },
       {
-        id: "bn-5", brand: "Suzuki", year: 2024, baseModel: "Jimny",
+        id: "bn-5", brand: "Suzuki", year: 2026, baseModel: "Jimny",
         promoPeriod: "Waitlist Queue", urgencyColor: "bg-slate-700",
         stockStatus: "Waitlist Indent (15-30 Days)", branch: "Suzuki San Fernando", locationTag: "Pampanga",
         agentName: "Camille Vergara", agentViber: "0917-219-4820", badge: "High Demand Indent", coverage: "Branch Exclusive",
         inclusions: { insurance: false, chattel: false },
         imageUrl: "https://static.ccs.co.za/generic-images/0000219445/1_4e32d8c73cd36d62d509e768533a98a9.jpg",
         trims: [
-          { name: "1.5 GL MT (AllGrip Pro)", srp: 1258000, allInDp: 105000, monthlyAmort: 26100, cashDiscount: 0, specs: { engine: "1.5L K15B", power: "100 hp / 130 Nm", trans: "5-Speed MT 4x4" } },
-          { name: "1.5 GLX AT (AllGrip Pro)", srp: 1320000, allInDp: 115000, monthlyAmort: 27500, cashDiscount: 0, specs: { engine: "1.5L K15B", power: "100 hp / 130 Nm", trans: "4-Speed AT 4x4" } }
+          { name: "1.5 GLX 3-Door AT", srp: 1320000, allInDp: 115000, monthlyAmort: 27500, cashDiscount: 0, specs: { engine: "1.5L K15B", power: "100 hp / 130 Nm", trans: "4-Speed AT 4x4" } },
+          { name: "1.5 GLX 5-Door AT", srp: 1558000, allInDp: 135000, monthlyAmort: 31800, cashDiscount: 0, specs: { engine: "1.5L K15B", power: "100 hp / 130 Nm", trans: "4-Speed AT 4x4" } }
         ]
       }
     ];
@@ -497,17 +686,22 @@
         const minSrp = Math.min(...deal.trims.map(t => t.srp));
         const maxSrp = Math.max(...deal.trims.map(t => t.srp));
         const minDp = Math.min(...deal.trims.map(t => t.allInDp));
+        const minMonthly = Math.min(...deal.trims.map(t => t.monthlyAmort));
         const maxDiscount = Math.max(...deal.trims.map(t => t.cashDiscount));
 
         const priceSection = currentBuyerMode === 'financing' ? `
-          <div class="grid grid-cols-2 p-5 gap-4 bg-slate-50 border-t border-slate-100 group-hover:bg-brand-50 transition-colors">
+          <div class="grid grid-cols-3 p-4 gap-2 bg-slate-50 border-t border-slate-100 group-hover:bg-brand-50 transition-colors">
             <div>
-              <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">SRP (Starting At)</div>
-              <div class="text-xl font-black text-slate-900 leading-none">${formatPHP(minSrp)}</div>
+              <div class="text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">SRP (From)</div>
+              <div class="text-sm sm:text-base font-black text-slate-900 leading-none">${formatPHP(minSrp)}</div>
             </div>
             <div>
-              <div class="text-[10px] font-bold text-brand-600 uppercase tracking-wider mb-0.5">All-in DP (As low as)</div>
-              <div class="text-xl font-black text-brand-700 leading-none">${formatPHP(minDp)}</div>
+              <div class="text-[9px] font-bold text-indigo-600 uppercase tracking-wider mb-0.5">Monthly (As low as)</div>
+              <div class="text-sm sm:text-base font-black text-indigo-700 leading-none">${formatPHP(minMonthly)}</div>
+            </div>
+            <div>
+              <div class="text-[9px] font-bold text-brand-600 uppercase tracking-wider mb-0.5">All-in DP</div>
+              <div class="text-sm sm:text-base font-black text-brand-700 leading-none">${formatPHP(minDp)}</div>
             </div>
           </div>
         ` : `
@@ -527,7 +721,6 @@
           ? `<span class="text-[10px] bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded font-bold">${deal.coverage}</span>`
           : `<span class="text-[10px] bg-brand-50 text-brand-700 border border-brand-200 px-2 py-0.5 rounded font-bold">${deal.coverage}</span>`;
 
-        // Update onclick to trigger the Trims Modal instead of the direct Inquire modal
         return `
           <div class="bg-white rounded-[1.5rem] shadow-md border border-slate-200 overflow-hidden hover:shadow-xl hover:border-brand-300 transition-all cursor-pointer group flex flex-col justify-between" onclick="openTrimsModal('${deal.id}')">
             
@@ -730,7 +923,6 @@
       const loanAmount = srp - netDP;
       const years = termMonths / 12;
       
-      // Philppine standard Add-on Rate logic
       const totalInterest = loanAmount * (addOnRate * years);
       const monthlyPayment = (loanAmount + totalInterest) / termMonths;
 
@@ -755,7 +947,6 @@
       document.getElementById('calcResTotalOutlay').innerText = formatPHP(Math.round(totalCashOutlay));
     }
 
-    // Modal Interaction Helpers
     function openInquireModal(dealId, trimIdx) {
       const deal = brandNewDealsData.find(d => d.id === dealId);
       if(!deal) return;
@@ -790,6 +981,15 @@
       setTimeout(() => toast.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none'), 3000);
     }
 
+    function updatePhoneClocks() {
+      const now = new Date();
+      let hrs = now.getHours(), mins = now.getMinutes();
+      mins = mins < 10 ? '0'+mins : mins;
+      const str = `${hrs%12||12}:${mins}`;
+      if(document.getElementById('iosClock')) document.getElementById('iosClock').innerText = str;
+      if(document.getElementById('androidClock')) document.getElementById('androidClock').innerText = str;
+    }
+
     function renderUsedCars() {
       document.getElementById('usedCarsGrid').innerHTML = usedCarsData.map(c => `
         <div class="bg-white rounded-[1.5rem] shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-all">
@@ -804,15 +1004,6 @@
           </div>
         </div>
       `).join('');
-    }
-
-    function updatePhoneClocks() {
-      const now = new Date();
-      let hrs = now.getHours(), mins = now.getMinutes();
-      mins = mins < 10 ? '0'+mins : mins;
-      const str = `${hrs%12||12}:${mins}`;
-      if(document.getElementById('iosClock')) document.getElementById('iosClock').innerText = str;
-      if(document.getElementById('androidClock')) document.getElementById('androidClock').innerText = str;
     }
 
     window.onload = function() {
