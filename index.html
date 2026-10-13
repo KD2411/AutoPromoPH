@@ -45,45 +45,6 @@
       margin: 0;
       background-color: #f8fafc;
     }
-    .viewport-ios {
-      width: 400px;
-      height: 855px;
-      border-radius: 50px;
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 12px #1e293b, 0 0 0 14px #475569;
-      margin: 20px auto 35px auto;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      background: #f8fafc;
-    }
-    .viewport-android {
-      width: 412px;
-      height: 870px;
-      border-radius: 36px;
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 10px #0f172a, 0 0 0 12px #334155;
-      margin: 20px auto 35px auto;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      background: #f8fafc;
-    }
-    .ios-island {
-      width: 124px;
-      height: 34px;
-      background: #000;
-      border-radius: 20px;
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 60;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 12px;
-    }
     .custom-scroll::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -122,27 +83,11 @@
         </div>
       </div>
 
-      <!-- Device Switcher (Hidden to save mobile space) -->
-      <div class="hidden items-center bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs shadow-inner">
-        <button id="deviceBtnDesktop" onclick="setDeviceMode('desktop')" class="px-4 py-2 rounded-lg bg-brand-600 text-white font-bold transition-all flex items-center gap-2">
-          <i class="ph-bold ph-monitor text-base"></i>
-          <span>Desktop Web</span>
-        </button>
-        <button id="deviceBtnIos" onclick="setDeviceMode('ios')" class="px-4 py-2 rounded-lg text-slate-400 hover:text-white font-bold transition-all flex items-center gap-2">
-          <i class="ph-bold ph-apple-logo text-base"></i>
-          <span>Apple iOS</span>
-        </button>
-        <button id="deviceBtnAndroid" onclick="setDeviceMode('android')" class="px-4 py-2 rounded-lg text-slate-400 hover:text-white font-bold transition-all flex items-center gap-2">
-          <i class="ph-bold ph-android-logo text-base"></i>
-          <span>Android</span>
-        </button>
-      </div>
-
       <!-- Action Button -->
       <div>
-        <button onclick="showToast('Post Listing feature coming soon!')" class="px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-white rounded-xl text-sm font-bold flex items-center gap-2 shadow-lg shadow-teal-500/20 transition-all">
+        <button onclick="openPostListingModal()" class="px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-white rounded-xl text-sm font-bold flex items-center gap-2 shadow-lg shadow-teal-500/20 transition-all">
           <i class="ph-bold ph-plus-circle text-lg"></i>
-          <span>Post Listing</span>
+          <span>Post Listing / Dealer Login</span>
         </button>
       </div>
     </div>
@@ -150,40 +95,8 @@
 
   <div id="deviceContainer" class="viewport-desktop transition-all duration-300">
 
-    <!-- iOS Status Bar -->
-    <div id="iosHeaderBar" class="hidden relative w-full bg-slate-950 text-white pt-2 pb-2 px-6 select-none shrink-0 z-40 border-b border-slate-900">
-      <div class="ios-island">
-        <div class="w-2.5 h-2.5 rounded-full bg-slate-800"></div>
-        <div class="w-2.5 h-2.5 rounded-full bg-indigo-900 border border-indigo-500/50"></div>
-      </div>
-      <div class="flex justify-between items-center text-xs font-semibold pt-1">
-        <span>9:41</span>
-        <div class="flex items-center space-x-1.5 text-xs">
-          <i class="ph-bold ph-wifi-high"></i>
-          <i class="ph-bold ph-battery-full text-sm text-white"></i>
-        </div>
-      </div>
-      <div class="flex items-center justify-between pt-3 pb-1">
-        <span class="font-extrabold text-lg tracking-tight text-white">AutoPromoPH</span>
-      </div>
-    </div>
-
-    <!-- Android Status Bar -->
-    <div id="androidHeaderBar" class="hidden relative w-full bg-slate-950 text-white px-4 pt-2 pb-2.5 select-none shrink-0 z-40 border-b border-slate-900">
-      <div class="flex justify-between items-center text-xs font-medium text-slate-300 mb-1">
-        <span>10:00</span>
-        <div class="flex items-center space-x-2 text-xs">
-          <span>5G</span>
-          <i class="ph-bold ph-battery-charging text-white"></i>
-        </div>
-      </div>
-      <div class="flex items-center justify-between pt-1">
-        <span class="font-bold text-white tracking-tight text-lg">AutoPromoPH</span>
-      </div>
-    </div>
-
-    <div class="bg-white border-b border-slate-200 px-4 sticky top-0 z-30 shadow-sm">
-      <div class="max-w-7xl mx-auto flex flex-col pt-2 pb-2">
+    <div class="bg-white border-b border-slate-200 px-4 sticky top-16 z-30 shadow-sm">
+      <div class="max-w-7xl mx-auto flex flex-col pt-2.5 pb-2.5">
         <div class="text-[10px] font-bold text-brand-600 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
           <i class="ph-bold ph-hand-swipe-right text-sm"></i> Swipe or click below to explore sections & tools:
         </div>
@@ -218,6 +131,7 @@
     <div id="scrollableAppArea" class="flex-1 overflow-y-auto custom-scroll p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-10">
 
       <!-- ================================================================= -->
+      <!-- BRAND NEW DEALS SECTION -->
       <!-- ================================================================= -->
       <section id="sectionBrandNew" class="space-y-6">
         
@@ -251,22 +165,6 @@
                 <span>Straight Cash Discounts</span>
               </button>
             </div>
-          </div>
-        </div>
-
-        <!-- Trend Section / Market Insights Bar -->
-        <div class="bg-gradient-to-r from-brand-900 to-indigo-900 text-white p-6 rounded-3xl shadow-md flex flex-wrap items-center justify-between gap-4">
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-amber-400 text-2xl font-bold shrink-0">
-              <i class="ph-bold ph-trend-up"></i>
-            </div>
-            <div>
-              <div class="text-xs font-bold text-indigo-200 uppercase tracking-wider">PH Market Trend Alert (October 2026)</div>
-              <div class="text-base sm:text-lg font-black text-white">Hybrid Electric Vehicles (HEV) & Subcompact Sedans see 18% lower financing rates!</div>
-            </div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-bold text-amber-300 border border-white/10">🔥 142 Bids Active Today</span>
           </div>
         </div>
 
@@ -338,16 +236,24 @@
       </section>
 
       <!-- ================================================================= -->
+      <!-- USED CARS MARKETPLACE SECTION -->
       <!-- ================================================================= -->
       <section id="sectionUsedCars" class="hidden space-y-6">
-        <div class="bg-emerald-900 rounded-[2rem] p-8 text-white shadow-xl">
-          <h2 class="text-3xl font-extrabold mb-2">Verified Pre-Owned & P2P Marketplace</h2>
-          <p class="text-emerald-100">Browse units with verified OR/CR papers and explicit Metro Manila coding days.</p>
+        <div class="bg-emerald-900 rounded-[2rem] p-8 text-white shadow-xl flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 class="text-3xl font-extrabold mb-2">Verified Pre-Owned & P2P Marketplace</h2>
+            <p class="text-emerald-100">Browse units with verified OR/CR papers and explicit Metro Manila coding days.</p>
+          </div>
+          <button onclick="openPostListingModal()" class="px-5 py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-bold rounded-xl text-sm shadow-lg flex items-center gap-2">
+            <i class="ph-bold ph-plus-circle text-lg"></i>
+            <span>Sell Your Car (P2P)</span>
+          </button>
         </div>
         <div id="usedCarsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
       </section>
 
       <!-- ================================================================= -->
+      <!-- TRIM & FEATURE COMPARE SECTION -->
       <!-- ================================================================= -->
       <section id="sectionTrimCompare" class="hidden space-y-6">
         <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm">
@@ -357,7 +263,6 @@
         </div>
       </section>
 
-      <!-- Custom Promotional App Section -->
       <section class="bg-white rounded-[2.5rem] p-8 sm:p-14 border border-slate-200 shadow-sm relative overflow-hidden my-12">
         <div class="absolute -left-20 -top-20 w-72 h-72 bg-brand-50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
         <div class="absolute -right-20 -bottom-20 w-72 h-72 bg-indigo-50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
@@ -481,7 +386,7 @@
         <i class="ph-bold ph-calendar-check"></i>
       </div>
       <h3 class="text-xl font-black text-slate-900 text-center mb-1">Book Test Drive</h3>
-      <p class="text-xs text-slate-500 text-center mb-5 font-medium" id="testDriveVehicleSubtitle">Select preferred branch & schedule</p>
+      <p class="text-xs text-slate-500 text-center mb-5 font-medium" id="testDriveVehicleSubtitle">Select preferred dealership branch & schedule</p>
 
       <div class="space-y-4 text-left">
         <div>
@@ -675,6 +580,7 @@
     </div>
   </div>
 
+  <!-- Inquire Modal -->
   <div id="inquireModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-sm w-full p-6 text-center shadow-2xl relative">
       <button onclick="closeInquireModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full">
@@ -702,6 +608,117 @@
     </div>
   </div>
 
+  <!-- Post Listing / Dealer Portal Modal -->
+  <div id="postListingModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-[2rem] max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scroll">
+      <button onclick="closePostListingModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 p-2.5 rounded-full transition-colors">
+        <i class="ph-bold ph-x text-xl"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-2 text-2xl font-bold">
+          <i class="ph-bold ph-buildings"></i>
+        </div>
+        <h3 class="text-2xl font-black text-slate-900">AutoPromoPH Portal</h3>
+        <p class="text-xs text-slate-500 font-medium">Select your role to post a listing or manage dealership inventory.</p>
+      </div>
+
+      <!-- Portal Toggle Tabs -->
+      <div class="grid grid-cols-2 gap-2 p-1.5 bg-slate-100 rounded-2xl mb-6">
+        <button id="portalTabP2P" onclick="switchPortalTab('p2p')" class="py-2.5 rounded-xl bg-white text-slate-950 font-bold text-xs shadow-sm transition-all">Sell Used Car (P2P)</button>
+        <button id="portalTabDealer" onclick="switchPortalTab('dealer')" class="py-2.5 rounded-xl text-slate-600 font-bold text-xs transition-all">Dealer / Sales Agent Login</button>
+      </div>
+
+      <!-- P2P Listing Form -->
+      <div id="portalFormP2P" class="space-y-4 text-xs font-medium">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Vehicle Title / Make & Model <span class="text-rose-500">*</span></label>
+          <input type="text" id="p2pTitle" placeholder="e.g., 2021 Honda Civic RS Turbo" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-sm text-slate-900 focus:ring-2 focus:ring-brand-500">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Asking Price (PHP) <span class="text-rose-500">*</span></label>
+            <input type="number" id="p2pPrice" placeholder="850000" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-slate-900">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Mileage (km) <span class="text-rose-500">*</span></label>
+            <input type="number" id="p2pMileage" placeholder="35000" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-slate-900">
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Metro Manila Coding Day <span class="text-rose-500">*</span></label>
+            <select id="p2pCoding" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-slate-800">
+              <option value="Monday (Ending 1, 2)">Monday (Ending 1, 2)</option>
+              <option value="Tuesday (Ending 3, 4)">Tuesday (Ending 3, 4)</option>
+              <option value="Wednesday (Ending 5, 6)">Wednesday (Ending 5, 6)</option>
+              <option value="Thursday (Ending 7, 8)">Thursday (Ending 7, 8)</option>
+              <option value="Friday (Ending 9, 0)">Friday (Ending 9, 0)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Location <span class="text-rose-500">*</span></label>
+            <input type="text" id="p2pLocation" placeholder="Quezon City / BGC" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-slate-900">
+          </div>
+        </div>
+
+        <!-- Photo Upload & Category Sorting Section -->
+        <div class="pt-2 border-t border-slate-100">
+          <label class="block font-bold text-slate-700 mb-1">Vehicle Photos & Categorization <span class="text-rose-500">*</span></label>
+          <p class="text-[10px] text-slate-500 mb-3">Add image URLs and assign them to Exterior, Interior, or Engine Bay / Papers.</p>
+          
+          <div class="flex gap-2 mb-3">
+            <input type="text" id="newPhotoUrl" placeholder="Paste Image URL here..." class="flex-1 p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-xs font-medium">
+            <select id="newPhotoCat" class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-xs font-bold text-slate-700">
+              <option value="Exterior">Exterior</option>
+              <option value="Interior">Interior</option>
+              <option value="Engine / Papers">Engine / Papers</option>
+            </select>
+            <button onclick="addP2PPhoto()" class="px-4 py-2.5 bg-slate-900 text-white rounded-xl font-bold text-xs">Add Photo</button>
+          </div>
+
+          <!-- Staged Photos Preview Grid -->
+          <div id="p2pPhotosPreview" class="grid grid-cols-3 gap-2 mb-3"></div>
+        </div>
+
+        <button onclick="submitP2PListing()" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/30 transition-all text-sm mt-2">
+          Publish Used Car Listing
+        </button>
+      </div>
+
+      <!-- Dealer / Sales Agent Portal Form -->
+      <div id="portalFormDealer" class="hidden space-y-4 text-xs font-medium">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Dealership Brand & Branch <span class="text-rose-500">*</span></label>
+          <select id="dealerBranchInput" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-slate-800">
+            <option value="Toyota BGC / Taguig">Toyota BGC / Taguig</option>
+            <option value="Honda Cars Makati">Honda Cars Makati</option>
+            <option value="Mitsubishi Pasig">Mitsubishi Pasig</option>
+            <option value="Ford Quezon Avenue">Ford Quezon Avenue</option>
+            <option value="Suzuki San Fernando">Suzuki San Fernando</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Sales Consultant Full Name <span class="text-rose-500">*</span></label>
+          <input type="text" id="dealerNameInput" placeholder="e.g., Ryan Patrick Tan" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-sm text-slate-900">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">PRC Sales Accreditation / Dealer ID <span class="text-rose-500">*</span></label>
+          <input type="text" id="dealerIdInput" placeholder="e.g., PRC-0049281" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-slate-900">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Official Dealership Email <span class="text-rose-500">*</span></label>
+          <input type="email" id="dealerEmailInput" placeholder="agent@dealership.com.ph" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-slate-900">
+        </div>
+
+        <button onclick="submitDealerVerification()" class="w-full py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg shadow-brand-600/30 transition-all text-sm mt-2">
+          Verify & Access Dealer Bidding Portal
+        </button>
+      </div>
+
+    </div>
+  </div>
+
   <!-- Global Toast -->
   <div id="toast" class="fixed top-20 right-5 z-50 transform translate-y-10 opacity-0 pointer-events-none transition-all duration-300 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 border border-slate-700 font-medium text-sm">
     <i id="toastIcon" class="ph-fill ph-check-circle text-emerald-400 text-xl"></i>
@@ -710,10 +727,10 @@
 
   <script>
     let currentBuyerMode = 'financing';
-    let currentDevice = 'desktop';
     let compareList = [];
     let currentInquireTarget = null;
     let currentTestDriveVehicle = null;
+    let stagedP2PPhotos = [];
 
     const brandNewDealsData = [
       {
@@ -778,13 +795,20 @@
         id: "used-1", title: "2019 Toyota Fortuner 2.4 G Diesel AT", price: 1080000, mileage: 48500,
         plateEnding: "Tuesday (Ending 3, 4)", location: "Quezon City", sellerName: "Direct Owner", sellerType: "Direct Owner P2P",
         fuelType: "Diesel", transmission: "Automatic", imageUrl: "https://images.topgear.com.ph/topgear/images/2020/02/25/toyota-fortuner-trd-main-1582618501.jpg",
-        features: ["All original paint", "Complete OR/CR on hand", "Casa maintained w/ records"]
+        features: ["All original paint", "Complete OR/CR on hand", "Casa maintained w/ records"],
+        photos: [
+          { url: "https://images.topgear.com.ph/topgear/images/2020/02/25/toyota-fortuner-trd-main-1582618501.jpg", category: "Exterior" },
+          { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRyWkrfggOyuEq3wi6JtyYoAokSDpxP6q6iFInmu66FHAIVsxi5aCUXgFV&s=10", category: "Interior" }
+        ]
       },
       {
         id: "used-2", title: "2018 Mazda 3 2.0 SkyActiv Sedan", price: 645000, mileage: 42000,
         plateEnding: "Monday (Ending 1, 2)", location: "Pasig", sellerName: "Direct Owner", sellerType: "Direct Owner P2P",
         fuelType: "Gasoline", transmission: "SkyActiv-Drive AT", imageUrl: "https://www.samarins.com/reviews/img/Mazda-3-GT-2018.jpg",
-        features: ["Bose Sound System", "Sunroof equipped", "Fresh interior"]
+        features: ["Bose Sound System", "Sunroof equipped", "Fresh interior"],
+        photos: [
+          { url: "https://www.samarins.com/reviews/img/Mazda-3-GT-2018.jpg", category: "Exterior" }
+        ]
       }
     ];
 
@@ -827,19 +851,6 @@
         btnFin.className = 'px-5 py-2.5 rounded-xl text-slate-400 hover:text-white text-sm font-bold transition-all flex items-center gap-2';
       }
       applyBrandNewFilters();
-    }
-
-    function setDeviceMode(mode) {
-      currentDevice = mode;
-      const container = document.getElementById('deviceContainer');
-      ['Desktop', 'Ios', 'Android'].forEach(name => {
-        const btn = document.getElementById('deviceBtn' + name);
-        if (name.toLowerCase() === mode) { btn.className = 'px-4 py-2 rounded-lg bg-brand-600 text-white font-bold transition-all flex items-center gap-2'; }
-        else { btn.className = 'px-4 py-2 rounded-lg text-slate-400 hover:text-white font-bold transition-all flex items-center gap-2'; }
-      });
-      container.className = `viewport-${mode} transition-all duration-300`;
-      document.getElementById('iosHeaderBar').classList.toggle('hidden', mode !== 'ios');
-      document.getElementById('androidHeaderBar').classList.toggle('hidden', mode !== 'android');
     }
 
     function renderBrandNewDeals(deals) {
@@ -1139,19 +1150,32 @@
     function openUsedCarModal(id) {
       const car = usedCarsData.find(c => c.id === id);
       if(!car) return;
+      
+      const photosHtml = car.photos && car.photos.length > 0 ? `
+        <div class="space-y-2">
+          <div class="text-xs font-bold uppercase text-slate-400">Photos (${car.photos.length})</div>
+          <div class="grid grid-cols-2 gap-2">
+            ${car.photos.map(p => `
+              <div class="relative rounded-xl overflow-hidden h-32 bg-slate-100">
+                <img src="${p.url}" class="w-full h-full object-cover">
+                <span class="absolute bottom-1 left-1 bg-black/70 text-white text-[9px] px-2 py-0.5 rounded font-bold">${p.category}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : `<div class="h-64 rounded-2xl overflow-hidden bg-slate-100"><img src="${car.imageUrl}" class="w-full h-full object-cover"></div>`;
+
       document.getElementById('usedCarModalContent').innerHTML = `
         <div class="space-y-4">
-          <div class="h-64 rounded-2xl overflow-hidden bg-slate-100">
-            <img src="${car.imageUrl}" class="w-full h-full object-cover">
-          </div>
+          ${photosHtml}
           <h3 class="text-2xl font-black text-slate-900 leading-tight">${car.title}</h3>
           <div class="text-3xl font-black text-emerald-600">${formatPHP(car.price)}</div>
           
           <div class="grid grid-cols-2 gap-3 p-3 bg-slate-50 rounded-xl text-xs font-bold text-slate-700">
             <div>📍 Location: ${car.location}</div>
             <div>🛣️ Mileage: ${car.mileage.toLocaleString()} km</div>
-            <div>⛽ Fuel: ${car.fuelType}</div>
-            <div>🕹️ Trans: ${car.transmission}</div>
+            <div>⛽ Fuel: ${car.fuelType || 'Gasoline'}</div>
+            <div>🕹️ Trans: ${car.transmission || 'Automatic'}</div>
           </div>
 
           <div>
@@ -1249,6 +1273,111 @@
     function closeInquireModal() { document.getElementById('inquireModal').classList.add('hidden'); }
     function launchViberAction() { showToast('Connecting to Agent via Viber...'); setTimeout(closeInquireModal, 1500); }
     function launchWhatsAppAction() { showToast('Connecting to Agent via WhatsApp...'); setTimeout(closeInquireModal, 1500); }
+
+    function openPostListingModal() { document.getElementById('postListingModal').classList.remove('hidden'); }
+    function closePostListingModal() { document.getElementById('postListingModal').classList.add('hidden'); }
+
+    function switchPortalTab(tab) {
+      const tabP2P = document.getElementById('portalTabP2P');
+      const tabDealer = document.getElementById('portalTabDealer');
+      const formP2P = document.getElementById('portalFormP2P');
+      const formDealer = document.getElementById('portalFormDealer');
+
+      if (tab === 'p2p') {
+        tabP2P.className = 'py-2.5 rounded-xl bg-white text-slate-950 font-bold text-xs shadow-sm transition-all';
+        tabDealer.className = 'py-2.5 rounded-xl text-slate-600 font-bold text-xs transition-all';
+        formP2P.classList.remove('hidden');
+        formDealer.classList.add('hidden');
+      } else {
+        tabDealer.className = 'py-2.5 rounded-xl bg-white text-slate-950 font-bold text-xs shadow-sm transition-all';
+        tabP2P.className = 'py-2.5 rounded-xl text-slate-600 font-bold text-xs transition-all';
+        formDealer.classList.remove('hidden');
+        formP2P.classList.add('hidden');
+      }
+    }
+
+    function addP2PPhoto() {
+      const url = document.getElementById('newPhotoUrl').value.trim();
+      const cat = document.getElementById('newPhotoCat').value;
+      if (!url) {
+        showToast('Please enter a valid photo URL');
+        return;
+      }
+      stagedP2PPhotos.push({ url, category: cat });
+      document.getElementById('newPhotoUrl').value = '';
+      renderStagedPhotos();
+      showToast('Photo added successfully!');
+    }
+
+    function renderStagedPhotos() {
+      const preview = document.getElementById('p2pPhotosPreview');
+      if (stagedP2PPhotos.length === 0) {
+        preview.innerHTML = `<div class="col-span-3 text-center text-slate-400 text-[11px] py-2 border border-dashed border-slate-200 rounded-xl">No photos added yet</div>`;
+        return;
+      }
+      preview.innerHTML = stagedP2PPhotos.map((p, idx) => `
+        <div class="relative rounded-lg overflow-hidden h-20 bg-slate-100 border border-slate-200">
+          <img src="${p.url}" class="w-full h-full object-cover">
+          <span class="absolute bottom-0.5 left-0.5 bg-black/70 text-white text-[8px] px-1.5 py-0.5 rounded font-bold">${p.category}</span>
+          <button onclick="removeStagedPhoto(${idx})" class="absolute top-1 right-1 bg-rose-600 text-white w-4 h-4 rounded-full text-[10px] flex items-center justify-center font-bold">×</button>
+        </div>
+      `).join('');
+    }
+
+    function removeStagedPhoto(idx) {
+      stagedP2PPhotos.splice(idx, 1);
+      renderStagedPhotos();
+    }
+
+    function submitP2PListing() {
+      const title = document.getElementById('p2pTitle').value.trim();
+      const price = Number(document.getElementById('p2pPrice').value);
+      const mileage = Number(document.getElementById('p2pMileage').value);
+      const coding = document.getElementById('p2pCoding').value;
+      const location = document.getElementById('p2pLocation').value.trim();
+
+      if (!title || !price || !location) {
+        showToast('Please fill in all required P2P listing fields.');
+        return;
+      }
+
+      const newListing = {
+        id: "used-" + Date.now(),
+        title,
+        price,
+        mileage: mileage || 15000,
+        plateEnding: coding,
+        location,
+        sellerName: "Direct Owner",
+        sellerType: "Direct Owner P2P",
+        fuelType: "Gasoline",
+        transmission: "Automatic",
+        imageUrl: stagedP2PPhotos.length > 0 ? stagedP2PPhotos[0].url : "https://images.topgear.com.ph/topgear/images/2020/02/25/toyota-fortuner-trd-main-1582618501.jpg",
+        photos: [...stagedP2PPhotos],
+        features: ["Verified OR/CR on hand", "Fresh condition", "Direct P2P owner"]
+      };
+
+      usedCarsData.unshift(newListing);
+      stagedP2PPhotos = [];
+      renderStagedPhotos();
+      closePostListingModal();
+      showToast('Your used car listing has been successfully published!');
+      switchMainTab('used-cars');
+    }
+
+    function submitDealerVerification() {
+      const name = document.getElementById('dealerNameInput').value.trim();
+      const branch = document.getElementById('dealerBranchInput').value;
+      const agentId = document.getElementById('dealerIdInput').value.trim();
+
+      if (!name || !agentId) {
+        showToast('Please enter your agent credentials.');
+        return;
+      }
+
+      closePostListingModal();
+      showToast(`Welcome ${name}! Verified for ${branch}. Accessing dealer quote bidding portal...`);
+    }
     
     function showToast(msg) {
       const toast = document.getElementById('toast');
@@ -1259,6 +1388,7 @@
 
     window.onload = function() {
       applyBrandNewFilters();
+      renderStagedPhotos();
     };
   </script>
 </body>
