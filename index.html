@@ -235,9 +235,8 @@
       <!-- ================================================================= -->
       <section id="sectionBrandNew" class="space-y-6">
         
-        <!-- Large Rounded Hero Banner matching screenshot -->
+        <!-- Large Rounded Hero Banner -->
         <div class="bg-slate-900 rounded-[2rem] p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
-          <!-- Background decoration -->
           <div class="absolute -right-20 -bottom-20 opacity-5 text-white pointer-events-none">
             <i class="ph-fill ph-car-profile text-[20rem]"></i>
           </div>
@@ -245,7 +244,7 @@
           <div class="max-w-2xl relative z-10">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-xs text-slate-300 mb-4 font-medium">
               <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-              <span>Philippines' Car Deals Aggregator • Verified Monthly Allocation</span>
+              <span>Philippines' Car Deals Aggregator • 2026 Verified Allocation</span>
             </div>
             <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-3">
               Real Dealership Floor Units.<br>Verified Promos.
@@ -255,7 +254,6 @@
             </p>
           </div>
 
-          <!-- Mode Toggle & Urgency Info -->
           <div class="mt-8 flex flex-wrap items-end justify-between gap-4 relative z-10">
             <div class="flex items-center bg-slate-950/50 p-1.5 rounded-2xl border border-slate-800 backdrop-blur-sm">
               <button id="modeBtnFinancing" onclick="setBuyerMode('financing')" class="px-5 py-2.5 rounded-xl bg-brand-600 text-white text-sm font-bold transition-all shadow-lg flex items-center gap-2">
@@ -270,7 +268,7 @@
 
             <div class="flex items-center gap-2 text-sm text-slate-300 bg-slate-950/30 px-4 py-2 rounded-xl backdrop-blur-sm">
               <span class="text-amber-400 font-bold flex items-center gap-1.5"><i class="ph-bold ph-clock"></i> Promo Validity:</span>
-              <span>Deals marked with urgency & expiration locks</span>
+              <span>2026 Model Year Allocations</span>
             </div>
           </div>
         </div>
@@ -283,7 +281,7 @@
               <input 
                 type="text" 
                 id="brandNewSearch" 
-                placeholder="Search model: Vios, City, Xpander, Ranger, Raize, Jimny, Fortuner..." 
+                placeholder="Search 2026 model: Vios, City, Xpander, Ranger, Jimny..." 
                 class="w-full pl-11 pr-4 py-3 text-sm rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all font-medium placeholder-slate-400"
                 oninput="applyBrandNewFilters()"
               />
@@ -310,7 +308,6 @@
             </div>
           </div>
 
-          <!-- Tag Pills -->
           <div class="mt-4 pt-4 border-t border-slate-100 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
             <span class="text-slate-400 text-xs font-bold shrink-0 mr-1 uppercase tracking-wider">Tags:</span>
             <button onclick="toggleBNTag('IN_STOCK')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="IN_STOCK">
@@ -328,9 +325,7 @@
           </div>
         </div>
 
-        <div id="brandNewDealsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Dynamically Injected Cards -->
-        </div>
+        <div id="brandNewDealsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 
       </section>
 
@@ -342,24 +337,21 @@
           <h2 class="text-3xl font-extrabold mb-2">Verified Pre-Owned & P2P Marketplace</h2>
           <p class="text-emerald-100">Browse units with verified OR/CR papers and explicit Metro Manila coding days.</p>
         </div>
-        <div id="usedCarsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Dynamically Injected -->
-        </div>
+        <div id="usedCarsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
       </section>
 
       <!-- ================================================================= -->
       <!-- TAB 3: TRIM COMPARISON                                            -->
       <!-- ================================================================= -->
       <section id="sectionTrimCompare" class="hidden space-y-6">
-        <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm flex flex-col">
+        <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm">
            <h2 class="text-2xl font-black text-slate-900 mb-2">Trim & Feature Decision Engine</h2>
            <p class="text-slate-500 mb-6 font-medium">Compare specifications, promos, and features side-by-side.</p>
-           <!-- Table Render Target -->
            <div id="trimComparisonOutput" class="overflow-x-auto custom-scroll pb-4"></div>
         </div>
       </section>
 
-    </div> <!-- End Scrollable App Area -->
+    </div>
 
     <div id="iosTabBar" class="hidden relative w-full bg-slate-950/95 backdrop-blur-md border-t border-slate-900 px-6 pt-3 pb-8 select-none shrink-0 z-40">
       <div class="flex justify-between items-center text-[10px] text-slate-500 font-medium">
@@ -402,7 +394,7 @@
       </div>
     </div>
 
-  </div> <!-- End Device Container -->
+  </div>
 
   <!-- TRIMS SELECTION MODAL -->
   <div id="trimsModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
@@ -410,15 +402,13 @@
       <div class="p-6 border-b border-slate-100 flex justify-between items-center sticky top-0 bg-white rounded-t-[2rem] z-10 shadow-sm">
         <div>
           <h3 class="text-2xl font-black text-slate-900" id="trimsModalTitle">Vehicle Name</h3>
-          <p class="text-sm text-slate-500 font-medium mt-1">Select a specific trim below to view actual promos.</p>
+          <p class="text-sm text-slate-500 font-medium mt-1">Select a specific 2026 trim below to view actual promos or compare specs.</p>
         </div>
         <button onclick="closeTrimsModal()" class="text-slate-400 hover:text-slate-700 bg-slate-100 p-2.5 rounded-full transition-colors">
           <i class="ph-bold ph-x text-xl"></i>
         </button>
       </div>
-      <div class="p-6 overflow-y-auto custom-scroll bg-slate-50/50" id="trimsListContainer">
-        <!-- Trims dynamically injected here -->
-      </div>
+      <div class="p-6 overflow-y-auto custom-scroll bg-slate-50/50 space-y-4" id="trimsListContainer"></div>
     </div>
   </div>
 
@@ -505,6 +495,60 @@
     </div>
   </div>
 
+  <!-- Used Car Details Modal -->
+  <div id="usedCarModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-[2rem] max-w-xl w-full p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeUsedCarModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 p-2.5 rounded-full">
+        <i class="ph-bold ph-x text-xl"></i>
+      </button>
+      <div class="flex items-center gap-2 mb-2">
+        <span id="usedModalSellerTypeBadge" class="text-[9px] font-bold px-2.5 py-0.5 rounded-full border tracking-wide uppercase">P2P</span>
+        <span class="text-xs text-slate-400 font-medium flex items-center gap-1"><i class="ph-fill ph-map-pin text-amber-500"></i> <span id="usedModalLocation">Location</span></span>
+      </div>
+      <h3 class="text-2xl font-black text-slate-900 leading-tight mb-2" id="usedModalTitle">Car Title</h3>
+      <div class="text-3xl font-black text-emerald-600 mb-4" id="usedModalPrice">₱0</div>
+
+      <div class="h-64 rounded-2xl overflow-hidden mb-6 bg-slate-100">
+        <img id="usedModalImage" src="" alt="Car Image" class="w-full h-full object-cover">
+      </div>
+
+      <div class="grid grid-cols-3 gap-3 mb-6 p-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs font-bold text-slate-700 text-center">
+        <div>
+          <div class="text-slate-400 uppercase text-[9px] mb-1">Mileage</div>
+          <div id="usedModalMileage" class="text-sm font-black text-slate-900">0 km</div>
+        </div>
+        <div>
+          <div class="text-slate-400 uppercase text-[9px] mb-1">Transmission</div>
+          <div id="usedModalTransmission" class="text-sm font-black text-slate-900">Automatic</div>
+        </div>
+        <div>
+          <div class="text-slate-400 uppercase text-[9px] mb-1">Coding Day</div>
+          <div id="usedModalPlate" class="text-sm font-black text-slate-900">Monday</div>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Verified Vehicle Features</div>
+        <div id="usedModalFeatures" class="grid grid-cols-2 gap-2"></div>
+      </div>
+
+      <div class="p-4 bg-slate-900 text-white rounded-2xl flex items-center justify-between">
+        <div>
+          <div class="text-[10px] text-slate-400 font-bold uppercase">Seller Contact</div>
+          <div id="usedModalSellerName" class="font-black text-base text-white">Seller Name</div>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="showToast('Connecting to Seller via Viber...')" class="px-4 py-2.5 bg-viber text-white font-bold rounded-xl text-xs flex items-center gap-1.5 shadow">
+            <i class="ph-fill ph-phone-call text-base"></i> Viber
+          </button>
+          <button onclick="showToast('Connecting to Seller via WhatsApp...')" class="px-4 py-2.5 bg-whatsapp text-white font-bold rounded-xl text-xs flex items-center gap-1.5 shadow">
+            <i class="ph-fill ph-whatsapp-logo text-base"></i> WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Inquiry Modal -->
   <div id="inquireModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-sm w-full p-6 text-center shadow-2xl relative">
@@ -551,7 +595,6 @@
     let activeBNTag = null;
     let compareList = [];
 
-    // Upgraded data structure holding the exact Image URLs provided by the user, but now supporting Trims arrays.
     const brandNewDealsData = [
       {
         id: "bn-1", brand: "Honda", year: 2026, baseModel: "City Sedan",
@@ -617,8 +660,18 @@
     ];
 
     const usedCarsData = [
-      { id: "used-1", title: "2019 Toyota Fortuner 2.4 G Diesel AT", price: 1080000, mileage: 48500, plateEnding: "Tuesday (Ending 3, 4)", location: "Quezon City", sellerName: "Direct Owner", imageUrl: "https://images.topgear.com.ph/topgear/images/2020/02/25/toyota-fortuner-trd-main-1582618501.jpg" },
-      { id: "used-2", title: "2018 Mazda 3 2.0 SkyActiv Sedan", price: 645000, mileage: 42000, plateEnding: "Monday (Ending 1, 2)", location: "Pasig", sellerName: "Direct Owner", imageUrl: "https://www.samarins.com/reviews/img/Mazda-3-GT-2018.jpg" }
+      {
+        id: "used-1", title: "2019 Toyota Fortuner 2.4 G Diesel AT", price: 1080000, mileage: 48500,
+        plateEnding: "Tuesday (Ending 3, 4)", location: "Quezon City", sellerName: "Direct Owner", sellerType: "Direct Owner P2P",
+        fuelType: "Diesel", transmission: "Automatic", imageUrl: "https://images.topgear.com.ph/topgear/images/2020/02/25/toyota-fortuner-trd-main-1582618501.jpg",
+        features: ["All original paint", "Complete OR/CR on hand", "Casa maintained w/ records", "No history of flooding"]
+      },
+      {
+        id: "used-2", title: "2018 Mazda 3 2.0 SkyActiv Sedan", price: 645000, mileage: 42000,
+        plateEnding: "Monday (Ending 1, 2)", location: "Pasig", sellerName: "AutoPro Verified Dealer", sellerType: "Verified Dealership Consignment",
+        fuelType: "Gasoline", transmission: "Automatic", imageUrl: "https://www.samarins.com/reviews/img/Mazda-3-GT-2018.jpg",
+        features: ["SkyActiv-G Engine", "Bose Premium Audio", "Fresh leather interior", "Newly replaced tires"]
+      }
     ];
 
     function formatPHP(amount) { return '₱' + Number(amount).toLocaleString('en-PH'); }
@@ -681,37 +734,34 @@
     function renderBrandNewDeals(deals) {
       const grid = document.getElementById('brandNewDealsGrid');
       grid.innerHTML = deals.map(deal => {
-        
-        // Calculate ranges from the trims array
         const minSrp = Math.min(...deal.trims.map(t => t.srp));
-        const maxSrp = Math.max(...deal.trims.map(t => t.srp));
         const minDp = Math.min(...deal.trims.map(t => t.allInDp));
         const minMonthly = Math.min(...deal.trims.map(t => t.monthlyAmort));
         const maxDiscount = Math.max(...deal.trims.map(t => t.cashDiscount));
 
         const priceSection = currentBuyerMode === 'financing' ? `
-          <div class="grid grid-cols-3 p-4 gap-2 bg-slate-50 border-t border-slate-100 group-hover:bg-brand-50 transition-colors">
+          <div class="grid grid-cols-3 p-4 gap-2 bg-slate-50 border-t border-slate-100 group-hover:bg-brand-50 transition-colors text-center">
             <div>
-              <div class="text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">SRP (From)</div>
-              <div class="text-sm sm:text-base font-black text-slate-900 leading-none">${formatPHP(minSrp)}</div>
+              <div class="text-[9px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">SRP From</div>
+              <div class="text-xs sm:text-sm font-black text-slate-900 leading-none">${formatPHP(minSrp)}</div>
             </div>
             <div>
-              <div class="text-[9px] font-bold text-indigo-600 uppercase tracking-wider mb-0.5">Monthly (As low as)</div>
-              <div class="text-sm sm:text-base font-black text-indigo-700 leading-none">${formatPHP(minMonthly)}</div>
+              <div class="text-[9px] font-bold text-indigo-600 uppercase tracking-wider mb-0.5">Low Monthly</div>
+              <div class="text-xs sm:text-sm font-black text-indigo-700 leading-none">${formatPHP(minMonthly)}</div>
             </div>
             <div>
               <div class="text-[9px] font-bold text-brand-600 uppercase tracking-wider mb-0.5">All-in DP</div>
-              <div class="text-sm sm:text-base font-black text-brand-700 leading-none">${formatPHP(minDp)}</div>
+              <div class="text-xs sm:text-sm font-black text-brand-700 leading-none">${formatPHP(minDp)}</div>
             </div>
           </div>
         ` : `
-          <div class="grid grid-cols-2 p-5 gap-4 bg-emerald-50 border-t border-emerald-100 group-hover:bg-emerald-100/70 transition-colors">
+          <div class="grid grid-cols-2 p-5 gap-4 bg-emerald-50 border-t border-emerald-100">
             <div>
-              <div class="text-[10px] font-bold text-slate-600 uppercase tracking-wider mb-0.5">SRP (Starting At)</div>
+              <div class="text-[10px] font-bold text-slate-600 uppercase tracking-wider mb-0.5">Starting SRP</div>
               <div class="text-xl font-black text-slate-900 leading-none">${formatPHP(minSrp)}</div>
             </div>
             <div>
-              <div class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider mb-0.5">Cash Discount (Up To)</div>
+              <div class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider mb-0.5">Cash Discount</div>
               <div class="text-xl font-black text-emerald-700 leading-none">-${formatPHP(maxDiscount)}</div>
             </div>
           </div>
@@ -723,11 +773,9 @@
 
         return `
           <div class="bg-white rounded-[1.5rem] shadow-md border border-slate-200 overflow-hidden hover:shadow-xl hover:border-brand-300 transition-all cursor-pointer group flex flex-col justify-between" onclick="openTrimsModal('${deal.id}')">
-            
             <div class="relative h-56 bg-slate-100 overflow-hidden">
               <img src="${deal.imageUrl}" alt="${deal.baseModel}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-
               <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
                 <span class="bg-slate-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm">${deal.brand}</span>
                 <span class="bg-amber-400 text-slate-900 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm">${deal.badge}</span>
@@ -736,10 +784,9 @@
                 <span class="${deal.urgencyColor} text-white text-[10px] font-bold px-2.5 py-1 rounded-md shadow-md flex items-center gap-1"><i class="ph-fill ph-clock"></i> ${deal.promoPeriod}</span>
               </div>
               <div class="absolute bottom-3 left-4 right-4 flex items-end justify-between">
-                <div><div class="flex items-center gap-1.5 text-xs text-slate-200 font-medium drop-shadow-md"><i class="ph-fill ph-map-pin text-amber-400"></i> ${deal.branch}</div></div>
+                <div class="flex items-center gap-1.5 text-xs text-slate-200 font-medium drop-shadow-md"><i class="ph-fill ph-map-pin text-amber-400"></i> ${deal.branch}</div>
               </div>
             </div>
-
             <div class="p-5 flex-1 flex flex-col justify-center">
                <h4 class="font-black text-lg sm:text-xl text-slate-900 leading-tight mb-2">${deal.year} ${deal.brand} ${deal.baseModel}</h4>
                <div class="flex items-center justify-between mt-auto">
@@ -768,14 +815,6 @@
         if (q && !d.baseModel.toLowerCase().includes(q) && !d.brand.toLowerCase().includes(q)) return false;
         if (make !== 'ALL' && d.brand !== make) return false;
         if (loc !== 'ALL' && d.locationTag !== loc) return false;
-
-        const minDp = Math.min(...d.trims.map(t => t.allInDp));
-
-        if (activeBNTag === 'IN_STOCK' && !d.stockStatus.includes('Immediate')) return false;
-        if (activeBNTag === 'LOW_DP' && minDp > 50000) return false;
-        if (activeBNTag === 'EXPIRING' && d.promoPeriod === 'Waitlist Queue') return false;
-        if (activeBNTag === 'FREE_INSURANCE' && !d.inclusions.insurance) return false;
-
         return true;
       });
       renderBrandNewDeals(list);
@@ -793,64 +832,60 @@
     function openTrimsModal(dealId) {
       const deal = brandNewDealsData.find(d => d.id === dealId);
       if(!deal) return;
+      document.getElementById('trimsModalTitle').innerText = `${deal.year} ${deal.brand} ${deal.baseModel} Trims`;
       
-      document.getElementById('trimsModalTitle').innerText = `${deal.year} ${deal.brand} ${deal.baseModel}`;
-      
-      const trimsHtml = deal.trims.map((trim, idx) => `
-        <div class="bg-white border border-slate-200 rounded-[1.5rem] overflow-hidden mb-4 shadow-sm hover:border-brand-300 transition-colors">
-          <div class="p-5 flex justify-between items-center cursor-pointer bg-white hover:bg-slate-50 transition-colors group" onclick="document.getElementById('trim-acc-${deal.id}-${idx}').classList.toggle('hidden')">
+      const container = document.getElementById('trimsListContainer');
+      container.innerHTML = deal.trims.map((trim, idx) => `
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col gap-4">
+          <div class="flex flex-wrap justify-between items-start gap-2">
             <div>
-              <div class="font-black text-slate-900 text-lg leading-tight mb-1 group-hover:text-brand-700 transition-colors">${trim.name}</div>
-              <div class="inline-block bg-slate-100 text-slate-700 px-2 py-0.5 rounded text-xs font-bold border border-slate-200">SRP: ${formatPHP(trim.srp)}</div>
+              <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700">${deal.brand} Lineup</span>
+              <h4 class="text-xl font-black text-slate-900 mt-1">${trim.name}</h4>
             </div>
-            <i class="ph-bold ph-caret-down text-slate-400 text-xl group-hover:text-brand-500"></i>
+            <div class="text-right">
+              <div class="text-[10px] text-slate-400 uppercase font-bold">SRP</div>
+              <div class="text-xl font-black text-slate-900">${formatPHP(trim.srp)}</div>
+            </div>
           </div>
           
-          <div id="trim-acc-${deal.id}-${idx}" class="hidden p-5 border-t border-slate-100 bg-white">
-            <div class="grid grid-cols-2 gap-3 mb-5 text-slate-700">
-              <div class="bg-slate-50 p-3 rounded-xl border border-slate-100"><span class="block text-[10px] text-slate-500 font-bold uppercase mb-0.5">Engine</span><span class="font-bold text-sm">${trim.specs.engine}</span></div>
-              <div class="bg-slate-50 p-3 rounded-xl border border-slate-100"><span class="block text-[10px] text-slate-500 font-bold uppercase mb-0.5">Power</span><span class="font-bold text-sm">${trim.specs.power}</span></div>
-              <div class="col-span-2 bg-slate-50 p-3 rounded-xl border border-slate-100"><span class="block text-[10px] text-slate-500 font-bold uppercase mb-0.5">Transmission</span><span class="font-bold text-sm">${trim.specs.trans}</span></div>
-            </div>
-            
-            <div class="bg-brand-50 p-4 rounded-xl mb-5 border border-brand-100 shadow-inner">
-                <div class="flex justify-between items-center mb-1.5">
-                    <span class="text-xs font-bold text-brand-900">All-in Low DP Promo:</span>
-                    <span class="font-black text-brand-700 text-xl">${formatPHP(trim.allInDp)}</span>
-                </div>
-                <div class="flex justify-between items-center mb-3 pb-3 border-b border-brand-200/50">
-                    <span class="text-xs font-bold text-slate-600">Est. Monthly (60m):</span>
-                    <span class="font-bold text-slate-900">${formatPHP(trim.monthlyAmort)}</span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <span class="text-xs font-bold text-emerald-700">Straight Cash Discount:</span>
-                    <span class="font-bold text-emerald-600">-${formatPHP(trim.cashDiscount)}</span>
-                </div>
-            </div>
+          <div class="grid grid-cols-3 gap-2 p-3 bg-slate-50 rounded-xl text-center text-xs">
+            <div><span class="text-slate-400 block text-[9px]">Down Payment</span><strong class="text-brand-700">${formatPHP(trim.allInDp)}</strong></div>
+            <div><span class="text-slate-400 block text-[9px]">Monthly (60m)</span><strong class="text-slate-900">${formatPHP(trim.monthlyAmort)}</strong></div>
+            <div><span class="text-slate-400 block text-[9px]">Cash Discount</span><strong class="text-emerald-600">-${formatPHP(trim.cashDiscount)}</strong></div>
+          </div>
 
-            <div class="flex gap-3">
-              <button onclick="addToCompare('${deal.id}', ${idx})" class="flex-1 py-3 bg-white hover:bg-slate-50 text-brand-700 font-bold rounded-xl transition-all text-sm border-2 border-brand-100 shadow-sm flex items-center justify-center gap-2">
-                <i class="ph-bold ph-git-diff text-lg"></i> Compare
-              </button>
-              <button onclick="openInquireModal('${deal.id}', ${idx})" class="flex-[1.5] py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl transition-all text-sm shadow-md flex items-center justify-center gap-2">
-                <i class="ph-bold ph-chat-teardrop text-lg"></i> Message Agent
-              </button>
-            </div>
+          <div class="text-xs text-slate-600 grid grid-cols-3 gap-2 font-medium">
+            <div>⚙️ ${trim.specs.engine}</div>
+            <div>🐎 ${trim.specs.power}</div>
+            <div>🕹️ ${trim.specs.trans}</div>
+          </div>
+
+          <div class="flex gap-3 pt-2 border-t border-slate-100">
+            <button onclick="addToCompare('${deal.id}', ${idx})" class="flex-1 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-1.5">
+              <i class="ph-bold ph-git-diff"></i> Add to Compare
+            </button>
+            <button onclick="openInquireModal('${deal.id}', ${idx})" class="flex-1 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-1.5">
+              <i class="ph-bold ph-chat-circle-text"></i> Message Agent
+            </button>
           </div>
         </div>
       `).join('');
 
-      document.getElementById('trimsListContainer').innerHTML = trimsHtml;
       document.getElementById('trimsModal').classList.remove('hidden');
     }
+
     function closeTrimsModal() { document.getElementById('trimsModal').classList.add('hidden'); }
 
     function addToCompare(dealId, trimIdx) {
       const deal = brandNewDealsData.find(d => d.id === dealId);
+      if(!deal) return;
       const trim = deal.trims[trimIdx];
-      if (compareList.length >= 3) { showToast("Maximum of 3 trims allowed for side-by-side comparison."); return; }
+      if(compareList.some(i => i.deal.id === dealId && i.trim.name === trim.name)) {
+        showToast('Trim already in comparison matrix!');
+        return;
+      }
       compareList.push({ deal, trim });
-      showToast(`${trim.name} added to comparison!`);
+      showToast('Added to Trim Comparison Matrix!');
       closeTrimsModal();
       switchMainTab('trim-compare');
     }
@@ -858,7 +893,7 @@
     function renderCompare() {
       const out = document.getElementById('trimComparisonOutput');
       if (compareList.length === 0) {
-        out.innerHTML = `<div class="p-10 text-center text-slate-500 bg-slate-50 rounded-2xl border-2 border-slate-200 border-dashed mt-4"><div class="w-16 h-16 bg-white shadow flex items-center justify-center rounded-full mx-auto mb-4 text-slate-400"><i class="ph-bold ph-git-diff text-2xl"></i></div><div class="font-bold text-slate-700 mb-1">Matrix is Empty</div>Select vehicles from the Deals tab to add them to your comparison matrix.</div>`;
+        out.innerHTML = `<div class="p-10 text-center text-slate-500 bg-slate-50 rounded-2xl border-2 border-slate-200 border-dashed mt-4"><div class="w-16 h-16 bg-white shadow flex items-center justify-center rounded-full mx-auto mb-4 text-slate-400"><i class="ph-bold ph-git-diff text-2xl"></i></div><div class="font-bold text-slate-700 mb-1">Matrix is Empty</div>Select trims from any vehicle card to compare them side-by-side.</div>`;
         return;
       }
 
@@ -883,20 +918,12 @@
               ${compareList.map(i => `<td class="p-4 border-b border-slate-100 font-bold text-slate-900">${formatPHP(i.trim.monthlyAmort)}</td>`).join('')}
             </tr>
             <tr>
-              <td class="p-4 border-b border-slate-100 font-bold bg-slate-50 text-xs text-slate-500">Cash Discount</td>
-              ${compareList.map(i => `<td class="p-4 border-b border-slate-100 font-bold text-emerald-600 bg-emerald-50/50">-${formatPHP(i.trim.cashDiscount)}</td>`).join('')}
-            </tr>
-            <tr>
-              <td class="p-4 border-b border-slate-100 font-bold bg-white text-xs text-slate-500">Engine</td>
+              <td class="p-4 border-b border-slate-100 font-bold bg-slate-50 text-xs text-slate-500">Engine</td>
               ${compareList.map(i => `<td class="p-4 border-b border-slate-100 font-medium">${i.trim.specs.engine}</td>`).join('')}
             </tr>
             <tr>
               <td class="p-4 border-b border-slate-100 font-bold bg-white text-xs text-slate-500">Power</td>
               ${compareList.map(i => `<td class="p-4 border-b border-slate-100 font-medium">${i.trim.specs.power}</td>`).join('')}
-            </tr>
-            <tr>
-               <td class="p-4 bg-slate-50"></td>
-               ${compareList.map((i, idx) => `<td class="p-4 bg-slate-50"><button onclick="switchMainTab('brand-new'); openTrimsModal('${i.deal.id}')" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-sm shadow transition-all">Message Agent</button></td>`).join('')}
             </tr>
           </tbody>
         </table>
@@ -905,6 +932,50 @@
         </div>
       `;
     }
+
+    function renderUsedCars() {
+      document.getElementById('usedCarsGrid').innerHTML = usedCarsData.map(c => `
+        <div onclick="openUsedCarModal('${c.id}')" class="bg-white rounded-[1.5rem] shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl hover:border-brand-300 transition-all cursor-pointer group flex flex-col">
+          <div class="h-48 bg-slate-100 relative overflow-hidden">
+            <img src="${c.imageUrl}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded shadow-sm">Coding: ${c.plateEnding}</div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col">
+            <span class="text-[9px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full w-max mb-1.5 border border-emerald-100">${c.sellerType}</span>
+            <h4 class="font-black text-lg text-slate-900 leading-tight mb-2 group-hover:text-brand-700 transition-colors">${c.title}</h4>
+            <div class="text-2xl font-black text-emerald-600 mb-3">${formatPHP(c.price)}</div>
+            <div class="mt-auto pt-4 border-t border-slate-100 text-xs font-bold text-slate-500 flex items-center justify-between">
+              <span>${c.mileage.toLocaleString()} km</span>
+              <span class="text-brand-600 flex items-center gap-1">View Details <i class="ph-bold ph-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openUsedCarModal(id) {
+      const car = usedCarsData.find(c => c.id === id);
+      if(!car) return;
+      document.getElementById('usedModalTitle').innerText = car.title;
+      document.getElementById('usedModalPrice').innerText = formatPHP(car.price);
+      document.getElementById('usedModalImage').src = car.imageUrl;
+      document.getElementById('usedModalMileage').innerText = car.mileage.toLocaleString() + ' km';
+      document.getElementById('usedModalTransmission').innerText = car.transmission;
+      document.getElementById('usedModalPlate').innerText = car.plateEnding;
+      document.getElementById('usedModalLocation').innerText = car.location;
+      document.getElementById('usedModalSellerName').innerText = car.sellerName;
+      document.getElementById('usedModalSellerTypeBadge').innerText = car.sellerType;
+      
+      document.getElementById('usedModalFeatures').innerHTML = car.features.map(f => `
+        <div class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-white p-2.5 rounded-xl border border-slate-100 shadow-sm">
+          <i class="ph-bold ph-check-circle text-emerald-500 text-base"></i> ${f}
+        </div>
+      `).join('');
+
+      document.getElementById('usedCarModal').classList.remove('hidden');
+    }
+
+    function closeUsedCarModal() { document.getElementById('usedCarModal').classList.add('hidden'); }
 
     function openCalcModal() { document.getElementById('calcModal').classList.remove('hidden'); calculateLoanLive(); }
     function closeCalcModal() { document.getElementById('calcModal').classList.add('hidden'); }
@@ -922,7 +993,6 @@
       const netDP = srp * dpPct;
       const loanAmount = srp - netDP;
       const years = termMonths / 12;
-      
       const totalInterest = loanAmount * (addOnRate * years);
       const monthlyPayment = (loanAmount + totalInterest) / termMonths;
 
@@ -936,26 +1006,19 @@
       document.getElementById('calcResNetDP').innerText = formatPHP(Math.round(netDP));
       
       document.getElementById('calcResChattel').innerText = isFreeChattel ? "WAIVED" : formatPHP(Math.round(chattelEst));
-      document.getElementById('calcResChattel').className = isFreeChattel ? "text-emerald-400 font-bold" : "font-medium";
-
       document.getElementById('calcResInsurance').innerText = isFreeIns ? "WAIVED" : formatPHP(Math.round(insuranceEst));
-      document.getElementById('calcResInsurance').className = isFreeIns ? "text-emerald-400 font-bold" : "font-medium";
-
       document.getElementById('calcResLTO').innerText = isFreeLTO ? "WAIVED" : formatPHP(Math.round(ltoEst));
-      document.getElementById('calcResLTO').className = isFreeLTO ? "text-emerald-400 font-bold" : "font-medium";
-
       document.getElementById('calcResTotalOutlay').innerText = formatPHP(Math.round(totalCashOutlay));
     }
 
     function openInquireModal(dealId, trimIdx) {
       const deal = brandNewDealsData.find(d => d.id === dealId);
       if(!deal) return;
-      const trim = deal.trims[trimIdx];
-      currentInquireTarget = deal;
+      const trim = deal.trims[trimIdx || 0];
       
       document.getElementById('inquireAgentName').innerText = deal.agentName;
       document.getElementById('inquireDealerBranch').innerText = `${deal.branch} • Verified Consultant`;
-      document.getElementById('inquireVehicleTitle').innerText = `${deal.year} ${deal.brand} ${deal.baseModel} - ${trim.name}`;
+      document.getElementById('inquireVehicleTitle').innerText = `${deal.year} ${deal.brand} ${deal.baseModel} (${trim.name})`;
       
       if(currentBuyerMode === 'financing') {
         document.getElementById('inquirePricingLabel').innerText = 'All-in Low DP Promo:';
@@ -988,22 +1051,6 @@
       const str = `${hrs%12||12}:${mins}`;
       if(document.getElementById('iosClock')) document.getElementById('iosClock').innerText = str;
       if(document.getElementById('androidClock')) document.getElementById('androidClock').innerText = str;
-    }
-
-    function renderUsedCars() {
-      document.getElementById('usedCarsGrid').innerHTML = usedCarsData.map(c => `
-        <div class="bg-white rounded-[1.5rem] shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-all">
-          <div class="h-48 bg-slate-100 relative">
-            <img src="${c.imageUrl}" class="w-full h-full object-cover">
-            <div class="absolute top-3 left-3 bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded">Coding: ${c.plateEnding}</div>
-          </div>
-          <div class="p-5">
-            <h4 class="font-black text-lg text-slate-900 leading-tight mb-2">${c.title}</h4>
-            <div class="text-2xl font-black text-emerald-700">${formatPHP(c.price)}</div>
-            <div class="text-xs font-bold text-slate-500 mt-2 flex items-center gap-1.5"><i class="ph-bold ph-speedometer"></i> ${c.mileage.toLocaleString()} km • ${c.location}</div>
-          </div>
-        </div>
-      `).join('');
     }
 
     window.onload = function() {
