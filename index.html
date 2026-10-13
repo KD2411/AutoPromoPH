@@ -161,7 +161,7 @@
 
   <div id="deviceContainer" class="viewport-desktop transition-all duration-300">
 
-    <!-- iOS Status Bar (Hidden by default) -->
+    <!-- iOS Status Bar -->
     <div id="iosHeaderBar" class="hidden relative w-full bg-slate-950 text-white pt-2 pb-2 px-6 select-none shrink-0 z-40 border-b border-slate-900">
       <div class="ios-island">
         <div class="w-2.5 h-2.5 rounded-full bg-slate-800"></div>
@@ -179,7 +179,7 @@
       </div>
     </div>
 
-    <!-- Android Status Bar (Hidden by default) -->
+    <!-- Android Status Bar -->
     <div id="androidHeaderBar" class="hidden relative w-full bg-slate-950 text-white px-4 pt-2 pb-2.5 select-none shrink-0 z-40 border-b border-slate-900">
       <div class="flex justify-between items-center text-xs font-medium text-slate-300 mb-1">
         <span id="androidClock">10:00</span>
@@ -193,37 +193,40 @@
       </div>
     </div>
 
+    <!-- Navigation Header with Swipe / Scroll Prompt -->
     <div class="bg-white border-b border-slate-200 px-4 sticky top-0 z-30 shadow-sm">
-      <div class="max-w-7xl mx-auto flex items-center justify-between overflow-x-auto no-scrollbar gap-4 py-3">
-        <div class="flex items-center space-x-3">
+      <div class="max-w-7xl mx-auto flex flex-col pt-2 pb-1">
+        <div class="flex items-center justify-between overflow-x-auto no-scrollbar gap-3 pb-2" id="navTabsContainer">
           
-          <button id="navTabBrandNew" onclick="switchMainTab('brand-new')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-brand-50 text-brand-700 border border-brand-100">
+          <button id="navTabBrandNew" onclick="switchMainTab('brand-new')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-brand-50 text-brand-700 border border-brand-100 shrink-0">
             <i class="ph-fill ph-tag text-lg"></i>
             <span>Brand New Deals</span>
             <span class="px-2 py-0.5 rounded-full text-[10px] bg-brand-600 text-white ml-1">Casa</span>
           </button>
 
-          <button id="navTabUsedCars" onclick="switchMainTab('used-cars')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50">
+          <button id="navTabUsedCars" onclick="switchMainTab('used-cars')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50 shrink-0">
             <i class="ph-bold ph-car text-lg"></i>
             <span>Used Cars Marketplace</span>
             <span class="px-2 py-0.5 rounded-full text-[10px] bg-emerald-100 text-emerald-800 ml-1 font-bold">P2P</span>
           </button>
 
-          <button id="navTabCompare" onclick="switchMainTab('trim-compare')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50">
+          <button id="navTabCompare" onclick="switchMainTab('trim-compare')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50 shrink-0">
             <i class="ph-bold ph-git-diff text-lg"></i>
             <span>Trim & Feature Compare</span>
           </button>
 
-          <button id="navTabLoanCalc" onclick="openCalcModal()" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50">
+          <button id="navTabLoanCalc" onclick="openCalcModal()" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50 shrink-0">
             <i class="ph-bold ph-calculator text-lg"></i>
             <span>Loan Calculator</span>
           </button>
 
         </div>
-
-        <div class="hidden lg:flex items-center gap-2 text-xs text-slate-500 font-medium whitespace-nowrap bg-slate-50 px-3 py-1.5 rounded-full border border-slate-100">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse"></span>
-          <span>Verified NCR, Luzon, Visayas & Mindanao Casa Stocks</span>
+        
+        <!-- Swipe Prompt indicator for mobile & small screens -->
+        <div class="flex items-center justify-center gap-1.5 text-[11px] text-brand-600 font-bold py-1 bg-brand-50/50 rounded-lg mb-2">
+          <i class="ph-bold ph-arrow-left animate-pulse"></i>
+          <span>Swipe or click tabs above to explore marketplace features</span>
+          <i class="ph-bold ph-arrow-right animate-pulse"></i>
         </div>
       </div>
     </div>
@@ -353,42 +356,41 @@
 
     </div>
 
-    <div id="iosTabBar" class="hidden relative w-full bg-slate-950/95 backdrop-blur-md border-t border-slate-900 px-6 pt-3 pb-8 select-none shrink-0 z-40">
-      <div class="flex justify-between items-center text-[10px] text-slate-500 font-medium">
-        <button onclick="switchMainTab('brand-new')" id="iosTabBtnBrandNew" class="flex flex-col items-center gap-1.5 text-brand-400">
-          <i class="ph-fill ph-tag text-2xl"></i>
-          <span>Brand New</span>
+    <!-- Enhanced Mobile Bottom Navigation Dock -->
+    <div id="iosTabBar" class="hidden relative w-full bg-slate-950/95 backdrop-blur-md border-t border-slate-900 px-4 pt-3 pb-8 select-none shrink-0 z-40 shadow-2xl">
+      <div class="flex justify-around items-center text-[11px] text-slate-400 font-semibold">
+        <button onclick="switchMainTab('brand-new')" id="mobileTabBtnBrand" class="flex flex-col items-center gap-1 p-2 rounded-xl text-brand-400 bg-slate-900">
+          <i class="ph-fill ph-tag text-xl"></i>
+          <span>Deals</span>
         </button>
-        <button onclick="switchMainTab('used-cars')" id="iosTabBtnUsed" class="flex flex-col items-center gap-1.5 hover:text-white">
-          <i class="ph-bold ph-car text-2xl"></i>
-          <span>Used Cars</span>
+        <button onclick="switchMainTab('used-cars')" id="mobileTabBtnUsed" class="flex flex-col items-center gap-1 p-2 rounded-xl hover:text-white">
+          <i class="ph-bold ph-car text-xl"></i>
+          <span>Pre-Owned</span>
         </button>
-        <button onclick="switchMainTab('trim-compare')" id="iosTabBtnCompare" class="flex flex-col items-center gap-1.5 hover:text-white">
-          <i class="ph-bold ph-git-diff text-2xl"></i>
+        <button onclick="switchMainTab('trim-compare')" id="mobileTabBtnCompare" class="flex flex-col items-center gap-1 p-2 rounded-xl hover:text-white">
+          <i class="ph-bold ph-git-diff text-xl"></i>
           <span>Compare</span>
         </button>
-        <button onclick="openCalcModal()" class="flex flex-col items-center gap-1.5 hover:text-white">
-          <i class="ph-bold ph-calculator text-2xl"></i>
-          <span>Calculator</span>
+        <button onclick="openCalcModal()" class="flex flex-col items-center gap-1 p-2 rounded-xl hover:text-white">
+          <i class="ph-bold ph-calculator text-xl"></i>
+          <span>Calc</span>
         </button>
       </div>
       <div class="ios-home-indicator"></div>
     </div>
 
-    <div id="androidTabBar" class="hidden relative w-full bg-slate-950 border-t border-slate-900 px-4 py-3 select-none shrink-0 z-40">
-      <div class="flex justify-around items-center text-[11px] text-slate-400 font-medium">
-        <button onclick="switchMainTab('brand-new')" class="flex flex-col items-center gap-1 text-emerald-400">
-          <div class="px-4 py-1 rounded-full bg-emerald-400/20 mb-1">
-            <i class="ph-fill ph-tag text-xl"></i>
-          </div>
+    <div id="androidTabBar" class="hidden relative w-full bg-slate-950 border-t border-slate-900 px-4 py-3 select-none shrink-0 z-40 shadow-2xl">
+      <div class="flex justify-around items-center text-[11px] text-slate-400 font-semibold">
+        <button onclick="switchMainTab('brand-new')" class="flex flex-col items-center gap-1 text-brand-400 p-2 rounded-xl bg-slate-900">
+          <i class="ph-fill ph-tag text-xl"></i>
           <span>Deals</span>
         </button>
-        <button onclick="switchMainTab('used-cars')" class="flex flex-col items-center gap-1 hover:text-white">
-          <div class="px-4 py-1 mb-1"><i class="ph-bold ph-car text-xl"></i></div>
+        <button onclick="switchMainTab('used-cars')" class="flex flex-col items-center gap-1 p-2 rounded-xl hover:text-white">
+          <i class="ph-bold ph-car text-xl"></i>
           <span>Pre-Owned</span>
         </button>
-        <button onclick="switchMainTab('trim-compare')" class="flex flex-col items-center gap-1 hover:text-white">
-          <div class="px-4 py-1 mb-1"><i class="ph-bold ph-git-diff text-xl"></i></div>
+        <button onclick="switchMainTab('trim-compare')" class="flex flex-col items-center gap-1 p-2 rounded-xl hover:text-white">
+          <i class="ph-bold ph-git-diff text-xl"></i>
           <span>Compare</span>
         </button>
       </div>
@@ -698,6 +700,21 @@
         document.getElementById('sectionTrimCompare').classList.remove('hidden');
         document.getElementById('navTabCompare').className = 'px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-indigo-50 text-indigo-800 border border-indigo-100 shrink-0';
         renderCompare();
+      }
+
+      // Highlight active bottom mobile nav
+      ['mobileTabBtnBrand', 'mobileTabBtnUsed', 'mobileTabBtnCompare'].forEach(btnId => {
+        const el = document.getElementById(btnId);
+        if(el) {
+          el.className = "flex flex-col items-center gap-1 p-2 rounded-xl text-slate-400 hover:text-white";
+        }
+      });
+      if(tabId === 'brand-new' && document.getElementById('mobileTabBtnBrand')) {
+        document.getElementById('mobileTabBtnBrand').className = "flex flex-col items-center gap-1 p-2 rounded-xl text-brand-400 bg-slate-900";
+      } else if(tabId === 'used-cars' && document.getElementById('mobileTabBtnUsed')) {
+        document.getElementById('mobileTabBtnUsed').className = "flex flex-col items-center gap-1 p-2 rounded-xl text-brand-400 bg-slate-900";
+      } else if(tabId === 'trim-compare' && document.getElementById('mobileTabBtnCompare')) {
+        document.getElementById('mobileTabBtnCompare').className = "flex flex-col items-center gap-1 p-2 rounded-xl text-brand-400 bg-slate-900";
       }
     }
 
