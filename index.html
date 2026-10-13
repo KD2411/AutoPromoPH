@@ -12,17 +12,9 @@
         extend: {
           colors: {
             brand: {
-              50: '#eef2ff',
-              100: '#e0e7ff',
-              200: '#c7d2fe',
-              300: '#a5b4fc',
-              400: '#818cf8',
-              500: '#6366f1',
-              600: '#4f46e5', /* Indigo/Purple matching screenshot */
-              700: '#4338ca',
-              800: '#3730a3',
-              900: '#312e81',
-              950: '#1e1b4b',
+              50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8',
+              500: '#6366f1', 600: '#4f46e5', /* Indigo/Purple matching screenshot */
+              700: '#4338ca', 800: '#3730a3', 900: '#312e81', 950: '#1e1b4b',
             },
             viber: '#7360f2',
             whatsapp: '#25D366'
@@ -38,81 +30,18 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
     body { font-family: 'Inter', sans-serif; }
 
-    .viewport-desktop {
-      width: 100%;
-      min-height: 100vh;
-      border-radius: 0;
-      margin: 0;
-      background-color: #f8fafc;
-    }
-    .viewport-ios {
-      width: 400px;
-      height: 855px;
-      border-radius: 50px;
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 12px #1e293b, 0 0 0 14px #475569;
-      margin: 20px auto 35px auto;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      background: #f8fafc;
-    }
-    .viewport-android {
-      width: 412px;
-      height: 870px;
-      border-radius: 36px;
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 10px #0f172a, 0 0 0 12px #334155;
-      margin: 20px auto 35px auto;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      background: #f8fafc;
-    }
-    .ios-island {
-      width: 124px;
-      height: 34px;
-      background: #000;
-      border-radius: 20px;
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 60;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 12px;
-    }
-    .ios-home-indicator {
-      width: 135px;
-      height: 5px;
-      background: #0f172a;
-      border-radius: 10px;
-      position: absolute;
-      bottom: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 55;
-    }
-    .custom-scroll::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    .custom-scroll::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    .custom-scroll::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 4px;
-    }
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
+    .viewport-desktop { width: 100%; min-height: 100vh; border-radius: 0; margin: 0; background-color: #f8fafc; }
+    .viewport-ios { width: 400px; height: 855px; border-radius: 50px; box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 12px #1e293b, 0 0 0 14px #475569; margin: 20px auto 35px auto; overflow: hidden; position: relative; display: flex; flex-direction: column; background: #f8fafc; }
+    .viewport-android { width: 412px; height: 870px; border-radius: 36px; box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 10px #0f172a, 0 0 0 12px #334155; margin: 20px auto 35px auto; overflow: hidden; position: relative; display: flex; flex-direction: column; background: #f8fafc; }
+    
+    .ios-island { width: 124px; height: 34px; background: #000; border-radius: 20px; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 60; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; }
+    .ios-home-indicator { width: 135px; height: 5px; background: #0f172a; border-radius: 10px; position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); z-index: 55; }
+    
+    .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-800 antialiased min-h-screen flex flex-col">
@@ -133,7 +62,7 @@
         </div>
       </div>
 
-      <!-- Device Switcher (Pill style matching screenshot) -->
+      <!-- Device Switcher -->
       <div class="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs shadow-inner">
         <button id="deviceBtnDesktop" onclick="setDeviceMode('desktop')" class="px-4 py-2 rounded-lg bg-brand-600 text-white font-bold transition-all flex items-center gap-2">
           <i class="ph-bold ph-monitor text-base"></i>
@@ -151,7 +80,7 @@
 
       <!-- Action Button -->
       <div>
-        <button onclick="openPostModal()" class="px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-white rounded-xl text-sm font-bold flex items-center gap-2 shadow-lg shadow-teal-500/20 transition-all">
+        <button onclick="showToast('Listing flow coming soon!')" class="px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-white rounded-xl text-sm font-bold flex items-center gap-2 shadow-lg shadow-teal-500/20 transition-all">
           <i class="ph-bold ph-plus-circle text-lg"></i>
           <span>Post Listing</span>
         </button>
@@ -161,7 +90,7 @@
 
   <div id="deviceContainer" class="viewport-desktop transition-all duration-300">
 
-    <!-- iOS Status Bar (Hidden by default) -->
+    <!-- iOS Status Bar -->
     <div id="iosHeaderBar" class="hidden relative w-full bg-slate-950 text-white pt-2 pb-2 px-6 select-none shrink-0 z-40 border-b border-slate-900">
       <div class="ios-island">
         <div class="w-2.5 h-2.5 rounded-full bg-slate-800"></div>
@@ -169,58 +98,36 @@
       </div>
       <div class="flex justify-between items-center text-xs font-semibold pt-1">
         <span id="iosClock">9:41</span>
-        <div class="flex items-center space-x-1.5 text-xs">
-          <i class="ph-bold ph-wifi-high"></i>
-          <i class="ph-bold ph-battery-full text-sm text-white"></i>
-        </div>
+        <div class="flex items-center space-x-1.5 text-xs"><i class="ph-bold ph-wifi-high"></i><i class="ph-bold ph-battery-full text-sm text-white"></i></div>
       </div>
-      <div class="flex items-center justify-between pt-3 pb-1">
-        <span class="font-extrabold text-lg tracking-tight text-white">AutoPromoPH</span>
-      </div>
+      <div class="flex items-center justify-between pt-3 pb-1"><span class="font-extrabold text-lg tracking-tight text-white">AutoPromoPH</span></div>
     </div>
 
-    <!-- Android Status Bar (Hidden by default) -->
+    <!-- Android Status Bar -->
     <div id="androidHeaderBar" class="hidden relative w-full bg-slate-950 text-white px-4 pt-2 pb-2.5 select-none shrink-0 z-40 border-b border-slate-900">
       <div class="flex justify-between items-center text-xs font-medium text-slate-300 mb-1">
         <span id="androidClock">10:00</span>
-        <div class="flex items-center space-x-2 text-xs">
-          <span>5G</span>
-          <i class="ph-bold ph-battery-charging text-white"></i>
-        </div>
+        <div class="flex items-center space-x-2 text-xs"><span>5G</span><i class="ph-bold ph-battery-charging text-white"></i></div>
       </div>
-      <div class="flex items-center justify-between pt-1">
-        <span class="font-bold text-white tracking-tight text-lg">AutoPromoPH</span>
-      </div>
+      <div class="flex items-center justify-between pt-1"><span class="font-bold text-white tracking-tight text-lg">AutoPromoPH</span></div>
     </div>
 
     <div class="bg-white border-b border-slate-200 px-4 sticky top-0 z-30 shadow-sm">
       <div class="max-w-7xl mx-auto flex items-center justify-between overflow-x-auto no-scrollbar gap-4 py-3">
         <div class="flex items-center space-x-3">
-          
-          <button id="navTabBrandNew" onclick="switchMainTab('brand-new')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-brand-50 text-brand-700 border border-brand-100">
-            <i class="ph-fill ph-tag text-lg"></i>
-            <span>Brand New Deals</span>
-            <span class="px-2 py-0.5 rounded-full text-[10px] bg-brand-600 text-white ml-1">Casa</span>
+          <button id="navTabBrandNew" onclick="switchMainTab('brand-new')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-brand-50 text-brand-700 border border-brand-100 shrink-0">
+            <i class="ph-fill ph-tag text-lg"></i><span>Brand New Deals</span><span class="px-2 py-0.5 rounded-full text-[10px] bg-brand-600 text-white ml-1">Casa</span>
           </button>
-
-          <button id="navTabUsedCars" onclick="switchMainTab('used-cars')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50">
-            <i class="ph-bold ph-car text-lg"></i>
-            <span>Used Cars Marketplace</span>
-            <span class="px-2 py-0.5 rounded-full text-[10px] bg-emerald-100 text-emerald-800 ml-1 font-bold">P2P</span>
+          <button id="navTabUsedCars" onclick="switchMainTab('used-cars')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50 shrink-0">
+            <i class="ph-bold ph-car text-lg"></i><span>Used Cars Marketplace</span><span class="px-2 py-0.5 rounded-full text-[10px] bg-emerald-100 text-emerald-800 ml-1 font-bold">P2P</span>
           </button>
-
-          <button id="navTabCompare" onclick="switchMainTab('trim-compare')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50">
-            <i class="ph-bold ph-git-diff text-lg"></i>
-            <span>Trim & Feature Compare</span>
+          <button id="navTabCompare" onclick="switchMainTab('trim-compare')" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50 shrink-0">
+            <i class="ph-bold ph-git-diff text-lg"></i><span>Trim & Feature Compare</span>
           </button>
-
-          <button id="navTabLoanCalc" onclick="openCalcModal()" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50">
-            <i class="ph-bold ph-calculator text-lg"></i>
-            <span>Loan Calculator</span>
+          <button id="navTabLoanCalc" onclick="openCalcModal()" class="px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50 shrink-0">
+            <i class="ph-bold ph-calculator text-lg"></i><span>Loan Calculator</span>
           </button>
-
         </div>
-
         <div class="hidden lg:flex items-center gap-2 text-xs text-slate-500 font-medium whitespace-nowrap bg-slate-50 px-3 py-1.5 rounded-full border border-slate-100">
           <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse"></span>
           <span>Verified NCR, Luzon, Visayas & Mindanao Casa Stocks</span>
@@ -230,44 +137,28 @@
 
     <div id="scrollableAppArea" class="flex-1 overflow-y-auto custom-scroll p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
 
-      <!-- ================================================================= -->
-      <!-- TAB 1: BRAND NEW DEALS                                            -->
-      <!-- ================================================================= -->
+      <!-- TAB 1: BRAND NEW DEALS -->
       <section id="sectionBrandNew" class="space-y-6">
         
-        <!-- Large Rounded Hero Banner matching screenshot -->
         <div class="bg-slate-900 rounded-[2rem] p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
-          <!-- Background decoration -->
-          <div class="absolute -right-20 -bottom-20 opacity-5 text-white pointer-events-none">
-            <i class="ph-fill ph-car-profile text-[20rem]"></i>
-          </div>
-
+          <div class="absolute -right-20 -bottom-20 opacity-5 text-white pointer-events-none"><i class="ph-fill ph-car-profile text-[20rem]"></i></div>
           <div class="max-w-2xl relative z-10">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-xs text-slate-300 mb-4 font-medium">
-              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-              <span>Philippines' Car Deals Aggregator • Verified Monthly Allocation</span>
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span><span>Philippines' Car Deals Aggregator • Verified Monthly Allocation</span>
             </div>
-            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-3">
-              Real Dealership Floor Units.<br>Verified Promos.
-            </h1>
-            <p class="text-sm sm:text-base text-slate-400 max-w-xl">
-              Skip endless Facebook comment inquiries. Compare All-in Down Payments, straight cash discounts, and bank tie-ups side-by-side.
-            </p>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-3">Real Dealership Floor Units.<br>Verified Promos.</h1>
+            <p class="text-sm sm:text-base text-slate-400 max-w-xl">Skip endless Facebook comment inquiries. Compare All-in Down Payments, straight cash discounts, and bank tie-ups side-by-side.</p>
           </div>
 
-          <!-- Mode Toggle & Urgency Info -->
           <div class="mt-8 flex flex-wrap items-end justify-between gap-4 relative z-10">
             <div class="flex items-center bg-slate-950/50 p-1.5 rounded-2xl border border-slate-800 backdrop-blur-sm">
               <button id="modeBtnFinancing" onclick="setBuyerMode('financing')" class="px-5 py-2.5 rounded-xl bg-brand-600 text-white text-sm font-bold transition-all shadow-lg flex items-center gap-2">
-                <i class="ph-bold ph-credit-card"></i>
-                <span>All-in Low DP / Financing</span>
+                <i class="ph-bold ph-credit-card"></i><span>All-in Low DP / Financing</span>
               </button>
               <button id="modeBtnCash" onclick="setBuyerMode('cash')" class="px-5 py-2.5 rounded-xl text-slate-400 hover:text-white text-sm font-bold transition-all flex items-center gap-2">
-                <i class="ph-bold ph-money"></i>
-                <span>Straight Cash Discounts</span>
+                <i class="ph-bold ph-money"></i><span>Straight Cash Discounts</span>
               </button>
             </div>
-
             <div class="flex items-center gap-2 text-sm text-slate-300 bg-slate-950/30 px-4 py-2 rounded-xl backdrop-blur-sm">
               <span class="text-amber-400 font-bold flex items-center gap-1.5"><i class="ph-bold ph-clock"></i> Promo Validity:</span>
               <span>Deals marked with urgency & expiration locks</span>
@@ -279,82 +170,49 @@
           <div class="flex flex-col md:flex-row gap-4">
             <div class="relative flex-1">
               <i class="ph-bold ph-magnifying-glass absolute left-4 top-3.5 text-slate-400 text-lg"></i>
-              <input 
-                type="text" 
-                id="brandNewSearch" 
-                placeholder="Search model: Vios, City, Xpander, Ranger, Raize, Jimny, Fortuner..." 
-                class="w-full pl-11 pr-4 py-3 text-sm rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all font-medium placeholder-slate-400"
-                oninput="applyBrandNewFilters()"
-              />
+              <input type="text" id="brandNewSearch" placeholder="Search model: Vios, City, Xpander, Ranger, Raize, Jimny, Fortuner..." class="w-full pl-11 pr-4 py-3 text-sm rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all font-medium placeholder-slate-400" oninput="applyBrandNewFilters()"/>
             </div>
             <div class="w-full md:w-48">
               <select id="brandNewMakeFilter" onchange="applyBrandNewFilters()" class="w-full py-3 px-4 text-sm rounded-xl bg-slate-50 border border-slate-200 font-bold text-slate-700 focus:ring-2 focus:ring-brand-500">
-                <option value="ALL">All Brands</option>
-                <option value="Toyota">Toyota</option>
-                <option value="Honda">Honda</option>
-                <option value="Mitsubishi">Mitsubishi</option>
-                <option value="Ford">Ford</option>
-                <option value="Suzuki">Suzuki</option>
+                <option value="ALL">All Brands</option><option value="Toyota">Toyota</option><option value="Honda">Honda</option>
+                <option value="Mitsubishi">Mitsubishi</option><option value="Ford">Ford</option><option value="Suzuki">Suzuki</option>
               </select>
             </div>
             <div class="w-full md:w-56">
               <select id="brandNewLocationFilter" onchange="applyBrandNewFilters()" class="w-full py-3 px-4 text-sm rounded-xl bg-slate-50 border border-slate-200 font-bold text-slate-700 focus:ring-2 focus:ring-brand-500">
-                <option value="ALL">All Dealership Locations</option>
-                <option value="BGC">Metro Manila - BGC / Taguig</option>
-                <option value="Makati">Metro Manila - Makati</option>
-                <option value="Pasig">Metro Manila - Pasig</option>
-                <option value="Quezon City">Metro Manila - Quezon City</option>
-                <option value="Pampanga">Central Luzon - Pampanga</option>
+                <option value="ALL">All Dealership Locations</option><option value="BGC">Metro Manila - BGC / Taguig</option>
+                <option value="Makati">Metro Manila - Makati</option><option value="Pasig">Metro Manila - Pasig</option>
+                <option value="Quezon City">Metro Manila - Quezon City</option><option value="Pampanga">Central Luzon - Pampanga</option>
               </select>
             </div>
           </div>
-
-          <!-- Tag Pills (Matching screenshot style) -->
           <div class="mt-4 pt-4 border-t border-slate-100 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
             <span class="text-slate-400 text-xs font-bold shrink-0 mr-1 uppercase tracking-wider">Tags:</span>
-            <button onclick="toggleBNTag('IN_STOCK')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="IN_STOCK">
-              🏎️ Immediate Release (In Stock)
-            </button>
-            <button onclick="toggleBNTag('LOW_DP')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="LOW_DP">
-              ⚡ All-in Low DP (&lt; ₱50K)
-            </button>
-            <button onclick="toggleBNTag('EXPIRING')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="EXPIRING">
-              ⏳ Expiring This Week
-            </button>
-            <button onclick="toggleBNTag('FREE_INSURANCE')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="FREE_INSURANCE">
-              🎁 Free 1-Yr Comprehensive Ins.
-            </button>
+            <button onclick="toggleBNTag('IN_STOCK')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="IN_STOCK">🏎️ Immediate Release (In Stock)</button>
+            <button onclick="toggleBNTag('LOW_DP')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="LOW_DP">⚡ All-in Low DP (&lt; ₱50K)</button>
+            <button onclick="toggleBNTag('EXPIRING')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="EXPIRING">⏳ Expiring This Week</button>
+            <button onclick="toggleBNTag('FREE_INSURANCE')" class="bn-tag-pill shrink-0 px-3 py-1.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold shadow-sm transition-all flex items-center gap-1.5" data-tag="FREE_INSURANCE">🎁 Free 1-Yr Comprehensive Ins.</button>
           </div>
         </div>
 
-        <div id="brandNewDealsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Dynamically Injected Cards -->
-        </div>
-
+        <div id="brandNewDealsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
       </section>
 
-      <!-- ================================================================= -->
-      <!-- TAB 2: USED CARS MARKETPLACE (Simplified to focus on core)        -->
-      <!-- ================================================================= -->
+      <!-- TAB 2: USED CARS -->
       <section id="sectionUsedCars" class="hidden space-y-6">
         <div class="bg-emerald-900 rounded-[2rem] p-8 text-white shadow-xl">
           <h2 class="text-3xl font-extrabold mb-2">Verified Pre-Owned & P2P Marketplace</h2>
           <p class="text-emerald-100">Browse units with verified OR/CR papers and explicit Metro Manila coding days.</p>
         </div>
-        <div id="usedCarsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Dynamically Injected -->
-        </div>
+        <div id="usedCarsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
       </section>
 
-      <!-- ================================================================= -->
-      <!-- TAB 3: TRIM COMPARISON                                            -->
-      <!-- ================================================================= -->
+      <!-- TAB 3: TRIM COMPARISON -->
       <section id="sectionTrimCompare" class="hidden space-y-6">
-        <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm">
-           <h2 class="text-2xl font-black text-slate-900 mb-4">Trim & Feature Decision Engine</h2>
-           <p class="text-slate-500 mb-6">Compare specifications, promos, and features side-by-side.</p>
-           <!-- Table Render Target -->
-           <div id="trimComparisonOutput" class="overflow-x-auto"></div>
+        <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+           <h2 class="text-2xl font-black text-slate-900 mb-2">Trim & Feature Decision Engine</h2>
+           <p class="text-slate-500 mb-6 font-medium">Compare actual market promos, specifications, and features side-by-side.</p>
+           <div id="trimComparisonOutput" class="overflow-x-auto custom-scroll pb-4"></div>
         </div>
       </section>
 
@@ -362,93 +220,106 @@
 
     <div id="iosTabBar" class="hidden relative w-full bg-slate-950/95 backdrop-blur-md border-t border-slate-900 px-6 pt-3 pb-8 select-none shrink-0 z-40">
       <div class="flex justify-between items-center text-[10px] text-slate-500 font-medium">
-        <button onclick="switchMainTab('brand-new')" id="iosTabBtnBrandNew" class="flex flex-col items-center gap-1.5 text-brand-400">
-          <i class="ph-fill ph-tag text-2xl"></i>
-          <span>Brand New</span>
-        </button>
-        <button onclick="switchMainTab('used-cars')" id="iosTabBtnUsed" class="flex flex-col items-center gap-1.5 hover:text-white">
-          <i class="ph-bold ph-car text-2xl"></i>
-          <span>Used Cars</span>
-        </button>
-        <button onclick="switchMainTab('trim-compare')" id="iosTabBtnCompare" class="flex flex-col items-center gap-1.5 hover:text-white">
-          <i class="ph-bold ph-git-diff text-2xl"></i>
-          <span>Compare</span>
-        </button>
-        <button onclick="openCalcModal()" class="flex flex-col items-center gap-1.5 hover:text-white">
-          <i class="ph-bold ph-calculator text-2xl"></i>
-          <span>Calculator</span>
-        </button>
+        <button onclick="switchMainTab('brand-new')" class="flex flex-col items-center gap-1.5 text-brand-400"><i class="ph-fill ph-tag text-2xl"></i><span>Brand New</span></button>
+        <button onclick="switchMainTab('used-cars')" class="flex flex-col items-center gap-1.5 hover:text-white"><i class="ph-bold ph-car text-2xl"></i><span>Used Cars</span></button>
+        <button onclick="switchMainTab('trim-compare')" class="flex flex-col items-center gap-1.5 hover:text-white"><i class="ph-bold ph-git-diff text-2xl"></i><span>Compare</span></button>
+        <button onclick="openCalcModal()" class="flex flex-col items-center gap-1.5 hover:text-white"><i class="ph-bold ph-calculator text-2xl"></i><span>Calculator</span></button>
       </div>
       <div class="ios-home-indicator"></div>
     </div>
 
     <div id="androidTabBar" class="hidden relative w-full bg-slate-950 border-t border-slate-900 px-4 py-3 select-none shrink-0 z-40">
       <div class="flex justify-around items-center text-[11px] text-slate-400 font-medium">
-        <button onclick="switchMainTab('brand-new')" class="flex flex-col items-center gap-1 text-emerald-400">
-          <div class="px-4 py-1 rounded-full bg-emerald-400/20 mb-1">
-            <i class="ph-fill ph-tag text-xl"></i>
-          </div>
-          <span>Deals</span>
-        </button>
-        <button onclick="switchMainTab('used-cars')" class="flex flex-col items-center gap-1 hover:text-white">
-          <div class="px-4 py-1 mb-1"><i class="ph-bold ph-car text-xl"></i></div>
-          <span>Pre-Owned</span>
-        </button>
-        <button onclick="switchMainTab('trim-compare')" class="flex flex-col items-center gap-1 hover:text-white">
-          <div class="px-4 py-1 mb-1"><i class="ph-bold ph-git-diff text-xl"></i></div>
-          <span>Compare</span>
-        </button>
+        <button onclick="switchMainTab('brand-new')" class="flex flex-col items-center gap-1 text-emerald-400"><div class="px-4 py-1 rounded-full bg-emerald-400/20 mb-1"><i class="ph-fill ph-tag text-xl"></i></div><span>Deals</span></button>
+        <button onclick="switchMainTab('used-cars')" class="flex flex-col items-center gap-1 hover:text-white"><div class="px-4 py-1 mb-1"><i class="ph-bold ph-car text-xl"></i></div><span>Pre-Owned</span></button>
+        <button onclick="switchMainTab('trim-compare')" class="flex flex-col items-center gap-1 hover:text-white"><div class="px-4 py-1 mb-1"><i class="ph-bold ph-git-diff text-xl"></i></div><span>Compare</span></button>
       </div>
     </div>
 
   </div> <!-- End Device Container -->
 
   
-  <!-- Auto Loan Calculator -->
+  <!-- TRIMS SELECTION MODAL -->
+  <div id="trimsModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-[2rem] max-w-2xl w-full shadow-2xl relative flex flex-col max-h-[90vh]">
+      <div class="p-6 border-b border-slate-100 flex justify-between items-center sticky top-0 bg-white rounded-t-[2rem] z-10 shadow-sm">
+        <div>
+          <h3 class="text-2xl font-black text-slate-900" id="trimsModalTitle">Vehicle Name</h3>
+          <p class="text-sm text-slate-500 font-medium mt-1">Select a specific trim below to view actual promos.</p>
+        </div>
+        <button onclick="closeTrimsModal()" class="text-slate-400 hover:text-slate-700 bg-slate-100 p-2.5 rounded-full transition-colors">
+          <i class="ph-bold ph-x text-xl"></i>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto custom-scroll bg-slate-50/50" id="trimsListContainer">
+        <!-- Trims dynamically injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- UPGRADED AUTO LOAN CALCULATOR -->
   <div id="calcModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative">
-      <button onclick="closeCalcModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full">
+    <div class="bg-white rounded-[2rem] max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scroll">
+      <button onclick="closeCalcModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 p-2.5 rounded-full transition-colors">
         <i class="ph-bold ph-x text-xl"></i>
       </button>
-      <h3 class="text-xl font-black text-slate-900 mb-1">Auto Financing Calculator</h3>
-      <p class="text-sm text-slate-500 mb-6">Includes Chattel Mortgage, 1-Yr Ins., & LTO Fees</p>
-      <!-- Calc implementation simplified for rendering speed, but fully functional -->
-      <div class="grid md:grid-cols-2 gap-6">
+      <h3 class="text-2xl font-black text-slate-900 mb-1">Philippine Auto Financing Calculator</h3>
+      <p class="text-sm text-slate-500 mb-6 font-medium">Compare standard bank approvals vs. Casa "All-In" Promos.</p>
+      
+      <div class="grid md:grid-cols-2 gap-8">
         <div class="space-y-4">
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Vehicle SRP (₱)</label>
-            <input type="number" id="calcSrp" value="1128000" oninput="calculateLoanLive()" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold">
+            <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Vehicle SRP (₱)</label>
+            <input type="number" id="calcSrp" value="1128000" oninput="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-black text-lg focus:ring-2 focus:ring-brand-500 outline-none transition-all">
           </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Down Payment %</label>
-            <select id="calcDpPercent" onchange="calculateLoanLive()" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold">
-              <option value="15">15%</option>
-              <option value="20" selected>20% Standard</option>
-              <option value="30">30%</option>
-            </select>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Down Payment %</label>
+              <select id="calcDpPercent" onchange="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-bold focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                <option value="15">15%</option><option value="20" selected>20% Standard</option><option value="30">30%</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Loan Tenure</label>
+              <select id="calcTermMos" onchange="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-bold focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                <option value="36">36 Months</option><option value="48">48 Months</option><option value="60" selected>60 Months</option>
+              </select>
+            </div>
           </div>
+
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Loan Tenure</label>
-            <select id="calcTermMos" onchange="calculateLoanLive()" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold">
-              <option value="36">36 Months</option>
-              <option value="48">48 Months</option>
-              <option value="60" selected>60 Months</option>
-            </select>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Annual Add-on Rate %</label>
+            <div class="relative">
+              <input type="number" id="calcRate" value="9.8" step="0.1" oninput="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-bold pr-8 focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+              <span class="absolute right-4 top-3.5 text-slate-400 font-bold">%</span>
+            </div>
+          </div>
+
+          <div class="p-5 bg-brand-50 border border-brand-100 rounded-xl mt-4 shadow-sm">
+            <div class="text-[10px] font-bold text-brand-700 uppercase mb-3 tracking-wide">Toggle Casa "All-In" Freebies</div>
+            <div class="space-y-3.5 text-sm font-bold text-slate-700">
+              <label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox" id="calcFreeChattel" onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"><span class="group-hover:text-brand-700 transition-colors">Waive Chattel Mortgage Fee</span></label>
+              <label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox" id="calcFreeIns" onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"><span class="group-hover:text-brand-700 transition-colors">Free 1-Yr Comprehensive Insurance</span></label>
+              <label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox" id="calcFreeLTO" onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4"><span class="group-hover:text-brand-700 transition-colors">Free 3-Yr LTO Registration</span></label>
+            </div>
           </div>
         </div>
-        <div class="bg-slate-900 text-white p-6 rounded-2xl flex flex-col justify-between">
+        
+        <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-[1.5rem] flex flex-col justify-between shadow-lg">
           <div>
             <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wide">Est. Monthly Amortization</div>
-            <div id="calcResMonthly" class="text-3xl font-black text-brand-400 mt-1">₱20,400</div>
-            <div class="text-xs text-slate-400 mt-1">For <span id="calcResTermLabel">60</span> months</div>
+            <div id="calcResMonthly" class="text-4xl font-black text-brand-400 mt-1">₱0</div>
+            <div class="text-xs text-slate-400 mt-1 font-medium">For <span id="calcResTermLabel">60</span> months</div>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-800 space-y-2 text-sm text-slate-300">
-            <div class="flex justify-between"><span>Net DP:</span><strong id="calcResNetDP" class="text-white">₱225,600</strong></div>
-            <div class="flex justify-between"><span>Chattel:</span><span id="calcResChattel">₱22,560</span></div>
-            <div class="flex justify-between"><span>Insurance:</span><span id="calcResInsurance">₱31,584</span></div>
-            <div class="flex justify-between mt-2 pt-2 border-t border-slate-800">
-              <span class="font-bold text-white">Total Cash Outlay:</span>
-              <strong id="calcResTotalOutlay" class="text-brand-400 text-lg">₱289,244</strong>
+          <div class="mt-8 pt-6 border-t border-slate-800 space-y-3.5 text-sm text-slate-300">
+            <div class="flex justify-between items-center"><span>Base DP:</span><strong id="calcResNetDP" class="text-white text-base">₱0</strong></div>
+            <div class="flex justify-between items-center"><span>Chattel Fee:</span><span id="calcResChattel" class="font-medium">₱0</span></div>
+            <div class="flex justify-between items-center"><span>Insurance (1yr):</span><span id="calcResInsurance" class="font-medium">₱0</span></div>
+            <div class="flex justify-between items-center"><span>LTO Reg (3yr):</span><span id="calcResLTO" class="font-medium">₱0</span></div>
+            <div class="flex justify-between items-center mt-4 pt-4 border-t border-slate-800">
+              <span class="font-bold text-white text-base">Total Cash Outlay:</span>
+              <strong id="calcResTotalOutlay" class="text-amber-400 text-2xl font-black">₱0</strong>
             </div>
           </div>
         </div>
@@ -459,185 +330,109 @@
   <!-- Inquiry Modal -->
   <div id="inquireModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-sm w-full p-6 text-center shadow-2xl relative">
-      <button onclick="closeInquireModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full">
-        <i class="ph-bold ph-x"></i>
-      </button>
-      <div class="w-16 h-16 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-3">
-        <i class="ph-fill ph-headset text-3xl"></i>
-      </div>
+      <button onclick="closeInquireModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full"><i class="ph-bold ph-x"></i></button>
+      <div class="w-16 h-16 bg-brand-50 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-3"><i class="ph-fill ph-headset text-3xl"></i></div>
       <h3 class="text-lg font-black text-slate-900" id="inquireAgentName">Agent Name</h3>
       <p class="text-xs text-slate-500 font-medium" id="inquireDealerBranch">Dealership Branch</p>
       
       <div class="my-5 p-4 bg-slate-50 rounded-2xl border border-slate-200 text-left">
         <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-1">Inquiry Regarding</div>
-        <div class="font-black text-slate-900 text-base leading-tight" id="inquireVehicleTitle">-</div>
-        <div class="mt-2 flex justify-between text-sm">
-          <span class="font-medium text-slate-600" id="inquirePricingLabel">Pricing:</span>
-          <span class="font-black text-brand-600" id="inquireVehiclePrice">-</span>
+        <div class="font-black text-slate-900 text-sm leading-tight" id="inquireVehicleTitle">-</div>
+        <div class="mt-2 flex justify-between items-center pt-2 border-t border-slate-200 mt-2">
+          <span class="font-bold text-slate-500 text-xs" id="inquirePricingLabel">Pricing:</span>
+          <span class="font-black text-brand-600 text-base" id="inquireVehiclePrice">-</span>
         </div>
       </div>
 
       <div class="space-y-3">
-        <button onclick="launchViberAction()" class="w-full py-3.5 bg-viber hover:brightness-110 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-viber/30 transition-all">
-          <i class="ph-fill ph-phone-call text-xl"></i>
-          <span>Direct Viber Chat</span>
-        </button>
-        <button onclick="launchWhatsAppAction()" class="w-full py-3.5 bg-whatsapp hover:brightness-110 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-whatsapp/30 transition-all">
-          <i class="ph-fill ph-whatsapp-logo text-xl"></i>
-          <span>WhatsApp Message</span>
-        </button>
+        <button onclick="launchViberAction()" class="w-full py-3.5 bg-viber hover:brightness-110 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-viber/30 transition-all"><i class="ph-fill ph-phone-call text-xl"></i><span>Direct Viber Chat</span></button>
+        <button onclick="launchWhatsAppAction()" class="w-full py-3.5 bg-whatsapp hover:brightness-110 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-whatsapp/30 transition-all"><i class="ph-fill ph-whatsapp-logo text-xl"></i><span>WhatsApp Message</span></button>
       </div>
     </div>
   </div>
 
   <!-- Global Toast -->
   <div id="toast" class="fixed top-20 right-5 z-50 transform translate-y-10 opacity-0 pointer-events-none transition-all duration-300 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 border border-slate-700 font-medium text-sm">
-    <i id="toastIcon" class="ph-fill ph-check-circle text-emerald-400 text-xl"></i>
-    <span id="toastMsg">Notification</span>
+    <i id="toastIcon" class="ph-fill ph-check-circle text-emerald-400 text-xl"></i><span id="toastMsg">Notification</span>
   </div>
 
   <script>
-    
     let currentBuyerMode = 'financing';
     let currentDevice = 'desktop';
     let activeBNTag = null;
-    let currentInquireTarget = null;
+    let compareList = [];
 
-    // Using reliable, high-quality Unsplash images representing vehicle types perfectly
+    // Upgraded data structure holding the exact Image URLs provided by the user, but now supporting Trims arrays.
     const brandNewDealsData = [
       {
-        id: "bn-1",
-        brand: "Honda",
-        model: "Honda City 1.5 RS CVT Sedan",
-        srp: 1128000,
-        allInDp: 45000,
-        monthlyAmort: 23150,
-        cashDiscount: 50000,
-        netCashPrice: 1078000,
-        promoPeriod: "Valid until Friday Only",
-        urgencyColor: "bg-rose-600",
-        stockStatus: "Immediate Release (In Stock)",
-        branch: "Honda Cars Makati",
-        locationTag: "Makati",
-        agentName: "Ryan Patrick Tan",
-        agentViber: "0917-302-8871",
+        id: "bn-1", brand: "Honda", year: 2024, baseModel: "City Sedan",
+        promoPeriod: "Valid until Friday Only", urgencyColor: "bg-rose-600",
+        stockStatus: "Immediate Release (In Stock)", branch: "Honda Cars Makati", locationTag: "Makati",
+        agentName: "Ryan Patrick Tan", agentViber: "0917-302-8871", badge: "Honda SENSING Suite", coverage: "Branch Exclusive",
         inclusions: { insurance: true, chattel: true },
-        badge: "Honda SENSING Suite",
-        coverage: "Branch Exclusive",
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRyWkrfggOyuEq3wi6JtyYoAokSDpxP6q6iFInmu66FHAIVsxi5aCUXgFV&s=10" // Modern Sedan
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRyWkrfggOyuEq3wi6JtyYoAokSDpxP6q6iFInmu66FHAIVsxi5aCUXgFV&s=10",
+        trims: [
+          { name: "1.5 V CVT", srp: 973000, allInDp: 35000, monthlyAmort: 19990, cashDiscount: 35000, specs: { engine: "1.5L DOHC i-VTEC", power: "121 hp / 145 Nm", trans: "CVT" } },
+          { name: "1.5 RS CVT SENSING", srp: 1128000, allInDp: 45000, monthlyAmort: 23150, cashDiscount: 50000, specs: { engine: "1.5L DOHC i-VTEC", power: "121 hp / 145 Nm", trans: "CVT w/ Paddle Shifters" } }
+        ]
       },
       {
-        id: "bn-2",
-        brand: "Toyota",
-        model: "Toyota Vios 1.3 XLE CVT",
-        srp: 882000,
-        allInDp: 28000,
-        monthlyAmort: 18240,
-        cashDiscount: 65000,
-        netCashPrice: 817000,
-        promoPeriod: "Valid until End of Month",
-        urgencyColor: "bg-rose-600",
-        stockStatus: "Immediate Release (In Stock)",
-        branch: "Toyota BGC / Taguig",
-        locationTag: "BGC",
-        agentName: "Mark Anthony Santos",
-        agentViber: "0917-882-9102",
+        id: "bn-2", brand: "Toyota", year: 2024, baseModel: "Vios",
+        promoPeriod: "Valid until End of Month", urgencyColor: "bg-rose-600",
+        stockStatus: "Immediate Release (In Stock)", branch: "Toyota BGC / Taguig", locationTag: "BGC",
+        agentName: "Mark Anthony Santos", agentViber: "0917-882-9102", badge: "Top Volume Seller", coverage: "Nationwide Promo",
         inclusions: { insurance: true, chattel: true },
-        badge: "Top Volume Seller",
-        coverage: "Nationwide Promo",
-        imageUrl: "https://visor.ph/wp-content/uploads/2023/03/Toyota-Vios-1.3-XLE-CVT-The-quintessential-first-car-1.jpg" // Sleek car
+        imageUrl: "https://visor.ph/wp-content/uploads/2023/03/Toyota-Vios-1.3-XLE-CVT-The-quintessential-first-car-1.jpg",
+        trims: [
+          { name: "1.3 J MT", srp: 732000, allInDp: 15000, monthlyAmort: 14850, cashDiscount: 45000, specs: { engine: "1.3L Dual VVT-i", power: "98 hp / 123 Nm", trans: "5-Speed Manual" } },
+          { name: "1.3 XLE CVT", srp: 882000, allInDp: 28000, monthlyAmort: 18240, cashDiscount: 65000, specs: { engine: "1.3L Dual VVT-i", power: "98 hp / 123 Nm", trans: "CVT" } },
+          { name: "1.5 G CVT", srp: 1039000, allInDp: 38000, monthlyAmort: 21500, cashDiscount: 50000, specs: { engine: "1.5L Dual VVT-i", power: "106 hp / 140 Nm", trans: "CVT" } }
+        ]
       },
       {
-        id: "bn-3",
-        brand: "Mitsubishi",
-        model: "Mitsubishi Xpander 1.5 GLX AT",
-        srp: 1128000,
-        allInDp: 48000,
-        monthlyAmort: 23150,
-        cashDiscount: 80000,
-        netCashPrice: 1048000,
-        promoPeriod: "Month-End Special",
-        urgencyColor: "bg-rose-600",
-        stockStatus: "Immediate Release (In Stock)",
-        branch: "Mitsubishi Pasig / Ortigas",
-        locationTag: "Pasig",
-        agentName: "Maria Cristina Gomez",
-        agentViber: "0918-554-1290",
+        id: "bn-3", brand: "Mitsubishi", year: 2024, baseModel: "Xpander",
+        promoPeriod: "Month-End Special", urgencyColor: "bg-rose-600",
+        stockStatus: "Immediate Release (In Stock)", branch: "Mitsubishi Pasig / Ortigas", locationTag: "Pasig",
+        agentName: "Maria Cristina Gomez", agentViber: "0918-554-1290", badge: "7-Seater Choice", coverage: "Branch Exclusive",
         inclusions: { insurance: true, chattel: true },
-        badge: "7-Seater Choice",
-        coverage: "Branch Exclusive",
-        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/89/Mitsubishi_Xpander_NC1W_FL2_1.5_GLX_Graphite_Gray_Metallic_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" // SUV/MPV vibe
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/89/Mitsubishi_Xpander_NC1W_FL2_1.5_GLX_Graphite_Gray_Metallic_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+        trims: [
+          { name: "1.5 GLX MT", srp: 1068000, allInDp: 38000, monthlyAmort: 21500, cashDiscount: 60000, specs: { engine: "1.5L MIVEC", power: "104 hp / 141 Nm", trans: "5-Speed Manual" } },
+          { name: "1.5 GLS AT", srp: 1198000, allInDp: 48000, monthlyAmort: 24150, cashDiscount: 80000, specs: { engine: "1.5L MIVEC", power: "104 hp / 141 Nm", trans: "4-Speed Automatic" } }
+        ]
       },
       {
-        id: "bn-4",
-        brand: "Ford",
-        model: "Ford Ranger 2.0 Bi-Turbo Wildtrak 4x2",
-        srp: 1614000,
-        allInDp: 99000,
-        monthlyAmort: 33480,
-        cashDiscount: 90000,
-        netCashPrice: 1524000,
-        promoPeriod: "Weekend Flash Special",
-        urgencyColor: "bg-amber-600",
-        stockStatus: "Port Transit (3-5 Days)",
-        branch: "Ford Quezon Avenue",
-        locationTag: "Quezon City",
-        agentName: "Paolo Rodriguez",
-        agentViber: "0998-311-7782",
+        id: "bn-4", brand: "Ford", year: 2024, baseModel: "Ranger",
+        promoPeriod: "Weekend Flash Special", urgencyColor: "bg-amber-600",
+        stockStatus: "Port Transit (3-5 Days)", branch: "Ford Quezon Avenue", locationTag: "Quezon City",
+        agentName: "Paolo Rodriguez", agentViber: "0998-311-7782", badge: "Bi-Turbo Power", coverage: "Nationwide Promo",
         inclusions: { insurance: true, chattel: false },
-        badge: "Bi-Turbo Power",
-        coverage: "Nationwide Promo",
-        imageUrl: "https://d1hv7ee95zft1i.cloudfront.net/custom/car-model-variant-photo/gallery/ford-ranger-2-0-turbo-wildtrak-4x2-at-66d57ff1297de.jpg" // Pickup truck
+        imageUrl: "https://d1hv7ee95zft1i.cloudfront.net/custom/car-model-variant-photo/gallery/ford-ranger-2-0-turbo-wildtrak-4x2-at-66d57ff1297de.jpg",
+        trims: [
+          { name: "2.0 Turbo Sport 4x2 AT", srp: 1494000, allInDp: 89000, monthlyAmort: 31000, cashDiscount: 70000, specs: { engine: "2.0L Single Turbo", power: "170 hp / 405 Nm", trans: "6-Speed AT" } },
+          { name: "2.0 Bi-Turbo Wildtrak 4x2 AT", srp: 1614000, allInDp: 99000, monthlyAmort: 33480, cashDiscount: 90000, specs: { engine: "2.0L Bi-Turbo", power: "210 hp / 500 Nm", trans: "10-Speed AT" } }
+        ]
       },
       {
-        id: "bn-5",
-        brand: "Suzuki",
-        model: "Suzuki Jimny 1.5 GLX AT (AllGrip Pro)",
-        srp: 1320000,
-        allInDp: 115000,
-        monthlyAmort: 27500,
-        cashDiscount: 0,
-        netCashPrice: 1320000,
-        promoPeriod: "Waitlist Queue",
-        urgencyColor: "bg-slate-700",
-        stockStatus: "Waitlist Indent (15-30 Days)",
-        branch: "Suzuki San Fernando",
-        locationTag: "Pampanga",
-        agentName: "Camille Vergara",
-        agentViber: "0917-219-4820",
+        id: "bn-5", brand: "Suzuki", year: 2024, baseModel: "Jimny",
+        promoPeriod: "Waitlist Queue", urgencyColor: "bg-slate-700",
+        stockStatus: "Waitlist Indent (15-30 Days)", branch: "Suzuki San Fernando", locationTag: "Pampanga",
+        agentName: "Camille Vergara", agentViber: "0917-219-4820", badge: "High Demand Indent", coverage: "Branch Exclusive",
         inclusions: { insurance: false, chattel: false },
-        badge: "High Demand Indent",
-        coverage: "Branch Exclusive",
-        imageUrl: "https://static.ccs.co.za/generic-images/0000219445/1_4e32d8c73cd36d62d509e768533a98a9.jpg" // Compact Offroader
+        imageUrl: "https://static.ccs.co.za/generic-images/0000219445/1_4e32d8c73cd36d62d509e768533a98a9.jpg",
+        trims: [
+          { name: "1.5 GL MT (AllGrip Pro)", srp: 1258000, allInDp: 105000, monthlyAmort: 26100, cashDiscount: 0, specs: { engine: "1.5L K15B", power: "100 hp / 130 Nm", trans: "5-Speed MT 4x4" } },
+          { name: "1.5 GLX AT (AllGrip Pro)", srp: 1320000, allInDp: 115000, monthlyAmort: 27500, cashDiscount: 0, specs: { engine: "1.5L K15B", power: "100 hp / 130 Nm", trans: "4-Speed AT 4x4" } }
+        ]
       }
     ];
 
     const usedCarsData = [
-      {
-        id: "used-1",
-        title: "2019 Toyota Fortuner 2.4 G Diesel AT",
-        price: 1080000,
-        mileage: 48500,
-        plateEnding: "Tuesday (Ending 3, 4)",
-        location: "Quezon City",
-        sellerName: "Direct Owner",
-        imageUrl: "https://images.topgear.com.ph/topgear/images/2020/02/25/toyota-fortuner-trd-main-1582618501.jpg"
-      },
-      {
-        id: "used-2",
-        title: "2018 Mazda 3 2.0 SkyActiv Sedan",
-        price: 645000,
-        mileage: 42000,
-        plateEnding: "Monday (Ending 1, 2)",
-        location: "Pasig",
-        sellerName: "Direct Owner",
-        imageUrl: "https://www.samarins.com/reviews/img/Mazda-3-GT-2018.jpg"
-      }
+      { id: "used-1", title: "2019 Toyota Fortuner 2.4 G Diesel AT", price: 1080000, mileage: 48500, plateEnding: "Tuesday (Ending 3, 4)", location: "Quezon City", sellerName: "Direct Owner", imageUrl: "https://images.topgear.com.ph/topgear/images/2020/02/25/toyota-fortuner-trd-main-1582618501.jpg" },
+      { id: "used-2", title: "2018 Mazda 3 2.0 SkyActiv Sedan", price: 645000, mileage: 42000, plateEnding: "Monday (Ending 1, 2)", location: "Pasig", sellerName: "Direct Owner", imageUrl: "https://www.samarins.com/reviews/img/Mazda-3-GT-2018.jpg" }
     ];
 
-    function formatPHP(amount) {
-      return '₱' + Number(amount).toLocaleString('en-PH');
-    }
+    function formatPHP(amount) { return '₱' + Number(amount).toLocaleString('en-PH'); }
 
     function switchMainTab(tabId) {
       document.getElementById('sectionBrandNew').classList.add('hidden');
@@ -647,19 +442,19 @@
       const tabs = ['navTabBrandNew', 'navTabUsedCars', 'navTabCompare', 'navTabLoanCalc'];
       tabs.forEach(id => {
         const el = document.getElementById(id);
-        if(el) el.className = 'px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50';
+        if(el) el.className = 'px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 text-slate-600 hover:bg-slate-50 shrink-0';
       });
 
       if (tabId === 'brand-new') {
         document.getElementById('sectionBrandNew').classList.remove('hidden');
-        document.getElementById('navTabBrandNew').className = 'px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-brand-50 text-brand-700 border border-brand-100';
+        document.getElementById('navTabBrandNew').className = 'px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-brand-50 text-brand-700 border border-brand-100 shrink-0';
       } else if (tabId === 'used-cars') {
         document.getElementById('sectionUsedCars').classList.remove('hidden');
-        document.getElementById('navTabUsedCars').className = 'px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-100';
+        document.getElementById('navTabUsedCars').className = 'px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-emerald-50 text-emerald-800 border border-emerald-100 shrink-0';
         renderUsedCars();
       } else if (tabId === 'trim-compare') {
         document.getElementById('sectionTrimCompare').classList.remove('hidden');
-        document.getElementById('navTabCompare').className = 'px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-indigo-50 text-indigo-800 border border-indigo-100';
+        document.getElementById('navTabCompare').className = 'px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 bg-indigo-50 text-indigo-800 border border-indigo-100 shrink-0';
         renderCompare();
       }
     }
@@ -668,7 +463,6 @@
       currentBuyerMode = mode;
       const btnFin = document.getElementById('modeBtnFinancing');
       const btnCash = document.getElementById('modeBtnCash');
-
       if (mode === 'financing') {
         btnFin.className = 'px-5 py-2.5 rounded-xl bg-brand-600 text-white text-sm font-bold transition-all shadow-lg flex items-center gap-2';
         btnCash.className = 'px-5 py-2.5 rounded-xl text-slate-400 hover:text-white text-sm font-bold transition-all flex items-center gap-2';
@@ -682,68 +476,49 @@
     function setDeviceMode(mode) {
       currentDevice = mode;
       const container = document.getElementById('deviceContainer');
-      const iosHead = document.getElementById('iosHeaderBar');
-      const iosTab = document.getElementById('iosTabBar');
-      const androidHead = document.getElementById('androidHeaderBar');
-      const androidTab = document.getElementById('androidTabBar');
-
       ['Desktop', 'Ios', 'Android'].forEach(name => {
         const btn = document.getElementById('deviceBtn' + name);
-        if (name.toLowerCase() === mode) {
-          btn.className = 'px-4 py-2 rounded-lg bg-brand-600 text-white font-bold transition-all flex items-center gap-2';
-        } else {
-          btn.className = 'px-4 py-2 rounded-lg text-slate-400 hover:text-white font-bold transition-all flex items-center gap-2';
-        }
+        if (name.toLowerCase() === mode) { btn.className = 'px-4 py-2 rounded-lg bg-brand-600 text-white font-bold transition-all flex items-center gap-2'; }
+        else { btn.className = 'px-4 py-2 rounded-lg text-slate-400 hover:text-white font-bold transition-all flex items-center gap-2'; }
       });
-
-      if (mode === 'desktop') {
-        container.className = 'viewport-desktop transition-all duration-300';
-        iosHead.classList.add('hidden'); iosTab.classList.add('hidden');
-        androidHead.classList.add('hidden'); androidTab.classList.add('hidden');
-      } else if (mode === 'ios') {
-        container.className = 'viewport-ios transition-all duration-300';
-        iosHead.classList.remove('hidden'); iosTab.classList.remove('hidden');
-        androidHead.classList.add('hidden'); androidTab.classList.add('hidden');
-      } else if (mode === 'android') {
-        container.className = 'viewport-android transition-all duration-300';
-        androidHead.classList.remove('hidden'); androidTab.classList.remove('hidden');
-        iosHead.classList.add('hidden'); iosTab.classList.add('hidden');
-      }
+      container.className = `viewport-${mode} transition-all duration-300`;
+      
+      document.getElementById('iosHeaderBar').classList.toggle('hidden', mode !== 'ios');
+      document.getElementById('iosTabBar').classList.toggle('hidden', mode !== 'ios');
+      document.getElementById('androidHeaderBar').classList.toggle('hidden', mode !== 'android');
+      document.getElementById('androidTabBar').classList.toggle('hidden', mode !== 'android');
     }
 
     function renderBrandNewDeals(deals) {
       const grid = document.getElementById('brandNewDealsGrid');
       grid.innerHTML = deals.map(deal => {
         
-        // Exact styling replication of the screenshot's bottom data area
+        // Calculate ranges from the trims array
+        const minSrp = Math.min(...deal.trims.map(t => t.srp));
+        const maxSrp = Math.max(...deal.trims.map(t => t.srp));
+        const minDp = Math.min(...deal.trims.map(t => t.allInDp));
+        const maxDiscount = Math.max(...deal.trims.map(t => t.cashDiscount));
+
         const priceSection = currentBuyerMode === 'financing' ? `
-          <div class="grid grid-cols-2 p-5 gap-4 bg-slate-50 border-t border-slate-100">
+          <div class="grid grid-cols-2 p-5 gap-4 bg-slate-50 border-t border-slate-100 group-hover:bg-brand-50 transition-colors">
             <div>
-              <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">All-in Low DP</div>
-              <div class="text-2xl font-black text-brand-700 leading-none">
-                ${formatPHP(deal.allInDp)}
-              </div>
+              <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">SRP (Starting At)</div>
+              <div class="text-xl font-black text-slate-900 leading-none">${formatPHP(minSrp)}</div>
             </div>
             <div>
-              <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">Monthly (60m)</div>
-              <div class="text-2xl font-black text-slate-900 leading-none">
-                ${formatPHP(deal.monthlyAmort)}
-              </div>
+              <div class="text-[10px] font-bold text-brand-600 uppercase tracking-wider mb-0.5">All-in DP (As low as)</div>
+              <div class="text-xl font-black text-brand-700 leading-none">${formatPHP(minDp)}</div>
             </div>
           </div>
         ` : `
-          <div class="grid grid-cols-2 p-5 gap-4 bg-emerald-50 border-t border-emerald-100">
+          <div class="grid grid-cols-2 p-5 gap-4 bg-emerald-50 border-t border-emerald-100 group-hover:bg-emerald-100/70 transition-colors">
             <div>
-              <div class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider mb-0.5">Cash Discount</div>
-              <div class="text-2xl font-black text-emerald-700 leading-none">
-                -${formatPHP(deal.cashDiscount)}
-              </div>
+              <div class="text-[10px] font-bold text-slate-600 uppercase tracking-wider mb-0.5">SRP (Starting At)</div>
+              <div class="text-xl font-black text-slate-900 leading-none">${formatPHP(minSrp)}</div>
             </div>
             <div>
-              <div class="text-[10px] font-bold text-slate-600 uppercase tracking-wider mb-0.5">Net Driveaway</div>
-              <div class="text-2xl font-black text-slate-900 leading-none">
-                ${formatPHP(deal.netCashPrice)}
-              </div>
+              <div class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider mb-0.5">Cash Discount (Up To)</div>
+              <div class="text-xl font-black text-emerald-700 leading-none">-${formatPHP(maxDiscount)}</div>
             </div>
           </div>
         `;
@@ -752,53 +527,32 @@
           ? `<span class="text-[10px] bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded font-bold">${deal.coverage}</span>`
           : `<span class="text-[10px] bg-brand-50 text-brand-700 border border-brand-200 px-2 py-0.5 rounded font-bold">${deal.coverage}</span>`;
 
+        // Update onclick to trigger the Trims Modal instead of the direct Inquire modal
         return `
-          <div class="bg-white rounded-[1.5rem] shadow-md border border-slate-200 overflow-hidden hover:shadow-xl hover:border-brand-300 transition-all cursor-pointer group flex flex-col justify-between" onclick="openInquireModal('${deal.id}')">
+          <div class="bg-white rounded-[1.5rem] shadow-md border border-slate-200 overflow-hidden hover:shadow-xl hover:border-brand-300 transition-all cursor-pointer group flex flex-col justify-between" onclick="openTrimsModal('${deal.id}')">
             
             <div class="relative h-56 bg-slate-100 overflow-hidden">
-              <img 
-                src="${deal.imageUrl}" 
-                alt="${deal.model}" 
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
+              <img src="${deal.imageUrl}" alt="${deal.baseModel}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
 
-              <!-- Top Left Badges -->
               <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
-                <span class="bg-slate-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm">
-                  ${deal.brand}
-                </span>
-                <span class="bg-amber-400 text-slate-900 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm">
-                  ${deal.badge}
-                </span>
+                <span class="bg-slate-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm">${deal.brand}</span>
+                <span class="bg-amber-400 text-slate-900 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm">${deal.badge}</span>
               </div>
-
-              <!-- Top Right Urgency -->
               <div class="absolute top-3 right-3">
-                <span class="${deal.urgencyColor} text-white text-[10px] font-bold px-2.5 py-1 rounded-md shadow-md flex items-center gap-1">
-                  <i class="ph-fill ph-clock"></i> ${deal.promoPeriod}
-                </span>
+                <span class="${deal.urgencyColor} text-white text-[10px] font-bold px-2.5 py-1 rounded-md shadow-md flex items-center gap-1"><i class="ph-fill ph-clock"></i> ${deal.promoPeriod}</span>
               </div>
-
-              <!-- Dealership Info Overlay on image bottom -->
               <div class="absolute bottom-3 left-4 right-4 flex items-end justify-between">
-                <div>
-                  <div class="flex items-center gap-1.5 text-xs text-slate-200 font-medium drop-shadow-md">
-                    <i class="ph-fill ph-map-pin text-amber-400"></i> ${deal.branch}
-                  </div>
-                </div>
+                <div><div class="flex items-center gap-1.5 text-xs text-slate-200 font-medium drop-shadow-md"><i class="ph-fill ph-map-pin text-amber-400"></i> ${deal.branch}</div></div>
               </div>
             </div>
 
             <div class="p-5 flex-1 flex flex-col justify-center">
-               <h4 class="font-black text-lg sm:text-xl text-slate-900 leading-tight mb-2">${deal.model}</h4>
-               
+               <h4 class="font-black text-lg sm:text-xl text-slate-900 leading-tight mb-2">${deal.year} ${deal.brand} ${deal.baseModel}</h4>
                <div class="flex items-center justify-between mt-auto">
                  <div class="flex items-center gap-2">
                    <div class="relative">
-                     <div class="w-7 h-7 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center text-xs font-bold text-slate-600">
-                       ${deal.agentName.charAt(0)}
-                     </div>
+                     <div class="w-7 h-7 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center text-xs font-bold text-slate-600">${deal.agentName.charAt(0)}</div>
                      <div class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 border border-white rounded-full"></div>
                    </div>
                    <div class="text-xs font-bold text-slate-700">${deal.agentName}</div>
@@ -806,9 +560,7 @@
                  ${coverageBadge}
                </div>
             </div>
-
             ${priceSection}
-
           </div>
         `;
       }).join('');
@@ -820,12 +572,14 @@
       const loc = document.getElementById('brandNewLocationFilter').value;
 
       let list = brandNewDealsData.filter(d => {
-        if (q && !d.model.toLowerCase().includes(q) && !d.brand.toLowerCase().includes(q)) return false;
+        if (q && !d.baseModel.toLowerCase().includes(q) && !d.brand.toLowerCase().includes(q)) return false;
         if (make !== 'ALL' && d.brand !== make) return false;
         if (loc !== 'ALL' && d.locationTag !== loc) return false;
 
+        const minDp = Math.min(...d.trims.map(t => t.allInDp));
+
         if (activeBNTag === 'IN_STOCK' && !d.stockStatus.includes('Immediate')) return false;
-        if (activeBNTag === 'LOW_DP' && d.allInDp > 50000) return false;
+        if (activeBNTag === 'LOW_DP' && minDp > 50000) return false;
         if (activeBNTag === 'EXPIRING' && d.promoPeriod === 'Waitlist Queue') return false;
         if (activeBNTag === 'FREE_INSURANCE' && !d.inclusions.insurance) return false;
 
@@ -837,39 +591,124 @@
     function toggleBNTag(tag) {
       activeBNTag = (activeBNTag === tag) ? null : tag;
       document.querySelectorAll('.bn-tag-pill').forEach(btn => {
-        if (btn.dataset.tag === activeBNTag) {
-          btn.classList.add('bg-brand-600', 'text-white', 'border-brand-600');
-          btn.classList.remove('bg-white', 'text-slate-700');
-        } else {
-          btn.classList.remove('bg-brand-600', 'text-white', 'border-brand-600');
-          btn.classList.add('bg-white', 'text-slate-700');
-        }
+        if (btn.dataset.tag === activeBNTag) { btn.classList.add('bg-brand-600', 'text-white', 'border-brand-600'); btn.classList.remove('bg-white', 'text-slate-700'); } 
+        else { btn.classList.remove('bg-brand-600', 'text-white', 'border-brand-600'); btn.classList.add('bg-white', 'text-slate-700'); }
       });
       applyBrandNewFilters();
     }
 
-    function renderUsedCars() {
-      document.getElementById('usedCarsGrid').innerHTML = usedCarsData.map(c => `
-        <div class="bg-white rounded-2xl shadow border border-slate-200 overflow-hidden">
-          <div class="h-48 bg-slate-100 relative">
-            <img src="${c.imageUrl}" class="w-full h-full object-cover">
-            <div class="absolute top-3 left-3 bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded">
-              Coding: ${c.plateEnding}
+    function openTrimsModal(dealId) {
+      const deal = brandNewDealsData.find(d => d.id === dealId);
+      if(!deal) return;
+      
+      document.getElementById('trimsModalTitle').innerText = `${deal.year} ${deal.brand} ${deal.baseModel}`;
+      
+      const trimsHtml = deal.trims.map((trim, idx) => `
+        <div class="bg-white border border-slate-200 rounded-[1.5rem] overflow-hidden mb-4 shadow-sm hover:border-brand-300 transition-colors">
+          <div class="p-5 flex justify-between items-center cursor-pointer bg-white hover:bg-slate-50 transition-colors group" onclick="document.getElementById('trim-acc-${deal.id}-${idx}').classList.toggle('hidden')">
+            <div>
+              <div class="font-black text-slate-900 text-lg leading-tight mb-1 group-hover:text-brand-700 transition-colors">${trim.name}</div>
+              <div class="inline-block bg-slate-100 text-slate-700 px-2 py-0.5 rounded text-xs font-bold border border-slate-200">SRP: ${formatPHP(trim.srp)}</div>
             </div>
+            <i class="ph-bold ph-caret-down text-slate-400 text-xl group-hover:text-brand-500"></i>
           </div>
-          <div class="p-4">
-            <h4 class="font-bold text-lg leading-tight mb-2">${c.title}</h4>
-            <div class="text-2xl font-black text-emerald-700">${formatPHP(c.price)}</div>
-            <div class="text-xs text-slate-500 mt-1">${c.mileage.toLocaleString()} km • ${c.location}</div>
+          
+          <div id="trim-acc-${deal.id}-${idx}" class="hidden p-5 border-t border-slate-100 bg-white">
+            <div class="grid grid-cols-2 gap-3 mb-5 text-slate-700">
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-100"><span class="block text-[10px] text-slate-500 font-bold uppercase mb-0.5">Engine</span><span class="font-bold text-sm">${trim.specs.engine}</span></div>
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-100"><span class="block text-[10px] text-slate-500 font-bold uppercase mb-0.5">Power</span><span class="font-bold text-sm">${trim.specs.power}</span></div>
+              <div class="col-span-2 bg-slate-50 p-3 rounded-xl border border-slate-100"><span class="block text-[10px] text-slate-500 font-bold uppercase mb-0.5">Transmission</span><span class="font-bold text-sm">${trim.specs.trans}</span></div>
+            </div>
+            
+            <div class="bg-brand-50 p-4 rounded-xl mb-5 border border-brand-100 shadow-inner">
+                <div class="flex justify-between items-center mb-1.5">
+                    <span class="text-xs font-bold text-brand-900">All-in Low DP Promo:</span>
+                    <span class="font-black text-brand-700 text-xl">${formatPHP(trim.allInDp)}</span>
+                </div>
+                <div class="flex justify-between items-center mb-3 pb-3 border-b border-brand-200/50">
+                    <span class="text-xs font-bold text-slate-600">Est. Monthly (60m):</span>
+                    <span class="font-bold text-slate-900">${formatPHP(trim.monthlyAmort)}</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-xs font-bold text-emerald-700">Straight Cash Discount:</span>
+                    <span class="font-bold text-emerald-600">-${formatPHP(trim.cashDiscount)}</span>
+                </div>
+            </div>
+
+            <div class="flex gap-3">
+              <button onclick="addToCompare('${deal.id}', ${idx})" class="flex-1 py-3 bg-white hover:bg-slate-50 text-brand-700 font-bold rounded-xl transition-all text-sm border-2 border-brand-100 shadow-sm flex items-center justify-center gap-2">
+                <i class="ph-bold ph-git-diff text-lg"></i> Compare
+              </button>
+              <button onclick="openInquireModal('${deal.id}', ${idx})" class="flex-[1.5] py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl transition-all text-sm shadow-md flex items-center justify-center gap-2">
+                <i class="ph-bold ph-chat-teardrop text-lg"></i> Message Agent
+              </button>
+            </div>
           </div>
         </div>
       `).join('');
+
+      document.getElementById('trimsListContainer').innerHTML = trimsHtml;
+      document.getElementById('trimsModal').classList.remove('hidden');
+    }
+    function closeTrimsModal() { document.getElementById('trimsModal').classList.add('hidden'); }
+
+    function addToCompare(dealId, trimIdx) {
+      const deal = brandNewDealsData.find(d => d.id === dealId);
+      const trim = deal.trims[trimIdx];
+      if (compareList.length >= 3) { showToast("Maximum of 3 trims allowed for side-by-side comparison."); return; }
+      compareList.push({ deal, trim });
+      showToast(`${trim.name} added to comparison!`);
+      closeTrimsModal();
+      switchMainTab('trim-compare');
     }
 
     function renderCompare() {
-      document.getElementById('trimComparisonOutput').innerHTML = `
-        <div class="p-8 text-center text-slate-500 bg-slate-50 rounded-xl border border-slate-100">
-          Select vehicles from the Deals tab to add them to your comparison matrix.
+      const out = document.getElementById('trimComparisonOutput');
+      if (compareList.length === 0) {
+        out.innerHTML = `<div class="p-10 text-center text-slate-500 bg-slate-50 rounded-2xl border-2 border-slate-200 border-dashed mt-4"><div class="w-16 h-16 bg-white shadow flex items-center justify-center rounded-full mx-auto mb-4 text-slate-400"><i class="ph-bold ph-git-diff text-2xl"></i></div><div class="font-bold text-slate-700 mb-1">Matrix is Empty</div>Select vehicles from the Deals tab to add them to your comparison matrix.</div>`;
+        return;
+      }
+
+      let headerCols = compareList.map(item => `
+        <th class="p-5 border-b border-slate-200 bg-slate-50 text-left min-w-[260px] align-top rounded-t-xl">
+          <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">${item.deal.year} ${item.deal.brand} ${item.deal.baseModel}</div>
+          <div class="font-black text-slate-900 text-xl leading-tight mb-2">${item.trim.name}</div>
+          <div class="inline-block bg-slate-200 text-slate-800 px-3 py-1 rounded-md text-xs font-bold">SRP: ${formatPHP(item.trim.srp)}</div>
+        </th>
+      `).join('');
+
+      out.innerHTML = `
+        <table class="w-full border-collapse bg-white shadow-sm rounded-xl overflow-hidden mt-4">
+          <thead><tr><th class="p-5 border-b border-slate-200 bg-slate-100 w-32 text-left text-xs text-slate-500 font-bold uppercase tracking-wider">Specs & Promos</th>${headerCols}</tr></thead>
+          <tbody class="text-sm text-slate-700">
+            <tr>
+              <td class="p-4 border-b border-slate-100 font-bold bg-slate-50 text-xs">All-in Low DP</td>
+              ${compareList.map(i => `<td class="p-4 border-b border-slate-100 font-black text-brand-700 bg-brand-50/50 text-lg">${formatPHP(i.trim.allInDp)}</td>`).join('')}
+            </tr>
+            <tr>
+              <td class="p-4 border-b border-slate-100 font-bold bg-white text-xs text-slate-500">Est. Monthly (60m)</td>
+              ${compareList.map(i => `<td class="p-4 border-b border-slate-100 font-bold text-slate-900">${formatPHP(i.trim.monthlyAmort)}</td>`).join('')}
+            </tr>
+            <tr>
+              <td class="p-4 border-b border-slate-100 font-bold bg-slate-50 text-xs text-slate-500">Cash Discount</td>
+              ${compareList.map(i => `<td class="p-4 border-b border-slate-100 font-bold text-emerald-600 bg-emerald-50/50">-${formatPHP(i.trim.cashDiscount)}</td>`).join('')}
+            </tr>
+            <tr>
+              <td class="p-4 border-b border-slate-100 font-bold bg-white text-xs text-slate-500">Engine</td>
+              ${compareList.map(i => `<td class="p-4 border-b border-slate-100 font-medium">${i.trim.specs.engine}</td>`).join('')}
+            </tr>
+            <tr>
+              <td class="p-4 border-b border-slate-100 font-bold bg-white text-xs text-slate-500">Power</td>
+              ${compareList.map(i => `<td class="p-4 border-b border-slate-100 font-medium">${i.trim.specs.power}</td>`).join('')}
+            </tr>
+            <tr>
+               <td class="p-4 bg-slate-50"></td>
+               ${compareList.map((i, idx) => `<td class="p-4 bg-slate-50"><button onclick="switchMainTab('brand-new'); openTrimsModal('${i.deal.id}')" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-sm shadow transition-all">Message Agent</button></td>`).join('')}
+            </tr>
+          </tbody>
+        </table>
+        <div class="mt-6 text-right">
+          <button onclick="compareList=[]; renderCompare();" class="text-sm text-rose-500 font-bold hover:text-rose-600 transition-colors bg-rose-50 px-5 py-2.5 rounded-xl border border-rose-100">Clear Comparison</button>
         </div>
       `;
     }
@@ -881,43 +720,61 @@
       const srp = Number(document.getElementById('calcSrp').value) || 0;
       const dpPct = Number(document.getElementById('calcDpPercent').value) / 100;
       const termMonths = Number(document.getElementById('calcTermMos').value);
-      const annualRate = 0.098; // 9.8% standard
+      const addOnRate = Number(document.getElementById('calcRate').value) / 100;
+
+      const isFreeChattel = document.getElementById('calcFreeChattel').checked;
+      const isFreeIns = document.getElementById('calcFreeIns').checked;
+      const isFreeLTO = document.getElementById('calcFreeLTO').checked;
 
       const netDP = srp * dpPct;
       const loanAmount = srp - netDP;
       const years = termMonths / 12;
-      const totalInterest = loanAmount * (annualRate * years);
+      
+      // Philppine standard Add-on Rate logic
+      const totalInterest = loanAmount * (addOnRate * years);
       const monthlyPayment = (loanAmount + totalInterest) / termMonths;
 
-      const chattelEst = loanAmount * 0.025;
-      const insuranceEst = Math.max(18000, srp * 0.028);
-      const totalCashOutlay = netDP + chattelEst + insuranceEst + 9500;
+      const chattelEst = isFreeChattel ? 0 : (loanAmount * 0.025);
+      const insuranceEst = isFreeIns ? 0 : Math.max(18000, srp * 0.028);
+      const ltoEst = isFreeLTO ? 0 : 9500;
+      const totalCashOutlay = netDP + chattelEst + insuranceEst + ltoEst;
 
       document.getElementById('calcResMonthly').innerText = formatPHP(Math.round(monthlyPayment));
       document.getElementById('calcResTermLabel').innerText = termMonths;
       document.getElementById('calcResNetDP').innerText = formatPHP(Math.round(netDP));
-      document.getElementById('calcResChattel').innerText = formatPHP(Math.round(chattelEst));
-      document.getElementById('calcResInsurance').innerText = formatPHP(Math.round(insuranceEst));
+      
+      document.getElementById('calcResChattel').innerText = isFreeChattel ? "WAIVED" : formatPHP(Math.round(chattelEst));
+      document.getElementById('calcResChattel').className = isFreeChattel ? "text-emerald-400 font-bold" : "font-medium";
+
+      document.getElementById('calcResInsurance').innerText = isFreeIns ? "WAIVED" : formatPHP(Math.round(insuranceEst));
+      document.getElementById('calcResInsurance').className = isFreeIns ? "text-emerald-400 font-bold" : "font-medium";
+
+      document.getElementById('calcResLTO').innerText = isFreeLTO ? "WAIVED" : formatPHP(Math.round(ltoEst));
+      document.getElementById('calcResLTO').className = isFreeLTO ? "text-emerald-400 font-bold" : "font-medium";
+
       document.getElementById('calcResTotalOutlay').innerText = formatPHP(Math.round(totalCashOutlay));
     }
 
-    function openInquireModal(id) {
-      const deal = brandNewDealsData.find(d => d.id === id);
+    // Modal Interaction Helpers
+    function openInquireModal(dealId, trimIdx) {
+      const deal = brandNewDealsData.find(d => d.id === dealId);
       if(!deal) return;
+      const trim = deal.trims[trimIdx];
       currentInquireTarget = deal;
       
       document.getElementById('inquireAgentName').innerText = deal.agentName;
       document.getElementById('inquireDealerBranch').innerText = `${deal.branch} • Verified Consultant`;
-      document.getElementById('inquireVehicleTitle').innerText = deal.model;
+      document.getElementById('inquireVehicleTitle').innerText = `${deal.year} ${deal.brand} ${deal.baseModel} - ${trim.name}`;
       
       if(currentBuyerMode === 'financing') {
         document.getElementById('inquirePricingLabel').innerText = 'All-in Low DP Promo:';
-        document.getElementById('inquireVehiclePrice').innerText = formatPHP(deal.allInDp);
+        document.getElementById('inquireVehiclePrice').innerText = formatPHP(trim.allInDp);
       } else {
         document.getElementById('inquirePricingLabel').innerText = 'Straight Cash Discount:';
-        document.getElementById('inquireVehiclePrice').innerText = `-${formatPHP(deal.cashDiscount)}`;
+        document.getElementById('inquireVehiclePrice').innerText = `-${formatPHP(trim.cashDiscount)}`;
       }
       
+      closeTrimsModal();
       document.getElementById('inquireModal').classList.remove('hidden');
     }
     
@@ -931,6 +788,22 @@
       document.getElementById('toastMsg').innerText = msg;
       toast.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
       setTimeout(() => toast.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none'), 3000);
+    }
+
+    function renderUsedCars() {
+      document.getElementById('usedCarsGrid').innerHTML = usedCarsData.map(c => `
+        <div class="bg-white rounded-[1.5rem] shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-all">
+          <div class="h-48 bg-slate-100 relative">
+            <img src="${c.imageUrl}" class="w-full h-full object-cover">
+            <div class="absolute top-3 left-3 bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded">Coding: ${c.plateEnding}</div>
+          </div>
+          <div class="p-5">
+            <h4 class="font-black text-lg text-slate-900 leading-tight mb-2">${c.title}</h4>
+            <div class="text-2xl font-black text-emerald-700">${formatPHP(c.price)}</div>
+            <div class="text-xs font-bold text-slate-500 mt-2 flex items-center gap-1.5"><i class="ph-bold ph-speedometer"></i> ${c.mileage.toLocaleString()} km • ${c.location}</div>
+          </div>
+        </div>
+      `).join('');
     }
 
     function updatePhoneClocks() {
