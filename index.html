@@ -351,6 +351,16 @@
     </div>
   </div>
 
+  <!-- USED CAR DETAIL MODAL -->
+  <div id="usedCarModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-[2rem] max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scroll">
+      <button onclick="closeUsedCarModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 p-2.5 rounded-full transition-colors">
+        <i class="ph-bold ph-x text-xl"></i>
+      </button>
+      <div id="usedCarModalContent"></div>
+    </div>
+  </div>
+
   <!-- LOAN CALCULATOR MODAL -->
   <div id="calcModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scroll">
@@ -384,6 +394,11 @@
                 <option value="60" selected>60 Months</option>
               </select>
             </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Add-On Interest Rate (%)</label>
+            <input type="number" step="0.1" id="calcInterestRate" value="9.8" oninput="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-bold focus:ring-2 focus:ring-brand-500 outline-none transition-all">
           </div>
 
           <div class="p-5 bg-brand-50 border border-brand-100 rounded-xl mt-4 shadow-sm">
@@ -492,6 +507,28 @@
           { name: "1.5 GLX MT", srp: 1068000, allInDp: 38000, monthlyAmort: 21500, cashDiscount: 60000, specs: { engine: "1.5L MIVEC", power: "104 hp / 141 Nm", trans: "5-Speed Manual" } },
           { name: "1.5 GLS AT", srp: 1198000, allInDp: 48000, monthlyAmort: 24150, cashDiscount: 80000, specs: { engine: "1.5L MIVEC", power: "104 hp / 141 Nm", trans: "4-Speed Automatic" } }
         ]
+      },
+      {
+        id: "bn-4", brand: "Ford", year: 2026, baseModel: "Ranger",
+        branch: "Ford Quezon Avenue", locationTag: "Quezon City",
+        agentName: "Paolo Rodriguez", badge: "Bi-Turbo Power", coverage: "Nationwide Promo",
+        insights: { fuel: "9.8 km/L", pms: "₱8,400", flood: "Maximum (Pickup)" },
+        imageUrl: "https://d1hv7ee95zft1i.cloudfront.net/custom/car-model-variant-photo/gallery/ford-ranger-2-0-turbo-wildtrak-4x2-at-66d57ff1297de.jpg",
+        trims: [
+          { name: "2.0 Turbo Sport AT", srp: 1474000, allInDp: 88000, monthlyAmort: 30120, cashDiscount: 70000, specs: { engine: "2.0L Single-Turbo Diesel", power: "170 hp / 405 Nm", trans: "6-Speed AT" } },
+          { name: "2.0 Bi-Turbo Wildtrak 4x4", srp: 1949000, allInDp: 128000, monthlyAmort: 39990, cashDiscount: 100000, specs: { engine: "2.0L Bi-Turbo Diesel", power: "210 hp / 500 Nm", trans: "10-Speed AT" } }
+        ]
+      },
+      {
+        id: "bn-5", brand: "Suzuki", year: 2026, baseModel: "Jimny",
+        branch: "Suzuki San Fernando", locationTag: "Pampanga",
+        agentName: "Camille Vergara", badge: "5-Door Icon", coverage: "Branch Exclusive",
+        insights: { fuel: "11.5 km/L", pms: "₱5,200", flood: "High (4x4)" },
+        imageUrl: "https://static.ccs.co.za/generic-images/0000219445/1_4e32d8c73cd36d62d509e768533a98a9.jpg",
+        trims: [
+          { name: "1.5 GLX 3-Door AT", srp: 1320000, allInDp: 115000, monthlyAmort: 27500, cashDiscount: 0, specs: { engine: "1.5L K15B VVT", power: "100 hp / 130 Nm", trans: "4-Speed AT" } },
+          { name: "1.5 GLX 5-Door AT", srp: 1558000, allInDp: 135000, monthlyAmort: 31990, cashDiscount: 0, specs: { engine: "1.5L K15B VVT", power: "100 hp / 130 Nm", trans: "4-Speed AT w/ AllGrip Pro" } }
+        ]
       }
     ];
 
@@ -501,6 +538,12 @@
         plateEnding: "Tuesday (Ending 3, 4)", location: "Quezon City", sellerName: "Direct Owner", sellerType: "Direct Owner P2P",
         fuelType: "Diesel", transmission: "Automatic", imageUrl: "https://images.topgear.com.ph/topgear/images/2020/02/25/toyota-fortuner-trd-main-1582618501.jpg",
         features: ["All original paint", "Complete OR/CR on hand", "Casa maintained w/ records"]
+      },
+      {
+        id: "used-2", title: "2018 Mazda 3 2.0 SkyActiv Sedan", price: 645000, mileage: 42000,
+        plateEnding: "Monday (Ending 1, 2)", location: "Pasig", sellerName: "Direct Owner", sellerType: "Direct Owner P2P",
+        fuelType: "Gasoline", transmission: "SkyActiv-Drive AT", imageUrl: "https://www.samarins.com/reviews/img/Mazda-3-GT-2018.jpg",
+        features: ["Bose Sound System", "Sunroof equipped", "Fresh interior"]
       }
     ];
 
@@ -623,14 +666,14 @@
 
                  <!-- Multi-Agent Quote Matcher & Test Drive Prompts -->
                  <div class="mt-3 space-y-2 text-xs font-semibold text-slate-700">
-                   <label class="flex items-center gap-2 p-2 bg-amber-50/70 border border-amber-200 rounded-xl cursor-pointer">
-                     <input type="checkbox" checked class="rounded text-brand-600 w-3.5 h-3.5">
-                     <span>👥 Multi-Agent Quote Matcher Active</span>
-                   </label>
-                   <label class="flex items-center gap-2 p-2 bg-brand-50/50 border border-brand-100 rounded-xl cursor-pointer">
-                     <input type="checkbox" class="rounded text-brand-600 w-3.5 h-3.5">
-                     <span>📅 Book Weekend Test Drive</span>
-                   </label>
+                   <div class="flex items-center justify-between p-2 bg-amber-50/70 border border-amber-200 rounded-xl">
+                     <span class="flex items-center gap-1.5"><i class="ph-bold ph-users text-amber-600"></i> Multi-Agent Quote Matcher</span>
+                     <input type="checkbox" checked class="rounded text-brand-600 w-4 h-4 cursor-pointer">
+                   </div>
+                   <div class="flex items-center justify-between p-2 bg-brand-50/50 border border-brand-100 rounded-xl">
+                     <span class="flex items-center gap-1.5"><i class="ph-bold ph-calendar-check text-brand-600"></i> Book Weekend Test Drive</span>
+                     <input type="checkbox" class="rounded text-brand-600 w-4 h-4 cursor-pointer">
+                   </div>
                  </div>
                </div>
 
@@ -690,6 +733,12 @@
             <div><span class="text-slate-400 block text-[9px]">Cash Discount</span><strong class="text-emerald-600">-${formatPHP(trim.cashDiscount)}</strong></div>
           </div>
 
+          <div class="p-3 bg-indigo-50/50 rounded-xl border border-indigo-100 text-xs space-y-1 text-slate-700 font-medium">
+            <div>⚙️ <strong>Engine:</strong> ${trim.specs.engine}</div>
+            <div>⚡ <strong>Power:</strong> ${trim.specs.power}</div>
+            <div>🕹️ <strong>Transmission:</strong> ${trim.specs.trans}</div>
+          </div>
+
           <div class="flex gap-3 pt-2 border-t border-slate-100">
             <button onclick="addToCompare('${deal.id}', ${idx})" class="flex-1 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5">
               <i class="ph-bold ph-git-diff"></i> Add to Compare
@@ -726,18 +775,89 @@
         out.innerHTML = `<div class="p-10 text-center text-slate-500 bg-slate-50 rounded-2xl border-2 border-slate-200 border-dashed mt-4"><div class="w-16 h-16 bg-white shadow flex items-center justify-center rounded-full mx-auto mb-4 text-slate-400"><i class="ph-bold ph-git-diff text-2xl"></i></div><div class="font-bold text-slate-700 mb-1">Matrix is Empty</div>Select trims from any vehicle card to compare them side-by-side.</div>`;
         return;
       }
-      out.innerHTML = `<div class="p-6 bg-slate-50 rounded-xl font-bold text-slate-700">Comparing ${compareList.length} trims side-by-side.</div>`;
+      out.innerHTML = `
+        <div class="grid grid-cols-${compareList.length + 1} gap-4 overflow-x-auto">
+          <div class="p-4 bg-slate-100 rounded-xl font-bold text-slate-700 flex flex-col justify-center space-y-4 text-xs">
+            <div>Vehicle & Trim</div>
+            <div>SRP Price</div>
+            <div>All-In Down Payment</div>
+            <div>Monthly Amortization</div>
+            <div>Engine Specs</div>
+            <div>Power / Torque</div>
+            <div>Transmission</div>
+          </div>
+          ${compareList.map(item => `
+            <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col space-y-4 text-xs">
+              <div class="font-black text-slate-900 text-sm">${item.deal.year} ${item.deal.brand} ${item.deal.baseModel}<br><span class="text-brand-600">${item.trim.name}</span></div>
+              <div class="font-bold text-slate-900">${formatPHP(item.trim.srp)}</div>
+              <div class="font-bold text-brand-700">${formatPHP(item.trim.allInDp)}</div>
+              <div class="font-bold text-indigo-700">${formatPHP(item.trim.monthlyAmort)}</div>
+              <div class="text-slate-600">${item.trim.specs.engine}</div>
+              <div class="text-slate-600">${item.trim.specs.power}</div>
+              <div class="text-slate-600">${item.trim.specs.trans}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
     }
 
     function renderUsedCars() {
       document.getElementById('usedCarsGrid').innerHTML = usedCarsData.map(c => `
-        <div class="bg-white rounded-[1.5rem] shadow-sm border border-slate-200 overflow-hidden p-5">
-          <h4 class="font-black text-lg text-slate-900 mb-2">${c.title}</h4>
-          <div class="text-2xl font-black text-emerald-600 mb-2">${formatPHP(c.price)}</div>
-          <div class="text-xs text-slate-500 font-medium">${c.mileage.toLocaleString()} km • ${c.location}</div>
+        <div class="bg-white rounded-[1.5rem] shadow-sm border border-slate-200 overflow-hidden p-5 flex flex-col justify-between cursor-pointer hover:shadow-lg transition-all" onclick="openUsedCarModal('${c.id}')">
+          <div class="h-48 rounded-xl overflow-hidden mb-4 bg-slate-100">
+            <img src="${c.imageUrl}" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <span class="px-2 py-0.5 rounded text-[10px] bg-slate-100 text-slate-700 font-bold mb-1 inline-block">Coding: ${c.plateEnding}</span>
+            <h4 class="font-black text-lg text-slate-900 mb-1 leading-tight">${c.title}</h4>
+            <div class="text-2xl font-black text-emerald-600 mb-2">${formatPHP(c.price)}</div>
+            <div class="text-xs text-slate-500 font-medium">${c.mileage.toLocaleString()} km • ${c.location}</div>
+          </div>
         </div>
       `).join('');
     }
+
+    function openUsedCarModal(id) {
+      const car = usedCarsData.find(c => c.id === id);
+      if(!car) return;
+      document.getElementById('usedCarModalContent').innerHTML = `
+        <div class="space-y-4">
+          <div class="h-64 rounded-2xl overflow-hidden bg-slate-100">
+            <img src="${car.imageUrl}" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-2xl font-black text-slate-900 leading-tight">${car.title}</h3>
+          <div class="text-3xl font-black text-emerald-600">${formatPHP(car.price)}</div>
+          
+          <div class="grid grid-cols-2 gap-3 p-3 bg-slate-50 rounded-xl text-xs font-bold text-slate-700">
+            <div>📍 Location: ${car.location}</div>
+            <div>🛣️ Mileage: ${car.mileage.toLocaleString()} km</div>
+            <div>⛽ Fuel: ${car.fuelType}</div>
+            <div>🕹️ Trans: ${car.transmission}</div>
+          </div>
+
+          <div>
+            <div class="text-xs font-bold uppercase text-slate-400 mb-2">Verified Highlights</div>
+            <div class="flex flex-wrap gap-1.5">
+              ${car.features.map(f => `<span class="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full text-xs font-bold border border-emerald-100">${f}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="p-4 bg-slate-900 text-white rounded-2xl flex items-center justify-between">
+            <div>
+              <div class="text-[10px] text-slate-400 uppercase font-bold">Seller Type</div>
+              <div class="text-base font-black text-amber-400">${car.sellerType}</div>
+            </div>
+            <div class="space-x-2">
+              <button onclick="showToast('Connecting to Seller via Viber...'); closeUsedCarModal();" class="px-4 py-2.5 bg-viber text-white font-bold rounded-xl text-xs">Viber</button>
+              <button onclick="showToast('Connecting to Seller via WhatsApp...'); closeUsedCarModal();" class="px-4 py-2.5 bg-whatsapp text-white font-bold rounded-xl text-xs">WhatsApp</button>
+            </div>
+          </div>
+        </div>
+      `;
+      document.getElementById('usedCarModal').classList.remove('hidden');
+    }
+
+    function closeUsedCarModal() { document.getElementById('usedCarModal').classList.add('hidden'); }
 
     function openCalcModal() { document.getElementById('calcModal').classList.remove('hidden'); calculateLoanLive(); }
     function closeCalcModal() { document.getElementById('calcModal').classList.add('hidden'); }
@@ -746,13 +866,21 @@
       const srp = Number(document.getElementById('calcSrp').value) || 0;
       const dpPct = Number(document.getElementById('calcDpPercent').value) / 100;
       const termMonths = Number(document.getElementById('calcTermMos').value);
+      const rate = (Number(document.getElementById('calcInterestRate').value) || 9.8) / 100;
+
       const netDP = srp * dpPct;
       const loanAmount = srp - netDP;
-      const monthlyPayment = (loanAmount * 1.15) / termMonths;
+      const years = termMonths / 12;
+      const totalInterest = loanAmount * (rate * years);
+      const monthlyPayment = (loanAmount + totalInterest) / termMonths;
+
+      const chattel = document.getElementById('calcFreeChattel').checked ? 0 : (loanAmount * 0.025);
+      const insurance = document.getElementById('calcFreeIns').checked ? 0 : Math.max(18000, srp * 0.028);
+      const totalOutlay = netDP + chattel + insurance + 9500;
 
       document.getElementById('calcResMonthly').innerText = formatPHP(Math.round(monthlyPayment));
       document.getElementById('calcResNetDP').innerText = formatPHP(Math.round(netDP));
-      document.getElementById('calcResTotalOutlay').innerText = formatPHP(Math.round(netDP + 25000));
+      document.getElementById('calcResTotalOutlay').innerText = formatPHP(Math.round(totalOutlay));
     }
 
     function openInquireModal(dealId) {
