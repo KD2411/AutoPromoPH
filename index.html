@@ -84,17 +84,6 @@
       justify-content: space-between;
       padding: 0 12px;
     }
-    .ios-home-indicator {
-      width: 135px;
-      height: 5px;
-      background: #0f172a;
-      border-radius: 10px;
-      position: absolute;
-      bottom: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 55;
-    }
     .custom-scroll::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -168,7 +157,7 @@
         <div class="w-2.5 h-2.5 rounded-full bg-indigo-900 border border-indigo-500/50"></div>
       </div>
       <div class="flex justify-between items-center text-xs font-semibold pt-1">
-        <span id="iosClock">9:41</span>
+        <span>9:41</span>
         <div class="flex items-center space-x-1.5 text-xs">
           <i class="ph-bold ph-wifi-high"></i>
           <i class="ph-bold ph-battery-full text-sm text-white"></i>
@@ -182,7 +171,7 @@
     <!-- Android Status Bar -->
     <div id="androidHeaderBar" class="hidden relative w-full bg-slate-950 text-white px-4 pt-2 pb-2.5 select-none shrink-0 z-40 border-b border-slate-900">
       <div class="flex justify-between items-center text-xs font-medium text-slate-300 mb-1">
-        <span id="androidClock">10:00</span>
+        <span>10:00</span>
         <div class="flex items-center space-x-2 text-xs">
           <span>5G</span>
           <i class="ph-bold ph-battery-charging text-white"></i>
@@ -221,22 +210,17 @@
           </button>
 
         </div>
-        
-        <div class="flex items-center justify-center gap-1.5 text-[11px] text-brand-600 font-bold py-1 bg-brand-50/50 rounded-lg mb-2">
-          <i class="ph-bold ph-arrow-left animate-pulse"></i>
-          <span>Swipe or click tabs above to explore marketplace features</span>
-          <i class="ph-bold ph-arrow-right animate-pulse"></i>
-        </div>
       </div>
     </div>
 
-    <div id="scrollableAppArea" class="flex-1 overflow-y-auto custom-scroll p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-12">
+    <div id="scrollableAppArea" class="flex-1 overflow-y-auto custom-scroll p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-10">
 
       <!-- ================================================================= -->
       <!-- TAB 1: 2026 BRAND NEW DEALS                                         -->
       <!-- ================================================================= -->
       <section id="sectionBrandNew" class="space-y-6">
         
+        <!-- Hero Banner -->
         <div class="bg-slate-900 rounded-[2rem] p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
           <div class="absolute -right-20 -bottom-20 opacity-5 text-white pointer-events-none">
             <i class="ph-fill ph-car-profile text-[20rem]"></i>
@@ -266,6 +250,22 @@
                 <span>Straight Cash Discounts</span>
               </button>
             </div>
+          </div>
+        </div>
+
+        <!-- Trend Section / Market Insights Bar -->
+        <div class="bg-gradient-to-r from-brand-900 to-indigo-900 text-white p-6 rounded-3xl shadow-md flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-amber-400 text-2xl font-bold shrink-0">
+              <i class="ph-bold ph-trend-up"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-indigo-200 uppercase tracking-wider">PH Market Trend Alert (October 2026)</div>
+              <div class="text-base sm:text-lg font-black text-white">Hybrid Electric Vehicles (HEV) & Subcompact Sedans see 18% lower financing rates!</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-bold text-amber-300 border border-white/10">🔥 142 Bids Active Today</span>
           </div>
         </div>
 
@@ -307,6 +307,8 @@
                 <option value="Gasoline">Gasoline</option>
                 <option value="Diesel">Diesel</option>
                 <option value="Hybrid">Hybrid / HEV</option>
+                <option value="PHEV">Plug-in Hybrid (PHEV)</option>
+                <option value="EV">Full EV</option>
               </select>
             </div>
           </div>
@@ -356,6 +358,7 @@
         </div>
       </section>
 
+      <!-- Custom Promotional App Section -->
       <section class="bg-white rounded-[2.5rem] p-8 sm:p-14 border border-slate-200 shadow-sm relative overflow-hidden my-12">
         <div class="absolute -left-20 -top-20 w-72 h-72 bg-brand-50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
         <div class="absolute -right-20 -bottom-20 w-72 h-72 bg-indigo-50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
@@ -374,19 +377,19 @@
                 <div class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                   <i class="ph-bold ph-check text-sm"></i>
                 </div>
-                <span class="text-slate-700 font-bold text-base">Instant regional multi-agent quote bidding.</span>
+                <span class="text-slate-700 font-bold text-base">Compare car specs, images, reviews and videos.</span>
               </div>
               <div class="flex items-start gap-3.5">
                 <div class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                   <i class="ph-bold ph-check text-sm"></i>
                 </div>
-                <span class="text-slate-700 font-bold text-base">Verified 2026 promotional allocations & cash discounts.</span>
+                <span class="text-slate-700 font-bold text-base">Hundreds of new car promos every month.</span>
               </div>
               <div class="flex items-start gap-3.5">
                 <div class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                   <i class="ph-bold ph-check text-sm"></i>
                 </div>
-                <span class="text-slate-700 font-bold text-base">Real-owner fuel economy and maintenance breakdown.</span>
+                <span class="text-slate-700 font-bold text-base">Receive quotes from regional competing dealers within minutes.</span>
               </div>
             </div>
 
@@ -453,6 +456,7 @@
 
   </div>
 
+  <!-- Trim Modal -->
   <div id="trimsModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-2xl w-full shadow-2xl relative flex flex-col max-h-[90vh]">
       <div class="p-6 border-b border-slate-100 flex justify-between items-center sticky top-0 bg-white rounded-t-[2rem] z-10 shadow-sm">
@@ -468,6 +472,7 @@
     </div>
   </div>
 
+  <!-- Test Drive Modal -->
   <div id="testDriveModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
       <button onclick="closeTestDriveModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full">
@@ -508,6 +513,7 @@
     </div>
   </div>
 
+  <!-- Quote Match Modal -->
   <div id="quoteMatchModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
       <button onclick="closeQuoteMatchModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full">
@@ -713,7 +719,7 @@
     const brandNewDealsData = [
       {
         id: "bn-1", brand: "Honda", year: 2026, baseModel: "City Sedan", bodyType: "Sedan", powertrain: "Gasoline",
-        branch: "Honda Cars Makati", locationTag: "Makati",
+        branch: "Honda Cars Makati", locationTag: "Makati", promoTag: "⚡ Valid until Friday",
         agentName: "Ryan Patrick Tan", badge: "Honda SENSING Suite", coverage: "Branch Exclusive",
         insights: { fuel: "13.5 km/L (Combined)", pms: "₱5,800", resale: "High Demand (Slow Deprec.)" },
         imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRyWkrfggOyuEq3wi6JtyYoAokSDpxP6q6iFInmu66FHAIVsxi5aCUXgFV&s=10",
@@ -724,7 +730,7 @@
       },
       {
         id: "bn-2", brand: "Toyota", year: 2026, baseModel: "Vios", bodyType: "Sedan", powertrain: "Gasoline",
-        branch: "Toyota BGC / Taguig", locationTag: "BGC",
+        branch: "Toyota BGC / Taguig", locationTag: "BGC", promoTag: "🎄 Holiday Promo Ending Soon",
         agentName: "Mark Anthony Santos", badge: "Top Volume Seller", coverage: "Nationwide Promo",
         insights: { fuel: "14.8 km/L (Combined)", pms: "₱4,500", resale: "Top Resale Value in PH" },
         imageUrl: "https://visor.ph/wp-content/uploads/2023/03/Toyota-Vios-1.3-XLE-CVT-The-quintessential-first-car-1.jpg",
@@ -735,7 +741,7 @@
       },
       {
         id: "bn-3", brand: "Mitsubishi", year: 2026, baseModel: "Xpander", bodyType: "MPV", powertrain: "Gasoline",
-        branch: "Mitsubishi Pasig", locationTag: "Pasig",
+        branch: "Mitsubishi Pasig", locationTag: "Pasig", promoTag: "⚡ Valid until Friday",
         agentName: "Maria Cristina Gomez", badge: "7-Seater Choice", coverage: "Branch Exclusive",
         insights: { fuel: "11.2 km/L (Combined)", pms: "₱6,200", resale: "Stable MPV Market Value" },
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/89/Mitsubishi_Xpander_NC1W_FL2_1.5_GLX_Graphite_Gray_Metallic_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
@@ -746,7 +752,7 @@
       },
       {
         id: "bn-4", brand: "Ford", year: 2026, baseModel: "Ranger", bodyType: "Pickup", powertrain: "Diesel",
-        branch: "Ford Quezon Avenue", locationTag: "Quezon City",
+        branch: "Ford Quezon Avenue", locationTag: "Quezon City", promoTag: "🔥 Limited October Batch",
         agentName: "Paolo Rodriguez", badge: "Bi-Turbo Power", coverage: "Nationwide Promo",
         insights: { fuel: "10.2 km/L (Combined)", pms: "₱8,400", resale: "Strong Pickup Demand" },
         imageUrl: "https://d1hv7ee95zft1i.cloudfront.net/custom/car-model-variant-photo/gallery/ford-ranger-2-0-turbo-wildtrak-4x2-at-66d57ff1297de.jpg",
@@ -757,7 +763,7 @@
       },
       {
         id: "bn-5", brand: "Suzuki", year: 2026, baseModel: "Jimny", bodyType: "SUV", powertrain: "Gasoline",
-        branch: "Suzuki San Fernando", locationTag: "Pampanga",
+        branch: "Suzuki San Fernando", locationTag: "Pampanga", promoTag: "⚡ Valid until Friday",
         agentName: "Camille Vergara", badge: "5-Door Icon", coverage: "Branch Exclusive",
         insights: { fuel: "11.8 km/L (Combined)", pms: "₱5,200", resale: "Collector Status (Appreciating)" },
         imageUrl: "https://static.ccs.co.za/generic-images/0000219445/1_4e32d8c73cd36d62d509e768533a98a9.jpg",
@@ -880,12 +886,16 @@
             <div class="relative h-48 bg-slate-100 overflow-hidden cursor-pointer" onclick="openTrimsModal('${deal.id}')">
               <img src="${deal.imageUrl}" alt="${deal.baseModel}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-              <div class="absolute top-3 left-3 flex gap-1.5">
-                <span class="bg-slate-900 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">${deal.brand}</span>
-                <span class="bg-amber-400 text-slate-900 text-[10px] font-bold px-2 py-0.5 rounded-md">${deal.badge}</span>
+              <div class="absolute top-3 left-3 flex gap-1.5 flex-wrap">
+                <span class="bg-slate-900 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-md">${deal.brand}</span>
+                <span class="bg-amber-400 text-slate-900 text-[10px] font-bold px-2.5 py-0.5 rounded-md">${deal.badge}</span>
+                <span class="bg-rose-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-md">${deal.promoTag}</span>
               </div>
               <div class="absolute bottom-2 left-4 right-4 flex items-end justify-between">
                 <div class="flex items-center gap-1.5 text-xs text-slate-200 font-medium"><i class="ph-fill ph-map-pin text-amber-400"></i> ${deal.branch}</div>
+                <div class="bg-brand-600/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg backdrop-blur-sm animate-pulse">
+                  🔍 Click card for all trims
+                </div>
               </div>
             </div>
 
@@ -894,7 +904,7 @@
                  <div class="flex justify-between items-start mb-1 cursor-pointer" onclick="openTrimsModal('${deal.id}')">
                    <div>
                      <h4 class="font-black text-lg text-slate-900 leading-tight hover:text-brand-600 transition-colors">${deal.year} ${deal.brand} ${deal.baseModel}</h4>
-                     <span class="text-xs font-bold text-brand-600">SRP Range: ${formatPHP(minSrp)} - ${formatPHP(maxSrp)}</span>
+                     <span class="text-xs font-bold text-brand-600">SRP: ${formatPHP(minSrp)} - ${formatPHP(maxSrp)}</span>
                    </div>
                  </div>
 
@@ -1178,7 +1188,7 @@
       const termMonths = Number(document.getElementById('calcTermMos').value);
       const isEv = document.querySelector('input[name="calcEv"]:checked').value === 'yes';
       
-      let baseRate = isEv ? 0.082 : 0.098; // Lower rate for EV/HEV in PH banks
+      let baseRate = isEv ? 0.082 : 0.098;
 
       document.getElementById('calcDpPctDisplay').innerText = Math.round(dpPct * 100) + '%';
       document.getElementById('calcDpAmount').value = Math.round(srp * dpPct);
