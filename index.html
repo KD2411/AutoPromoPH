@@ -224,13 +224,13 @@
         
         <div class="flex items-center justify-center gap-1.5 text-[11px] text-brand-600 font-bold py-1 bg-brand-50/50 rounded-lg mb-2">
           <i class="ph-bold ph-arrow-left animate-pulse"></i>
-          <span>Swipe or click tabs above to explore 2026 marketplace features</span>
+          <span>Swipe or click tabs above to explore marketplace features</span>
           <i class="ph-bold ph-arrow-right animate-pulse"></i>
         </div>
       </div>
     </div>
 
-    <div id="scrollableAppArea" class="flex-1 overflow-y-auto custom-scroll p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
+    <div id="scrollableAppArea" class="flex-1 overflow-y-auto custom-scroll p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-12">
 
       <!-- ================================================================= -->
       <!-- TAB 1: 2026 BRAND NEW DEALS                                         -->
@@ -269,20 +269,20 @@
           </div>
         </div>
 
-        <!-- Filters section -->
-        <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
-          <div class="flex flex-col md:flex-row gap-4">
-            <div class="relative flex-1">
+        <!-- Filters & Auto-Updating Range Sliders & Dropdowns -->
+        <div class="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="relative md:col-span-1">
               <i class="ph-bold ph-magnifying-glass absolute left-4 top-3.5 text-slate-400 text-lg"></i>
               <input 
                 type="text" 
                 id="brandNewSearch" 
-                placeholder="Search 2026 model: Vios, City, Xpander, Ranger, Jimny..." 
-                class="w-full pl-11 pr-4 py-3 text-sm rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all font-medium placeholder-slate-400"
+                placeholder="Search model: Vios, City..." 
+                class="w-full pl-11 pr-4 py-3 text-sm rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 font-medium placeholder-slate-400"
                 oninput="applyBrandNewFilters()"
               />
             </div>
-            <div class="w-full md:w-48">
+            <div>
               <select id="brandNewMakeFilter" onchange="applyBrandNewFilters()" class="w-full py-3 px-4 text-sm rounded-xl bg-slate-50 border border-slate-200 font-bold text-slate-700 focus:ring-2 focus:ring-brand-500">
                 <option value="ALL">All Brands</option>
                 <option value="Toyota">Toyota</option>
@@ -292,15 +292,40 @@
                 <option value="Suzuki">Suzuki</option>
               </select>
             </div>
-            <div class="w-full md:w-56">
-              <select id="brandNewLocationFilter" onchange="applyBrandNewFilters()" class="w-full py-3 px-4 text-sm rounded-xl bg-slate-50 border border-slate-200 font-bold text-slate-700 focus:ring-2 focus:ring-brand-500">
-                <option value="ALL">All Dealership Locations</option>
-                <option value="BGC">Metro Manila - BGC / Taguig</option>
-                <option value="Makati">Metro Manila - Makati</option>
-                <option value="Pasig">Metro Manila - Pasig</option>
-                <option value="Quezon City">Metro Manila - Quezon City</option>
-                <option value="Pampanga">Central Luzon - Pampanga</option>
+            <div>
+              <select id="brandNewBodyFilter" onchange="applyBrandNewFilters()" class="w-full py-3 px-4 text-sm rounded-xl bg-slate-50 border border-slate-200 font-bold text-slate-700 focus:ring-2 focus:ring-brand-500">
+                <option value="ALL">All Body Types</option>
+                <option value="Sedan">Sedan</option>
+                <option value="SUV">SUV</option>
+                <option value="MPV">MPV</option>
+                <option value="Pickup">Pickup</option>
               </select>
+            </div>
+            <div>
+              <select id="brandNewPowertrainFilter" onchange="applyBrandNewFilters()" class="w-full py-3 px-4 text-sm rounded-xl bg-slate-50 border border-slate-200 font-bold text-slate-700 focus:ring-2 focus:ring-brand-500">
+                <option value="ALL">All Powertrains</option>
+                <option value="Gasoline">Gasoline</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Hybrid">Hybrid / HEV</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Budget Range Sliders -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-3 border-t border-slate-100">
+            <div>
+              <div class="flex justify-between items-center text-xs font-bold text-slate-700 mb-1">
+                <span>Max Down Payment Budget</span>
+                <span id="maxDpLabel" class="text-brand-600 font-black">₱150,000</span>
+              </div>
+              <input type="range" id="maxDpSlider" min="20000" max="150000" step="5000" value="150000" oninput="applyBrandNewFilters()" class="w-full accent-brand-600 cursor-pointer">
+            </div>
+            <div>
+              <div class="flex justify-between items-center text-xs font-bold text-slate-700 mb-1">
+                <span>Max Monthly Amortization Budget</span>
+                <span id="maxMonthlyLabel" class="text-brand-600 font-black">₱45,000</span>
+              </div>
+              <input type="range" id="maxMonthlySlider" min="15000" max="45000" step="1000" value="45000" oninput="applyBrandNewFilters()" class="w-full accent-brand-600 cursor-pointer">
             </div>
           </div>
         </div>
@@ -331,11 +356,103 @@
         </div>
       </section>
 
+      <section class="bg-white rounded-[2.5rem] p-8 sm:p-14 border border-slate-200 shadow-sm relative overflow-hidden my-12">
+        <div class="absolute -left-20 -top-20 w-72 h-72 bg-brand-50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+        <div class="absolute -right-20 -bottom-20 w-72 h-72 bg-indigo-50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+          <div class="lg:col-span-7 space-y-6">
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+              Join over 100,000 Filipino car buyers!
+            </h2>
+            <p class="text-base sm:text-lg font-medium text-brand-600">
+              Download the AutoPromoPH application for a seamless, hassle-free dealership experience.
+            </p>
+
+            <div class="space-y-3.5 pt-2">
+              <div class="flex items-start gap-3.5">
+                <div class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                  <i class="ph-bold ph-check text-sm"></i>
+                </div>
+                <span class="text-slate-700 font-bold text-base">Instant regional multi-agent quote bidding.</span>
+              </div>
+              <div class="flex items-start gap-3.5">
+                <div class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                  <i class="ph-bold ph-check text-sm"></i>
+                </div>
+                <span class="text-slate-700 font-bold text-base">Verified 2026 promotional allocations & cash discounts.</span>
+              </div>
+              <div class="flex items-start gap-3.5">
+                <div class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                  <i class="ph-bold ph-check text-sm"></i>
+                </div>
+                <span class="text-slate-700 font-bold text-base">Real-owner fuel economy and maintenance breakdown.</span>
+              </div>
+            </div>
+
+            <div class="pt-4 flex flex-wrap gap-4">
+              <a href="#download" onclick="showToast('Redirecting to Apple App Store...')" class="flex items-center gap-3 px-6 py-3.5 bg-white hover:bg-slate-50 border border-slate-300 rounded-2xl shadow-sm transition-all text-slate-900 group">
+                <i class="ph-fill ph-apple-logo text-3xl text-slate-900 group-hover:scale-110 transition-transform"></i>
+                <div class="text-left">
+                  <div class="text-[10px] text-slate-500 uppercase font-semibold leading-tight">Download On The</div>
+                  <div class="text-sm font-black tracking-tight leading-none mt-0.5">App Store</div>
+                </div>
+              </a>
+
+              <a href="#download" onclick="showToast('Redirecting to Google Play Store...')" class="flex items-center gap-3 px-6 py-3.5 bg-white hover:bg-slate-50 border border-slate-300 rounded-2xl shadow-sm transition-all text-slate-900 group">
+                <i class="ph-fill ph-google-play-logo text-3xl text-brand-600 group-hover:scale-110 transition-transform"></i>
+                <div class="text-left">
+                  <div class="text-[10px] text-slate-500 uppercase font-semibold leading-tight">Get It On</div>
+                  <div class="text-sm font-black tracking-tight leading-none mt-0.5">Google Play</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 flex justify-center relative">
+            <div class="relative w-[300px] h-[520px] bg-slate-950 rounded-[40px] shadow-2xl p-3 border-4 border-slate-800 flex flex-col justify-between overflow-hidden">
+              <div class="absolute top-3 left-1/2 transform -translate-x-1/2 w-28 h-6 bg-black rounded-full z-30"></div>
+              
+              <div class="bg-slate-900 pt-8 px-4 pb-4 rounded-[32px] flex-1 flex flex-col text-white">
+                <div class="flex justify-between items-center text-xs mb-3 text-slate-400 font-semibold">
+                  <span>9:41</span>
+                  <div class="flex gap-1"><i class="ph-bold ph-wifi-high"></i><i class="ph-bold ph-battery-full"></i></div>
+                </div>
+                <div class="text-xs font-black tracking-wide text-brand-400 mb-1">AUTOPROMOPH</div>
+                <div class="relative mb-3">
+                  <input type="text" disabled value="Honda City RS SENSING" class="w-full py-1.5 px-3 bg-slate-800 rounded-lg text-xs text-white border border-slate-700">
+                </div>
+                
+                <div class="bg-slate-800 rounded-2xl p-3 mb-3 text-center border border-slate-700">
+                  <div class="text-[10px] text-slate-400 font-bold mb-1">Live Dealer Quote Match</div>
+                  <div class="text-sm font-black text-brand-400">₱35,000 All-in Downpayment</div>
+                  <div class="text-[9px] text-slate-300 mt-0.5">Honda Cars Makati • Response: 15 mins</div>
+                </div>
+
+                <div class="bg-slate-800/80 rounded-xl p-2.5 space-y-2 text-[10px]">
+                  <div class="flex justify-between items-center">
+                    <span>Honda Global City</span>
+                    <strong class="text-amber-400">₱30,000 DP</strong>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span>Honda Pasig</span>
+                    <strong class="text-emerald-400">Free Insurance</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="absolute bottom-10 -left-6 bg-brand-600 text-white p-3.5 rounded-2xl shadow-xl max-w-[200px] text-[11px] font-medium border border-brand-500 animate-bounce">
+                💬 "Lowest regional bid secured for your Honda City!"
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
 
   </div>
 
-  <!-- TRIMS MODAL -->
   <div id="trimsModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-2xl w-full shadow-2xl relative flex flex-col max-h-[90vh]">
       <div class="p-6 border-b border-slate-100 flex justify-between items-center sticky top-0 bg-white rounded-t-[2rem] z-10 shadow-sm">
@@ -351,7 +468,6 @@
     </div>
   </div>
 
-  <!-- TEST DRIVE MODAL -->
   <div id="testDriveModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
       <button onclick="closeTestDriveModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full">
@@ -361,14 +477,12 @@
         <i class="ph-bold ph-calendar-check"></i>
       </div>
       <h3 class="text-xl font-black text-slate-900 text-center mb-1">Book Test Drive</h3>
-      <p class="text-xs text-slate-500 text-center mb-5 font-medium" id="testDriveVehicleSubtitle">Select your preferred branch & date</p>
+      <p class="text-xs text-slate-500 text-center mb-5 font-medium" id="testDriveVehicleSubtitle">Select preferred branch & schedule</p>
 
       <div class="space-y-4 text-left">
         <div>
           <label class="block text-xs font-bold text-slate-700 mb-1">Preferred Dealership Branch</label>
-          <select id="testDriveBranchSelect" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-sm text-slate-700 focus:ring-2 focus:ring-brand-500">
-            <!-- Dynamically populated based on brand -->
-          </select>
+          <select id="testDriveBranchSelect" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-200 font-bold text-sm text-slate-700 focus:ring-2 focus:ring-brand-500"></select>
         </div>
 
         <div class="grid grid-cols-2 gap-3">
@@ -394,7 +508,6 @@
     </div>
   </div>
 
-  <!-- MULTI-AGENT QUOTE MATCHER BIDDING MODAL -->
   <div id="quoteMatchModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
       <button onclick="closeQuoteMatchModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full">
@@ -415,7 +528,6 @@
     </div>
   </div>
 
-  <!-- USED CAR DETAIL MODAL -->
   <div id="usedCarModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scroll">
       <button onclick="closeUsedCarModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 p-2.5 rounded-full transition-colors">
@@ -425,79 +537,139 @@
     </div>
   </div>
 
-  <!-- LOAN CALCULATOR MODAL -->
+  <!-- Professional BDO-Style Auto Loan Calculator Modal -->
   <div id="calcModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-[2rem] max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scroll">
+    <div class="bg-white rounded-[2rem] max-w-4xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[95vh] overflow-y-auto custom-scroll">
       <button onclick="closeCalcModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 bg-slate-100 p-2.5 rounded-full transition-colors">
         <i class="ph-bold ph-x text-xl"></i>
       </button>
-      <h3 class="text-2xl font-black text-slate-900 mb-1">Philippine Auto Financing & Insurance Calculator</h3>
-      <p class="text-sm text-slate-500 mb-6 font-medium">Compare standard bank approvals vs. Casa All-in Promos with preferred insurance providers.</p>
       
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="space-y-4">
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Vehicle SRP (₱)</label>
-            <input type="number" id="calcSrp" value="1128000" oninput="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-black text-lg focus:ring-2 focus:ring-brand-500 outline-none transition-all">
-          </div>
+      <h3 class="text-2xl font-black text-slate-900 mb-1">Compute your Auto Loan</h3>
+      <p class="text-sm text-slate-500 mb-6 font-medium">Estimate your monthly amortization and down payment based on Philippine bank rates.</p>
+      
+      <div class="grid lg:grid-cols-12 gap-8">
+        <!-- Left Column: Form Controls -->
+        <div class="lg:col-span-7 space-y-5 bg-slate-50 p-6 rounded-2xl border border-slate-200">
+          <div class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">Fill in with preferred details</div>
           
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Down Payment %</label>
-              <select id="calcDpPercent" onchange="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-bold focus:ring-2 focus:ring-brand-500 outline-none transition-all">
-                <option value="15">15%</option>
-                <option value="20" selected>20% Standard</option>
-                <option value="30">30%</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Loan Tenure</label>
-              <select id="calcTermMos" onchange="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-bold focus:ring-2 focus:ring-brand-500 outline-none transition-all">
-                <option value="36">36 Months</option>
-                <option value="48">48 Months</option>
-                <option value="60" selected>60 Months</option>
-              </select>
-            </div>
-          </div>
-
+          <!-- Vehicle Category -->
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Add-On Interest Rate (%)</label>
-            <input type="number" step="0.1" id="calcInterestRate" value="9.8" oninput="calculateLoanLive()" class="w-full p-3.5 bg-slate-50 rounded-xl border border-slate-200 font-bold focus:ring-2 focus:ring-brand-500 outline-none transition-all">
-          </div>
-
-          <div class="p-5 bg-brand-50 border border-brand-100 rounded-xl mt-4 shadow-sm">
-            <div class="text-[10px] font-bold text-brand-700 uppercase mb-3 tracking-wide">Toggle Casa All-In Freebies</div>
-            <div class="space-y-3.5 text-sm font-bold text-slate-700">
-              <label class="flex items-center gap-3 cursor-pointer group">
-                <input type="checkbox" id="calcFreeChattel" onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4">
-                <span class="group-hover:text-brand-700 transition-colors">Waive Chattel Mortgage Fee</span>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Vehicle Category <span class="text-rose-500">*</span></label>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="flex items-center gap-2 p-3 bg-white rounded-xl border border-slate-200 cursor-pointer font-bold text-sm text-slate-800">
+                <input type="radio" name="calcCategory" value="brandNew" checked onchange="calculateLoanLive()" class="text-brand-600 focus:ring-brand-500">
+                <span>Brand New</span>
               </label>
-              <label class="flex items-center gap-3 cursor-pointer group">
-                <input type="checkbox" id="calcFreeIns" onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4">
-                <span class="group-hover:text-brand-700 transition-colors">Free 1-Yr Comprehensive Insurance</span>
+              <label class="flex items-center gap-2 p-3 bg-white rounded-xl border border-slate-200 cursor-pointer font-bold text-sm text-slate-800">
+                <input type="radio" name="calcCategory" value="preOwned" onchange="calculateLoanLive()" class="text-brand-600 focus:ring-brand-500">
+                <span>Pre-Owned</span>
               </label>
             </div>
+          </div>
+
+          <!-- Electric / Hybrid Toggle -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Are you getting an Electric/Hybrid Vehicle? Enjoy lower rates with an EV/HEV. <span class="text-rose-500">*</span></label>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="flex items-center gap-2 p-3 bg-white rounded-xl border border-slate-200 cursor-pointer font-bold text-sm text-slate-800">
+                <input type="radio" name="calcEv" value="yes" onchange="calculateLoanLive()" class="text-brand-600 focus:ring-brand-500">
+                <span>Yes</span>
+              </label>
+              <label class="flex items-center gap-2 p-3 bg-white rounded-xl border border-slate-200 cursor-pointer font-bold text-sm text-slate-800">
+                <input type="radio" name="calcEv" value="no" checked onchange="calculateLoanLive()" class="text-brand-600 focus:ring-brand-500">
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Vehicle Price -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Vehicle Price (PHP) <span class="text-rose-500">*</span></label>
+            <input type="number" id="calcSrp" value="1128000" oninput="calculateLoanLive()" class="w-full p-3 bg-white rounded-xl border border-slate-200 font-black text-lg text-slate-900 focus:ring-2 focus:ring-brand-500 outline-none">
+          </div>
+
+          <!-- Down Payment Percentage & Amount -->
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <label class="block text-xs font-bold text-slate-700">Down Payment (PHP) <span class="text-rose-500">*</span></label>
+              <span id="calcDpPctDisplay" class="text-xs font-bold text-brand-600">20%</span>
+            </div>
+            <input type="number" id="calcDpAmount" value="225600" oninput="calculateLoanFromDpAmount()" class="w-full p-3 bg-white rounded-xl border border-slate-200 font-bold text-slate-900 focus:ring-2 focus:ring-brand-500 outline-none mb-3">
+            <input type="range" id="calcDpSlider" min="10" max="90" step="5" value="20" oninput="calculateLoanFromSlider()" class="w-full accent-brand-600 cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-400 font-bold mt-1">
+              <span>10%</span><span>20%</span><span>30%</span><span>40%</span><span>50%</span><span>60%</span><span>70%</span><span>80%</span><span>90%</span>
+            </div>
+          </div>
+
+          <!-- Loan Term -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Loan Term (Months) <span class="text-rose-500">*</span></label>
+            <select id="calcTermMos" onchange="calculateLoanLive()" class="w-full p-3 bg-white rounded-xl border border-slate-200 font-bold text-slate-800 focus:ring-2 focus:ring-brand-500 outline-none">
+              <option value="12">12 Months</option>
+              <option value="24">24 Months</option>
+              <option value="36">36 Months</option>
+              <option value="48">48 Months</option>
+              <option value="60" selected>60 Months (5 Years)</option>
+            </select>
+          </div>
+
+          <!-- Optional Add-ons -->
+          <div class="space-y-2 pt-2 border-t border-slate-200">
+            <label class="flex items-center gap-2 cursor-pointer font-bold text-xs text-slate-700">
+              <input type="checkbox" id="calcAddChattel" checked onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4">
+              <span>Include Chattel Mortgage Fee (~2.5%)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer font-bold text-xs text-slate-700">
+              <input type="checkbox" id="calcAddInsurance" checked onchange="calculateLoanLive()" class="rounded text-brand-600 focus:ring-brand-500 w-4 h-4">
+              <span>Include 1-Year Comprehensive Insurance</span>
+            </label>
+          </div>
+
+          <div class="flex gap-3 pt-2">
+            <button onclick="calculateLoanLive()" class="flex-1 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-md transition-all text-sm">Compute</button>
+            <button onclick="resetLoanCalc()" class="px-5 py-3 bg-white hover:bg-slate-100 text-slate-600 border border-slate-300 font-bold rounded-xl transition-all text-sm">Reset</button>
           </div>
         </div>
-        
-        <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-[1.5rem] flex flex-col justify-between shadow-lg">
+
+        <!-- Right Column: Results -->
+        <div class="lg:col-span-5 bg-slate-900 text-white p-6 sm:p-8 rounded-2xl flex flex-col justify-between shadow-lg">
           <div>
-            <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wide">Est. Monthly Amortization</div>
-            <div id="calcResMonthly" class="text-4xl font-black text-brand-400 mt-1">₱0</div>
-          </div>
-          <div class="mt-8 pt-6 border-t border-slate-800 space-y-3.5 text-sm text-slate-300">
-            <div class="flex justify-between items-center"><span>Base DP:</span><strong id="calcResNetDP" class="text-white text-base">₱0</strong></div>
-            <div class="flex justify-between items-center mt-4 pt-4 border-t border-slate-800">
-              <span class="font-bold text-white text-base">Total Cash Outlay:</span>
-              <strong id="calcResTotalOutlay" class="text-amber-400 text-2xl font-black">₱0</strong>
+            <div class="flex justify-between items-center pb-4 border-b border-slate-800 mb-6">
+              <div>
+                <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Loan Amount</div>
+                <div id="calcResLoanAmt" class="text-lg font-black text-white mt-0.5">₱0</div>
+              </div>
+              <div class="text-right">
+                <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Interest Rate (60m)</div>
+                <div id="calcResRate" class="text-lg font-black text-amber-400 mt-0.5">9.8% p.a.</div>
+              </div>
             </div>
+
+            <div class="text-center py-6 bg-slate-800/80 rounded-2xl border border-slate-700 mb-6">
+              <div class="text-xs text-slate-400 font-bold uppercase tracking-wide">Estimated Monthly Amortization</div>
+              <div id="calcResMonthly" class="text-4xl font-black text-brand-400 mt-2">₱0</div>
+              <div class="text-[11px] text-slate-300 mt-1">For <span id="calcResTermLabel">60</span> months term</div>
+            </div>
+
+            <div class="space-y-3 text-xs text-slate-300 font-medium">
+              <div class="flex justify-between"><span>Down Payment Required:</span><strong id="calcResNetDP" class="text-white font-bold">₱0</strong></div>
+              <div class="flex justify-between"><span>Chattel Mortgage Est.:</span><strong id="calcResChattel" class="text-white font-bold">₱0</strong></div>
+              <div class="flex justify-between"><span>Comprehensive Insurance:</span><strong id="calcResInsurance" class="text-white font-bold">₱0</strong></div>
+              <div class="flex justify-between mt-4 pt-4 border-t border-slate-800 text-sm">
+                <span class="font-bold text-white">Total Initial Cash Outlay:</span>
+                <strong id="calcResTotalOutlay" class="text-amber-400 text-xl font-black">₱0</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-800 text-[10px] text-slate-400 leading-relaxed">
+            *IMPORTANT NOTICE: All amounts quoted are in Philippine Peso. Computations are for illustration purposes only based on prevailing Philippine bank auto loan rates.
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- DIRECT INQUIRY / AGENT CONTACT MODAL -->
   <div id="inquireModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white rounded-[2rem] max-w-sm w-full p-6 text-center shadow-2xl relative">
       <button onclick="closeInquireModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 p-2 rounded-full">
@@ -540,7 +712,7 @@
 
     const brandNewDealsData = [
       {
-        id: "bn-1", brand: "Honda", year: 2026, baseModel: "City Sedan",
+        id: "bn-1", brand: "Honda", year: 2026, baseModel: "City Sedan", bodyType: "Sedan", powertrain: "Gasoline",
         branch: "Honda Cars Makati", locationTag: "Makati",
         agentName: "Ryan Patrick Tan", badge: "Honda SENSING Suite", coverage: "Branch Exclusive",
         insights: { fuel: "13.5 km/L (Combined)", pms: "₱5,800", resale: "High Demand (Slow Deprec.)" },
@@ -551,7 +723,7 @@
         ]
       },
       {
-        id: "bn-2", brand: "Toyota", year: 2026, baseModel: "Vios",
+        id: "bn-2", brand: "Toyota", year: 2026, baseModel: "Vios", bodyType: "Sedan", powertrain: "Gasoline",
         branch: "Toyota BGC / Taguig", locationTag: "BGC",
         agentName: "Mark Anthony Santos", badge: "Top Volume Seller", coverage: "Nationwide Promo",
         insights: { fuel: "14.8 km/L (Combined)", pms: "₱4,500", resale: "Top Resale Value in PH" },
@@ -562,7 +734,7 @@
         ]
       },
       {
-        id: "bn-3", brand: "Mitsubishi", year: 2026, baseModel: "Xpander",
+        id: "bn-3", brand: "Mitsubishi", year: 2026, baseModel: "Xpander", bodyType: "MPV", powertrain: "Gasoline",
         branch: "Mitsubishi Pasig", locationTag: "Pasig",
         agentName: "Maria Cristina Gomez", badge: "7-Seater Choice", coverage: "Branch Exclusive",
         insights: { fuel: "11.2 km/L (Combined)", pms: "₱6,200", resale: "Stable MPV Market Value" },
@@ -573,7 +745,7 @@
         ]
       },
       {
-        id: "bn-4", brand: "Ford", year: 2026, baseModel: "Ranger",
+        id: "bn-4", brand: "Ford", year: 2026, baseModel: "Ranger", bodyType: "Pickup", powertrain: "Diesel",
         branch: "Ford Quezon Avenue", locationTag: "Quezon City",
         agentName: "Paolo Rodriguez", badge: "Bi-Turbo Power", coverage: "Nationwide Promo",
         insights: { fuel: "10.2 km/L (Combined)", pms: "₱8,400", resale: "Strong Pickup Demand" },
@@ -584,7 +756,7 @@
         ]
       },
       {
-        id: "bn-5", brand: "Suzuki", year: 2026, baseModel: "Jimny",
+        id: "bn-5", brand: "Suzuki", year: 2026, baseModel: "Jimny", bodyType: "SUV", powertrain: "Gasoline",
         branch: "Suzuki San Fernando", locationTag: "Pampanga",
         agentName: "Camille Vergara", badge: "5-Door Icon", coverage: "Branch Exclusive",
         insights: { fuel: "11.8 km/L (Combined)", pms: "₱5,200", resale: "Collector Status (Appreciating)" },
@@ -667,6 +839,11 @@
 
     function renderBrandNewDeals(deals) {
       const grid = document.getElementById('brandNewDealsGrid');
+      if(deals.length === 0) {
+        grid.innerHTML = `<div class="col-span-full p-12 text-center text-slate-500 bg-white rounded-3xl border border-slate-200">No vehicles match your selected filters or budget range. Try adjusting your search criteria!</div>`;
+        return;
+      }
+
       grid.innerHTML = deals.map(deal => {
         const minSrp = Math.min(...deal.trims.map(t => t.srp));
         const maxSrp = Math.max(...deal.trims.map(t => t.srp));
@@ -725,7 +902,7 @@
                  <div class="mt-2.5 p-2 bg-indigo-50/70 rounded-xl border border-indigo-100 text-[11px] grid grid-cols-3 gap-1 text-center">
                    <div><span class="text-[9px] text-slate-500 block">Fuel Consumption</span><strong class="text-slate-900">${deal.insights.fuel}</strong></div>
                    <div><span class="text-[9px] text-slate-500 block">Annual PMS</span><strong class="text-slate-900">${deal.insights.pms}</strong></div>
-                   <div><span class="text-[9px] text-slate-500 block">Resale / Mkt Val</span><strong class="text-emerald-700">${deal.insights.resale}</strong></div>
+                   <div><span class="text-[9px] text-slate-500 block">Resale Value</span><strong class="text-emerald-700">${deal.insights.resale}</strong></div>
                  </div>
 
                  <!-- Regional Multi-Agent Quote Matcher & Book Test Drive Buttons -->
@@ -759,12 +936,24 @@
     function applyBrandNewFilters() {
       const q = document.getElementById('brandNewSearch').value.toLowerCase().trim();
       const make = document.getElementById('brandNewMakeFilter').value;
-      const loc = document.getElementById('brandNewLocationFilter').value;
+      const body = document.getElementById('brandNewBodyFilter').value;
+      const power = document.getElementById('brandNewPowertrainFilter').value;
+      const maxDp = Number(document.getElementById('maxDpSlider').value);
+      const maxMonthly = Number(document.getElementById('maxMonthlySlider').value);
+
+      document.getElementById('maxDpLabel').innerText = formatPHP(maxDp);
+      document.getElementById('maxMonthlyLabel').innerText = formatPHP(maxMonthly);
 
       let list = brandNewDealsData.filter(d => {
         if (q && !d.baseModel.toLowerCase().includes(q) && !d.brand.toLowerCase().includes(q)) return false;
         if (make !== 'ALL' && d.brand !== make) return false;
-        if (loc !== 'ALL' && d.locationTag !== loc) return false;
+        if (body !== 'ALL' && d.bodyType !== body) return false;
+        if (power !== 'ALL' && d.powertrain !== power) return false;
+
+        const minDealDp = Math.min(...d.trims.map(t => t.allInDp));
+        const minDealMonthly = Math.min(...d.trims.map(t => t.monthlyAmort));
+        if (minDealDp > maxDp || minDealMonthly > maxMonthly) return false;
+
         return true;
       });
       renderBrandNewDeals(list);
@@ -824,7 +1013,7 @@
       const deal = brandNewDealsData.find(d => d.id === dealId);
       if(!deal) return;
       currentTestDriveVehicle = deal;
-      document.getElementById('testDriveVehicleSubtitle').innerText = `${deal.year} ${deal.brand} ${deal.baseModel} • Select branch & date`;
+      document.getElementById('testDriveVehicleSubtitle').innerText = `${deal.year} ${deal.brand} ${deal.baseModel} • Select branch & schedule`;
       
       const branchSelect = document.getElementById('testDriveBranchSelect');
       branchSelect.innerHTML = `
@@ -985,23 +1174,57 @@
     
     function calculateLoanLive() {
       const srp = Number(document.getElementById('calcSrp').value) || 0;
-      const dpPct = Number(document.getElementById('calcDpPercent').value) / 100;
+      const dpPct = Number(document.getElementById('calcDpSlider').value) / 100;
       const termMonths = Number(document.getElementById('calcTermMos').value);
-      const rate = (Number(document.getElementById('calcInterestRate').value) || 9.8) / 100;
+      const isEv = document.querySelector('input[name="calcEv"]:checked').value === 'yes';
+      
+      let baseRate = isEv ? 0.082 : 0.098; // Lower rate for EV/HEV in PH banks
+
+      document.getElementById('calcDpPctDisplay').innerText = Math.round(dpPct * 100) + '%';
+      document.getElementById('calcDpAmount').value = Math.round(srp * dpPct);
 
       const netDP = srp * dpPct;
       const loanAmount = srp - netDP;
       const years = termMonths / 12;
-      const totalInterest = loanAmount * (rate * years);
+      const totalInterest = loanAmount * (baseRate * years);
       const monthlyPayment = (loanAmount + totalInterest) / termMonths;
 
-      const chattel = document.getElementById('calcFreeChattel').checked ? 0 : (loanAmount * 0.025);
-      const insurance = document.getElementById('calcFreeIns').checked ? 0 : Math.max(18000, srp * 0.028);
-      const totalOutlay = netDP + chattel + insurance + 9500;
+      const chattel = document.getElementById('calcAddChattel').checked ? (loanAmount * 0.025) : 0;
+      const insurance = document.getElementById('calcAddInsurance').checked ? Math.max(18000, srp * 0.028) : 0;
+      const totalOutlay = netDP + chattel + insurance;
 
+      document.getElementById('calcResLoanAmt').innerText = formatPHP(Math.round(loanAmount));
+      document.getElementById('calcResRate').innerText = (baseRate * 100).toFixed(1) + '% p.a.';
       document.getElementById('calcResMonthly').innerText = formatPHP(Math.round(monthlyPayment));
+      document.getElementById('calcResTermLabel').innerText = termMonths;
       document.getElementById('calcResNetDP').innerText = formatPHP(Math.round(netDP));
+      document.getElementById('calcResChattel').innerText = formatPHP(Math.round(chattel));
+      document.getElementById('calcResInsurance').innerText = formatPHP(Math.round(insurance));
       document.getElementById('calcResTotalOutlay').innerText = formatPHP(Math.round(totalOutlay));
+    }
+
+    function calculateLoanFromDpAmount() {
+      const srp = Number(document.getElementById('calcSrp').value) || 1;
+      const dpAmt = Number(document.getElementById('calcDpAmount').value) || 0;
+      let pct = Math.round((dpAmt / srp) * 100);
+      if(pct < 10) pct = 10;
+      if(pct > 90) pct = 90;
+      document.getElementById('calcDpSlider').value = pct;
+      calculateLoanLive();
+    }
+
+    function calculateLoanFromSlider() {
+      calculateLoanLive();
+    }
+
+    function resetLoanCalc() {
+      document.getElementById('calcSrp').value = 1128000;
+      document.getElementById('calcDpSlider').value = 20;
+      document.getElementById('calcTermMos').value = '60';
+      document.querySelector('input[name="calcEv"][value="no"]').checked = true;
+      document.getElementById('calcAddChattel').checked = true;
+      document.getElementById('calcAddInsurance').checked = true;
+      calculateLoanLive();
     }
 
     function openInquireModal(dealId) {
